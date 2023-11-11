@@ -49,6 +49,7 @@ import com.girlkun.services.InventoryServiceNew;
 import com.girlkun.services.MapService;
 import com.girlkun.models.item.Item;
 import com.girlkun.models.boss.list_boss.Broly.Broly;
+import com.girlkun.models.boss.list_boss.Cooler.Cooler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,6 +132,9 @@ public class BossManager implements Runnable {
 
             this.createBoss(BossID.ANDROID_14);
 //            this.createBoss(BossID.SUPER_ANDROID_17); 
+
+            this.createBoss(BossID.COOLER);
+
             this.createBoss(BossID.MABU);
             for (Byte i = 0; i < 10; i++) {
                 this.createBoss(BossID.AN_TROM - i);
@@ -248,8 +252,8 @@ public class BossManager implements Runnable {
                     return new Kingcold();
                 case BossID.FIDE_ROBOT:
                     return new FideRobot();
-                //  case BossID.COOLER:
-                //  return new Cooler();
+                  case BossID.COOLER:
+                  return new Cooler();
                 case BossID.ZAMASMAX:
                     return new ZamasMax();
                 case BossID.ZAMASZIN:

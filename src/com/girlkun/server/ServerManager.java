@@ -31,6 +31,7 @@ import com.girlkun.kygui.ShopKyGuiManager;
 import com.girlkun.models.map.DaiHoiVoThuat.DaiHoiService;
 import com.girlkun.models.map.GiaiSieuHang.SieuHangManager;
 import com.girlkun.result.GirlkunResultSet;
+import com.girlkun.services.func.ChanLe;
 
 import java.util.*;
 import java.util.logging.Level;
@@ -86,6 +87,10 @@ public class ServerManager {
        
         new Thread(ChonAiDay.gI(), "Thread CAD").start();
 
+        ChanLe.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
+       
+        new Thread(ChanLe.gI(), "Thread CAD").start();
+        
         NgocRongNamecService.gI().initNgocRongNamec((byte) 0);
 
         new Thread(NgocRongNamecService.gI(), "Thread NRNM").start();

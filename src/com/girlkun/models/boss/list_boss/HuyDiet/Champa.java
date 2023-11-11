@@ -37,6 +37,11 @@ public class Champa extends Boss {
         } else {
             itemMap = Util.ratiItem(zone, Manager.itemIds_NR_SB[randomNR], 1, this.location.x, this.location.y, plKill.id);
         }
+         if (Util.isTrue(30, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }
         itemMap.options.add(new Item.ItemOption(30, 1));
         Service.gI().dropItemMap(this.zone, itemMap);
     }

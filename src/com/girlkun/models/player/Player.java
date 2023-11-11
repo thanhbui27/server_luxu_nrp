@@ -179,6 +179,11 @@ public class Player {
     public boolean isWin;
     public List<Card> Cards = new ArrayList<>();
     public short idAura = -1;
+    
+    public int Chan;
+    public int Le;
+    public long lastTimeWinChanLe;
+    public boolean isWinChanLe;
 
     public byte countKG;
     public boolean firstJoinKG;

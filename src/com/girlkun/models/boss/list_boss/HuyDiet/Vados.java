@@ -3,6 +3,7 @@ package com.girlkun.models.boss.list_boss.HuyDiet;
 import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossStatus;
 import com.girlkun.models.boss.BossesData;
+import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.services.EffectSkillService;
 import com.girlkun.services.Service;
@@ -26,6 +27,11 @@ public class Vados extends Boss {
             Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhthuong[randomAWJ], 1, this.location.x, this.location.y, plKill.id));
         } else {
             Service.gI().dropItemMap(this.zone, Util.manhTS(zone, manhhiem[randomGR], 1, this.location.x, this.location.y, plKill.id));
+        }
+         if (Util.isTrue(30, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
         }
     }
 

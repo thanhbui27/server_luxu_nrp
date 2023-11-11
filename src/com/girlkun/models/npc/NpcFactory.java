@@ -2610,7 +2610,7 @@ public class NpcFactory {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
             public void openBaseMenu(Player player) {
-                createOtherMenu(player, 0, "Trò chơi Chọn ai đây đang được diễn ra, nếu bạn tin tưởng mình đang tràn đầy may mắn thì có thể tham gia thử", "Thể lệ", "Chọn\nThỏi vàng");
+                createOtherMenu(player, 0, "Trò chơi Chọn ai đây đang được diễn ra, nếu bạn tin tưởng mình đang tràn đầy may mắn thì có thể tham gia thử", "Thể lệ", "Chọn\nThỏi vàng", "Chẵn Lẽ");
             }
 
             @Override
@@ -2620,11 +2620,17 @@ public class NpcFactory {
                     if (((ChonAiDay.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) < 0) {
                         ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
                     }
+                    String timeCL = ((ChanLe.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) + " giây";
+                    if (((ChanLe.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) < 0) {
+                        ChanLe.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
+                    }
                     if (pl.iDMark.getIndexMenu() == 0) {
                         if (select == 0) {
                             createOtherMenu(pl, ConstNpc.IGNORE_MENU, "Thời gian giữa các giải là 5 phút\nKhi hết giờ, hệ thống sẽ ngẫu nhiên chọn ra 1 người may mắn.\nLưu ý: Số thỏi vàng nhận được sẽ bị nhà cái lụm đi 5%!Trong quá trình diễn ra khi đặt cược nếu thoát game mọi phần đặt đều sẽ bị hủy", "Ok");
                         } else if (select == 1) {
                             createOtherMenu(pl, 1, "Tổng giải thường: " + ChonAiDay.gI().goldNormar + " thỏi vàng, cơ hội trúng của bạn là: " + pl.percentGold(0) + "%\nTổng giải VIP: " + ChonAiDay.gI().goldVip + " thỏi vàng, cơ hội trúng của bạn là: " + pl.percentGold(1) + "%\nSố thỏi vàng đặt thường: " + pl.goldNormar + "\nSố thỏi vàng đặt VIP: " + pl.goldVIP + "\n Thời gian còn lại: " + time, "Cập nhập", "Thường\n20 thỏi\nvàng", "VIP\n200 thỏi\nvàng", "Đóng");
+                        }else if (select == 2) {
+                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
                         }
                     } else if (pl.iDMark.getIndexMenu() == 1) {
                         if (((ChonAiDay.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0) {
@@ -2661,6 +2667,52 @@ public class NpcFactory {
                                             ChonAiDay.gI().goldVip += 200;
                                             ChonAiDay.gI().addPlayerVIP(pl);
                                             createOtherMenu(pl, 1, "Tổng giải thường: " + ChonAiDay.gI().goldNormar + " thỏi vàng, cơ hội trúng của bạn là: " + pl.percentGold(0) + "%\nTổng giải VIP: " + ChonAiDay.gI().goldVip + " thỏi vàng, cơ hội trúng của bạn là: " + pl.percentGold(1) + "%\nSố thỏi vàng đặt thường: " + pl.goldNormar + "\nSố thỏi vàng đặt VIP: " + pl.goldVIP + "\n Thời gian còn lại: " + time, "Cập nhập", "Thường\n20 thỏi\nvàng", "VIP\n200 thỏi\nvàng", "Đóng");
+                                        } else {
+                                            Service.gI().sendThongBao(pl, "Bạn không đủ thỏi vàng");
+                                        }
+                                    } catch (Exception ex) {
+//                                            java.util.logging.Logger.getLogger(NpcFactory.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                break;
+
+                            }
+                        }
+                    }else if (pl.iDMark.getIndexMenu() == 2) {
+                        if (((ChanLe.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0) {
+                            switch (select) {
+                                case 0:
+                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
+                                    break;
+                                case 1: {
+                                    try {
+                                        if (InventoryServiceNew.gI().findItemBag(pl, 457).isNotNullItem() && InventoryServiceNew.gI().findItemBag(pl, 457).quantity >= 20) {
+                                            InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, 457), 20);
+                                            InventoryServiceNew.gI().sendItemBags(pl);
+                                            pl.Le += 20;
+                                            ChanLe.gI().Le += 20;
+                                            ChanLe.gI().addPlayerChan(pl);
+                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
+                                        } else {
+                                            Service.gI().sendThongBao(pl, "Bạn không đủ thỏi vàng");
+
+                                        }
+                                    } catch (Exception ex) {
+                                        java.util.logging.Logger.getLogger(NpcFactory.class
+                                                .getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                break;
+
+                                case 2: {
+                                    try {
+                                        if (InventoryServiceNew.gI().findItemBag(pl, 457).isNotNullItem() && InventoryServiceNew.gI().findItemBag(pl, 457).quantity >= 20) {
+                                            InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, 457), 20);
+                                            InventoryServiceNew.gI().sendItemBags(pl);
+                                            pl.Chan += 20;
+                                            ChanLe.gI().Chan += 20;
+                                            ChanLe.gI().addPlayerLe(pl);
+                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
                                         } else {
                                             Service.gI().sendThongBao(pl, "Bạn không đủ thỏi vàng");
                                         }

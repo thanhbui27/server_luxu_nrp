@@ -26,7 +26,11 @@ public class Fide extends Boss {
                     this.location.y - 24), plKill.id);
         Service.getInstance().dropItemMap(this.zone, it);
         }
-
+        if (Util.isTrue(10, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 76, Util.nextInt(1000000,3000000), Util.nextInt(this.location.x -20 , this.location.x + 20), zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 76, Util.nextInt(1000000,3000000), Util.nextInt(this.location.x -20 , this.location.x + 20), zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
         Service.getInstance().dropItemMap(this.zone, new ItemMap(zone, 76, Util.nextInt(1000000,3000000), Util.nextInt(this.location.x -20 , this.location.x + 20), zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));

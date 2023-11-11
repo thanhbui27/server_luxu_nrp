@@ -2,6 +2,7 @@ package com.girlkun.models.boss.list_boss.BrolySuper;
 
 import com.girlkun.consts.ConstPlayer;
 import com.girlkun.models.boss.*;
+import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.map.Zone;
 
 import com.girlkun.models.player.Player;
@@ -27,6 +28,11 @@ public class BrolySuper extends Boss {
         int random = new Random().nextInt(5,10);
        if(Util.isTrue(60, 100)){
             Service.gI().dropItemMap(this.zone, Util.manhTS(zone, 2087, random, this.location.x, this.location.y, player.id));
+        }
+        if (Util.isTrue(30, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), player.id);
+            Service.gI().dropItemMap(this.zone, it);
         }
 //        PetService.gI().createKaminOren(player, player.pet != null, player.gender);
 //        Service.gI().sendThongBao(player, "Bạn đã nhận được đệ KamiOren"); // Nhận Pet mới

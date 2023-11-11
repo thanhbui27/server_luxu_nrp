@@ -21,11 +21,17 @@ public class KingKong extends Boss {
     public void reward(Player plKill) {
         int[] itemRan = new int[]{1142, 382, 383, 384, 1142};
         int itemId = itemRan[2];
-        if (Util.isTrue(15, 100)) {
+        if (Util.isTrue(30, 100)) {
             ItemMap it = new ItemMap(this.zone, itemId, 17, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }
+        if (Util.isTrue(30, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }
+        
          TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 

@@ -30,6 +30,11 @@ public class VuaVegeta extends Boss {
             ItemMap it = new ItemMap(this.zone, listnro[Util.nextInt(0, listnro.length - 1)], 1, this.location.x, this.location.y, -1);
             Service.gI().dropItemMap(this.zone, it);
         }
+         if (Util.isTrue(30, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }
       
     }
     @Override

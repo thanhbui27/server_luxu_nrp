@@ -1676,13 +1676,14 @@ public static final BossData BROLY_1 = new BossData(
     public static final BossData COOLER_1 = new BossData(
             "Cooler", //name
             ConstPlayer.TRAI_DAT, //gender
-            new short[]{508, 509, 510, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            1, //dame
-            new int[]{1000000}, //hp
-            new int[]{14}, //map join
+            new short[]{317, 318, 319, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            1000000, //dame
+            new int[]{1500000000}, //hp
+            new int[]{108,109,110}, //map join
             new int[][]{
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 1000},
                 {Skill.DE_TRUNG, 7, 1000},
+                {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.LIEN_HOAN, 1, 400},
                 {Skill.MASENKO, 2, 300},},//skill//skill
             new String[]{}, //text chat 1
@@ -1696,10 +1697,10 @@ public static final BossData BROLY_1 = new BossData(
     public static final BossData COOLER_2 = new BossData(
             "Cooler 2", //name
             ConstPlayer.TRAI_DAT, //gender
-            new short[]{508, 509, 510, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
-            1, //dame
-            new int[]{1000000}, //hp
-            new int[]{14}, //map join
+            new short[]{320, 321, 322, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            2000000, //dame
+            new int[]{2000000000}, //hp
+            new int[]{108,109,110}, //map join
             new int[][]{
                 {Skill.DE_TRUNG, 7, 1000},
                 {Skill.KHIEN_NANG_LUONG, 7, 100000},

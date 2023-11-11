@@ -27,6 +27,11 @@ public class BrolyThuong extends Boss {
         if(Util.isTrue(60, 100)){
             Service.gI().dropItemMap(this.zone, Util.manhTS(zone, 2087, random, this.location.x, this.location.y, plKill.id));
         }
+         if (Util.isTrue(30, 100)) {
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+                    this.location.y - 24), plKill.id);
+            Service.gI().dropItemMap(this.zone, it);
+        }
     }
 
     @Override

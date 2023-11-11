@@ -45,17 +45,17 @@ public class Cooler extends Boss {
     }
     @Override
     public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
-        if (!this.isDie()) {
-            if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 1000)) {
+       if (!this.isDie()) {
+            if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 100)) {
                 this.chat("Xí hụt");
                 return 0;
             }
-            damage = (int) this.nPoint.subDameInjureWithDeff(damage%3);
+            damage = (int) this.nPoint.subDameInjureWithDeff(damage/7);
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                damage = 1;
+                  damage = damage/4;
             }
             this.nPoint.subHP(damage);
             if (isDie()) {
