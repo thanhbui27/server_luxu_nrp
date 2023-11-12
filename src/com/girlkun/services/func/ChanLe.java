@@ -63,29 +63,28 @@ public class ChanLe implements Runnable{
         while (true) {
             try{
                if(((ChanLe.gI().lastTimeEnd - System.currentTimeMillis())/1000) <= 0){
-                    int random = Util.nextInt(0, 100);
-                    if(random % 2 == 0){
+
+                    if(Util.nextInt(2, 10) % 2 == 0){
                         List<Player> listChan = new ArrayList<>();
-                        ChanLe.gI().ChanList.stream().filter(p -> p != null && p.Chan != 0).sorted(Comparator.comparing(p -> Math.ceil(((double)p.Chan/ChanLe.gI().Chan) * 100),Comparator.reverseOrder())).forEach(cl -> listChan.add(cl));
+                        ChanLe.gI().ChanList.stream().filter(p -> p != null && p.Chan != 0).forEach(cl -> listChan.add(cl));
                          if(listChan.size() > 0){
                              for (Player player : listChan) {
-                                    int goldC = player.Chan * 80 / 100;
+                                    int goldC = player.Chan + (player.Chan/10)*8;
                                     Service.gI().sendThongBao(player, "Chẵn win - Chúc mừng bạn đã dành chiến thắng và nhận được " + goldC +" thỏi vàng");
                                     Item it = ItemService.gI().createNewItem((short)457,goldC);
                                     InventoryServiceNew.gI().addItemBag(player, it);
                                     InventoryServiceNew.gI().sendItemBags(player);
+                                    
                              }
                          }
                         Service.gI().sendThongBao(listChan, "Chẵn win nhé ae");
-
-                        listChan.clear();
-                       
+                        listChan.clear();                   
                     }else {
                         List<Player> listLe = new ArrayList<>();
-                        ChanLe.gI().LeList.stream().filter(p -> p != null && p.Le != 0).sorted(Comparator.comparing(p -> Math.ceil(((double)p.Le/ChanLe.gI().Le) * 100),Comparator.reverseOrder())).forEach(cl -> LeList.add(cl));
+                        ChanLe.gI().LeList.stream().filter(p -> p != null && p.Le != 0).forEach(cl -> LeList.add(cl));
                          if(listLe.size() > 0){
                              for (Player player : listLe) {
-                                    int goldC = player.Le * 80 / 100;
+                                    int goldC = player.Chan + (player.Chan/10)*8;
                                     Service.gI().sendThongBao(player, "Lẽ win - Chúc mừng bạn đã dành chiến thắng và nhận được " + goldC +" thỏi vàng");
                                     Item it = ItemService.gI().createNewItem((short)457,goldC);
                                     InventoryServiceNew.gI().addItemBag(player, it);
