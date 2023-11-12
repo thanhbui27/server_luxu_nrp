@@ -76,7 +76,10 @@ public class ChanLe implements Runnable{
                                     InventoryServiceNew.gI().sendItemBags(player);
                              }
                          }
-                         listChan.clear();
+                        Service.gI().sendThongBao(listChan, "Chẵn win nhé ae");
+
+                        listChan.clear();
+                       
                     }else {
                         List<Player> listLe = new ArrayList<>();
                         ChanLe.gI().LeList.stream().filter(p -> p != null && p.Le != 0).sorted(Comparator.comparing(p -> Math.ceil(((double)p.Le/ChanLe.gI().Le) * 100),Comparator.reverseOrder())).forEach(cl -> LeList.add(cl));
@@ -89,6 +92,7 @@ public class ChanLe implements Runnable{
                                     InventoryServiceNew.gI().sendItemBags(player);
                              }
                          }
+                         Service.gI().sendThongBao(listLe, "Lẽ win nhé ae");
                          listLe.clear();
                     }
                                       
@@ -96,15 +100,15 @@ public class ChanLe implements Runnable{
                     for(int i = 0 ; i < ChanLe.gI().ChanList.size();i++){
                         Player pl = ChanLe.gI().ChanList.get(i);
                         if(pl != null){
-                            pl.goldVIP = 0;
-                            pl.goldNormar = 0;
+                            pl.Chan = 0;
+                            pl.Le = 0;
                         }
                     }
                     for(int i = 0 ; i < ChanLe.gI().LeList.size();i++){
                         Player pl = ChanLe.gI().LeList.get(i);
                         if(pl != null){
-                            pl.goldVIP = 0;
-                            pl.goldNormar = 0;
+                            pl.Chan = 0;
+                            pl.Le = 0;
                         }
                     }
                     ChanLe.gI().Chan = 0;
