@@ -39,7 +39,8 @@ public class Input {
     public static String LOAI_THE;
     public static String MENH_GIA;
     private static final Map<Integer, Object> PLAYER_ID_OBJECT = new HashMap<Integer, Object>();
-
+    private static final int NAU_BANH_TET = 6216;
+     public static final int NAU_BANH_CHUNG = 373;
     public static final int CHANGE_PASSWORD = 500;
     public static final int GIFT_CODE = 501;
     public static final int FIND_PLAYER = 502;
@@ -624,7 +625,14 @@ public class Input {
     public void createFormChooseLevelKGHD(Player pl) {
         createForm(pl, CHOOSE_LEVEL_KGHD, "Chọn cấp độ", new SubInput("Cấp độ (1-110)", NUMERIC));
     }
+    public void createFormNauBanhChung(Player player) {
+        createForm(player, NAU_BANH_CHUNG, "Nấu bánh chưng", new SubInput("Nhập số lượng bánh chưng cần nấu", NUMERIC));
+    }
 
+    public void createFormNauBanhTet(Player player) {
+        createForm(player, NAU_BANH_TET, "Nấu bánh tết", new SubInput("Nhập số lượng bánh tết cần nấu", NUMERIC));
+
+    }
     public void createFormChooseLevelCDRD(Player pl) {
         createForm(pl, CHOOSE_LEVEL_CDRD, "Chọn cấp độ", new SubInput("Cấp độ (1-110)", NUMERIC));
     }

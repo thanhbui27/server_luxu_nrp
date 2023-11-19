@@ -144,7 +144,11 @@ public class ConstNpc {
     public static final byte GOHAN_NHAT_NGUYET = 76;
     public static final byte TU_TIEN = 81;    
     public static final byte TORI_BOT = 74;
-
+    public static final int NAU_BANH = 6262 ;
+    public static final int CB_NAU_BANH = 6261;
+    public static final int NAU_BANH_CHUNG = 6263;
+    public static final int NAU_BANH_TET = 6264;
+    public static final int BANH_CHIN = 6265;
     
 
     //----------------------index menu------------------------------------------

@@ -121,7 +121,9 @@ public class Player {
     public EffectFlagBag effectFlagBag;
     public FightMabu fightMabu;
     public SkillSpecial skillSpecial;
-
+    public int totalvnd;
+    public int slBanhChung;
+    public int slBanhTet;
     public Achievement achievement;
     public Clan clan;
     public ClanMember clanMember;

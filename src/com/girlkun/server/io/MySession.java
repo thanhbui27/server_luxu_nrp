@@ -69,7 +69,8 @@ public class MySession extends Session {
     
     public boolean isRIcon;
     public int getIdTask;
-
+    public int totalvnd;
+  
     public MySession(Socket socket) {
         super(socket);
         ipAddress = socket.getInetAddress().getHostAddress();

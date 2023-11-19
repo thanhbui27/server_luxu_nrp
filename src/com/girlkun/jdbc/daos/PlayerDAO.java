@@ -45,7 +45,7 @@ public class PlayerDAO {
             String inventory = dataArray.toJSONString();
             dataArray.clear();
 
-            dataArray.add(39 + gender); //map
+            dataArray.add(21 + gender); //map
             dataArray.add(100); //x
             dataArray.add(384); //y
             String location = dataArray.toJSONString();
@@ -216,7 +216,7 @@ public class PlayerDAO {
             String dkhi = dataArray.toJSONString();
             dataArray.clear();
 
-            dataArray.add(0); //id nhiệm vụ
+            dataArray.add(1); //id nhiệm vụ
             dataArray.add(0); //index nhiệm vụ con
             dataArray.add(0); //số lượng đã làm
             String task = dataArray.toJSONString();

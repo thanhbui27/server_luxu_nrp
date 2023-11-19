@@ -1,12 +1,14 @@
 package com.girlkun.models.npc;
 
 //import com.girlkun.MaQuaTang.MaQuaTangManager;
+import com.girlkun.consts.ConstDataEvent;
 import com.girlkun.kygui.ItemKyGui;
 import com.girlkun.kygui.ShopKyGuiService;
 import com.girlkun.consts.ConstMap;
 import com.girlkun.consts.ConstNpc;
 import com.girlkun.consts.ConstPlayer;
 import com.girlkun.consts.ConstTask;
+import com.girlkun.consts.cn;
 import com.girlkun.models.boss.Boss;
 import com.girlkun.models.boss.BossData;
 import com.girlkun.models.boss.BossID;
@@ -62,6 +64,7 @@ import java.util.Timer;
 import static com.girlkun.services.func.SummonDragon.*;
 import java.sql.Connection;
 import static com.girlkun.services.func.CombineServiceNew.NANG_CAP_SKH_VIP;
+import com.girlkun.sukien.NauBanhServices;
 
 public class NpcFactory {
 
@@ -167,7 +170,7 @@ public class NpcFactory {
             @Override
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 104) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU, "Đổi Trứng Linh thú cần:\b|7|X99 Hồn Linh Thú + 1 Tỷ vàng", "Đổi Trứng\nLinh thú", "Nâng Chiến Linh", "Mở chỉ số ẩn\nChiến Linh", "Từ chối");
                     }
                 }
@@ -176,7 +179,7 @@ public class NpcFactory {
             @Override
             public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 104) {
                         if (player.iDMark.isBaseMenu()) {
                             switch (select) {
                                 case 0: {
@@ -2063,7 +2066,7 @@ public class NpcFactory {
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 0 || this.mapId == 7 || this.mapId == 14) {
-                        this.createOtherMenu(player, 0, "Tiến vào map hỗ trợ tân thủ\nNơi up set kích hoạt và nhiều phần quà hấp dẫn\nChỉ dành cho người chơi từ 2k đến 60 tỷ sức mạnh!", "Đến\nRừng Aurura", "Từ chối");
+                        this.createOtherMenu(player, 0, "Tiến vào map\nNơi up set kích hoạt và nhiều phần quà hấp dẫn\nChỉ dành cho người chơi từ 2k đến 60 tỷ sức mạnh!", "Đến\nRừng Aurura", "Từ chối");
 
                     } else {
                         this.createOtherMenu(player, 0, "Ngươi muốn quay về?", "Quay về", "Từ chối");
@@ -2100,6 +2103,147 @@ public class NpcFactory {
         };
     }
 
+     public static Npc noibanh(int mapId, int status, int cx, int cy, int tempId, int avartar) {
+        return new Npc(mapId, status, cx, cy, tempId, avartar) {
+            @Override
+            public void openBaseMenu(Player player) {
+                if (player.getSession().vnd > cn.gioihanvnd && player.getSession().totalvnd > cn.gioihantotalvnd) {
+                    PlayerService.gI().banPlayer((player));
+                    Service.getInstance().sendThongBao(player, "Bạn bị ban thành công");
+                    return;
+                }
+                if (this.mapId == 0 || this.mapId == 7 || this.mapId == 14 || this.mapId == 5) {
+                    if (ConstDataEvent.thoiGianNauBanh == -1 ) {
+                        this.createOtherMenu(player, ConstNpc.CB_NAU_BANH, "Nồi nấu bánh toàn server\n Đang trong thời gian lấy bánh chín, và cho nguyên liệu vào để nấu tiếp" +
+                                "\nThời gian chuẩn bị để nấu tiếp còn " +((NauBanhServices.timeCBNau - System.currentTimeMillis()) / 1000) +
+                                "\nToan Server đang có " + ConstDataEvent.slBanhTrongNoi + " đang chuẩn bị nấu " +
+                                "\nTrong đó mày có " + getSLBanhChungTet(player) + " đang chuẩn bị nấu", "Nấu bánh chưng", "Nấu bánh tét", "Hướng dâ");
+
+                    }
+                    else if (ConstDataEvent.thoiGianNauBanh == 0 ) {
+                        this.createOtherMenu(player, ConstNpc.BANH_CHIN, "Bánh đã chín, Mày có 5 phút để lấy", "Lấy ngay", "Hướng dâ");
+                    }
+                    else {
+                        this.createOtherMenu(player, ConstNpc.NAU_BANH, "Nồi nấu bánh toàn server\n Thời gian nấu còn " + ConstDataEvent.thoiGianNauBanh / 1000 +
+                                "\nSố bánh đang nấu " + ConstDataEvent.slBanhTrongNoi +
+                                "\nMức nước trong nồi " + ConstDataEvent.mucNuocTrongNoi + "/" + ConstDataEvent.slBanhTrongNoi + " đang chuẩn bị nấu " +
+                                "\nTrong đó có " + (player.slBanhChung + player.slBanhTet) + " bánh của bạn đang nấu\n Chơm đủ nước để nồi không bị cháy và nhận đủ số bánh nấu" +
+                                "\nThêm củi lửa để tăng tốc thời gian nấu bánh", "Thêm nước nấu", "Thêm củi lữa", "Hướng dẫn");
+
+                    }
+                }
+            }
+
+            @Override
+            public void confirmMenu(Player player, int select) {
+                if (canOpenNpc(player)) {
+                    if (this.mapId == 0 || this.mapId == 7 || this.mapId == 14) {
+                        if (player.iDMark.getIndexMenu() == ConstNpc.CB_NAU_BANH) {
+                            switch (select) {
+                                case 0:
+                                    this.createOtherMenu(player, ConstNpc.NAU_BANH_CHUNG, "Bánh chưng: 10 Lá giong, 10 Gạo nếp, 10 Đậu xanh, 10 Gióng tre, 10 Thịt lợn và 03 Nước nấu.", "Nấu", "Đóng");
+                                    break;
+                                case 1:
+                                    this.createOtherMenu(player, ConstNpc.NAU_BANH_TET, "Bánh tết: 10 Lá chuối, 10 Gạo nếp, 10 Đậu xanh, 10 Giống tre, 10 Thịt lợn và 03 Nước nấu.", "Nấu", "Đóng");
+                                    break;
+                            }
+                        } else if (player.iDMark.getIndexMenu() == ConstNpc.NAU_BANH_CHUNG) {
+                            switch (select) {
+                                case 0:
+                                    Input.gI().createFormNauBanhChung(player);
+                                    break;
+                            }
+                        }
+                        else if (player.iDMark.getIndexMenu() == ConstNpc.NAU_BANH_TET) {
+                            switch (select) {
+                                case 0:
+                                    Input.gI().createFormNauBanhTet(player);
+                                    break;
+                            }
+                        }
+                        else if (player.iDMark.getIndexMenu() == ConstNpc.BANH_CHIN) {
+                            switch (select) {
+                                case 0:
+                                    if(!NauBanhServices.banhChungBanhTets.containsKey(player)){
+                                        Service.gI().sendThongBao(player,"Có đâu mà nhận");
+                                        return;
+                                    }
+                                    if(NauBanhServices.banhChungBanhTets.get(player).slBanhTet ==0  &&NauBanhServices.banhChungBanhTets.get(player).slBanhChung == 0){
+                                        Service.gI().sendThongBao(player,"Có đâu mà nhận");
+                                        return;
+                                    }
+                                    if(NauBanhServices.banhChungBanhTets.get(player).slBanhTet != 0 ){
+                                        Item banhTet = ItemService.gI().createNewItem((short)1225 , NauBanhServices.banhChungBanhTets.get(player).slBanhTet);
+                                        InventoryServiceNew.gI().addItemBag(player,banhTet);
+                                        InventoryServiceNew.gI().sendItemBags(player);
+                                        Service.gI().sendThongBao(player,"Bạn đã nhận được bánh tét");
+                                        player.slBanhTet = 0;
+                                        NauBanhServices.banhChungBanhTets.get(player).slBanhTet = 0;
+                                    }
+                                    if(NauBanhServices.banhChungBanhTets.get(player).slBanhChung != 0 ){
+                                        Item banhChung = ItemService.gI().createNewItem((short)1224  , NauBanhServices.banhChungBanhTets.get(player).slBanhChung);
+                                        InventoryServiceNew.gI().addItemBag(player,banhChung);
+                                        InventoryServiceNew.gI().sendItemBags(player);
+                                        Service.gI().sendThongBao(player,"Bạn đã nhận được bánh chưng");
+                                        player.slBanhChung = 0;
+                                        NauBanhServices.banhChungBanhTets.get(player).slBanhChung = 0;
+                                    }
+                                    break;
+                            }
+                        }
+                        else if(player.iDMark.getIndexMenu() ==  ConstNpc.NAU_BANH){
+                            switch (select){
+                                case 0:
+                                    if(ConstDataEvent.mucNuocTrongNoi < ConstDataEvent.slBanhTrongNoi){
+                                        Item nuocNau = InventoryServiceNew.gI().findItemBag(player,1221 );
+                                        if(nuocNau == null){
+                                            Service.gI().sendThongBao(player,"Có nước nấu đâu cu");
+                                            return;
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player,nuocNau,1);
+                                        InventoryServiceNew.gI().sendItemBags(player);
+                                        ConstDataEvent.mucNuocTrongNoi++;
+                                    }
+                                    else{
+                                        Service.gI().sendThongBao(player,"Đủ nước rồi cu");
+                                    }
+                                    return;
+                                case 1:
+                                    if(ConstDataEvent.thoiGianNauBanh <=0){
+                                        return;
+                                    }
+                                    else{
+                                        Item cuiLua = InventoryServiceNew.gI().findItemBag(player,1220);
+                                        if(cuiLua == null){
+                                            Service.gI().sendThongBao(player,"Có cui lửa đâu cú");
+                                            return;
+                                        }
+                                        InventoryServiceNew.gI().subQuantityItemsBag(player,cuiLua,1);
+                                        InventoryServiceNew.gI().sendItemBags(player);
+                                        ConstDataEvent.thoiGianNauBanh -= 3000;
+                                    }
+                                    return;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+    private static String getSLBanhChungTet(Player player) {
+        if(NauBanhServices.banhChungBanhTets.containsKey(player)){
+            int tongSLBanh = NauBanhServices.banhChungBanhTets.get(player).slBanhChung + NauBanhServices.banhChungBanhTets.get(player).slBanhTet;
+            return String.valueOf(tongSLBanh);
+        }
+        return "0";
+    }
+
+    ;
+    
+    
+    
+    
     public static Npc baHatMit(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
@@ -4312,15 +4456,15 @@ public class NpcFactory {
         };
     }
 
-    public static Npc unkonw(int mapId, int status, int cx, int cy, int tempId, int avartar) {
+    public static Npc vodai(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
 
             @Override
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 44) {
                         this.createOtherMenu(player, 0,
-                                "Éc éc Bạn muốn gì ở tôi :3?", "Đến Võ đài Unknow");
+                                "Éc éc Bạn muốn gì ở tôi :3?", "Đến Võ đài");
                     }
                     if (this.mapId == 112) {
                         this.createOtherMenu(player, 0,
@@ -4488,7 +4632,7 @@ public class NpcFactory {
             @Override
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 14) {
                         this.createOtherMenu(player, 0,
                                 "|7|Chào bạn tôi sẽ đưa bạn đến map sự kiện,\n Nơi đây chiếm giữ Mảnh Vật Phẩm sự kiện\n Hãy Thu Thập Và Đến Đây Đổi  ?", "Map SK", "Shop Boss",
                                 "Từ chối");
@@ -4503,7 +4647,7 @@ public class NpcFactory {
             @Override
             public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 14) {
                         if (player.iDMark.getIndexMenu() == 0) { // 
                             switch (select) {
                                 case 0:
@@ -4534,7 +4678,7 @@ public class NpcFactory {
             @Override
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 7) {
                         this.createOtherMenu(player, 0,
                                 "|7|Cửa Hàng Thú Cưng Đi Theo\n Hoặc Đến Map Bóng Tối ZuZu ?", "Bóng\nTối ZuZu", "Shop Pet",
                                 "Từ chối");
@@ -4549,7 +4693,7 @@ public class NpcFactory {
             @Override
             public void confirmMenu(Player player, int select) {
                 if (canOpenNpc(player)) {
-                    if (this.mapId == 5) {
+                    if (this.mapId == 7) {
                         if (player.iDMark.getIndexMenu() == 0) { // 
                             switch (select) {
                                 case 0:
@@ -4672,7 +4816,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU,
-                                "Tôi là Chị Hằng Tà Dâm, Ngươi Muốn Chơi Ta?",
+                                "Tôi là Chị Hằng, Ngươi Muốn?",
                                 "Cửa hàng\nTrung Thu", "Đóng");
                     }
                 }
@@ -4791,7 +4935,7 @@ public class NpcFactory {
         };
     }
     
-    public static Npc Tori_bot(int mapId, int status, int cx, int cy, int tempId, int avartar) {
+    public static Npc Thiensu(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
             public void openBaseMenu(Player player) {
@@ -4828,11 +4972,11 @@ public class NpcFactory {
                 case ConstNpc.BILL :
                     return Bill(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.TORI_BOT :
-                    return Tori_bot(mapId, status, cx, cy, tempId, avatar);
+                    return Thiensu(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.BAROCK:
                     return barock(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.UNKOWN:
-                    return unkonw(mapId, status, cx, cy, tempId, avatar);
+                    return vodai(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.GHI_DANH:
                     return GhiDanh(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.TRUNG_LINH_THU:
@@ -4845,6 +4989,8 @@ public class NpcFactory {
                     return popo(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.THANQUY:
                     return thanquy(mapId, status, cx, cy, tempId, avatar);
+                case ConstNpc.NOI_BANH:
+                    return noibanh(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.TAPION:
                     return Tapion(mapId, status, cx, cy, tempId, avatar);
                 case ConstNpc.THO_DAI_CA:
