@@ -3747,47 +3747,71 @@ public class CombineServiceNew {
 //        
 //        return 0;
 //    }
-    private float getRatioPhaLeHoa(int star) { //tile dap do chi hat mit
+    private float getRatioPhaLeHoa(int star) { //tile dap sao chi hat mit
         switch (star) {
             case 0:
-                return 70f;// 5tr vang
+                return 90f;
             case 1:
-                return 60f;  // 10tr
+                return 80f;  
             case 2:
-                return 50f; // 20tr
+                return 60f; 
             case 3:
-                return 40f; // 40tr
+                return 50f; 
             case 4:
-                return 30f; // 50tr
+                return 40f; 
             case 5:
-                return 15; // 60tr
+                return 25f; 
             case 6:
-                return 5f; // 70tr
+                return 10f; 
             case 7:
-                return 3f; // 80tr
-            case 8:
-                return 10f;    // 100tr
-            case 9:
-                return 5f;  // 10tr
-            case 10:
-                return 3f; // 20tr
-            case 11:
-                return 100f; // 40tr
-            case 12:
-                return 100f; // 50tr
-            case 13:
-                return 0.5f; // 60tr
-            case 14:
-                return 0.3f; // 70tr
-            case 15:
-                return 0.2f; // 80tr
-            case 16:
-                return 0.1f;    // 100tr
+                return 5f; 
 
         }
 
         return 0;
     }
+    
+//     private float getRatioPhaLeHoa(int star) { //tile dap do chi hat mit
+//        switch (star) {
+//            case 0:
+//                return 70f;// 5tr vang
+//            case 1:
+//                return 60f;  // 10tr
+//            case 2:
+//                return 50f; // 20tr
+//            case 3:
+//                return 40f; // 40tr
+//            case 4:
+//                return 30f; // 50tr
+//            case 5:
+//                return 15; // 60tr
+//            case 6:
+//                return 10f; // 70tr
+//            case 7:
+//                return 5f; // 80tr
+//            case 8:
+//                return 10f;    // 100tr
+//            case 9:
+//                return 5f;  // 10tr
+//            case 10:
+//                return 3f; // 20tr
+//            case 11:
+//                return 100f; // 40tr
+//            case 12:
+//                return 100f; // 50tr
+//            case 13:
+//                return 0.5f; // 60tr
+//            case 14:
+//                return 0.3f; // 70tr
+//            case 15:
+//                return 0.2f; // 80tr
+//            case 16:
+//                return 0.1f;    // 100tr
+//
+//        }
+//
+//        return 0;
+//    }
 
     private float getTile(int star) { //tile dap do chi hat mit
         switch (star) {
