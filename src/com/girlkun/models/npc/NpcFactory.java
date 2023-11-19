@@ -4588,7 +4588,7 @@ public class NpcFactory {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 5) {
                         this.createOtherMenu(player, 0,
-                                "|7|Chào bạn tôi sẽ đưa bạn đến map sự kiện,\n Nơi đây chiếm giữ Mảnh Vỏ sò sự kiện\n Hãy Thu Thập Và Đến Đây Đổi  ?", "Map SK", "SHOPLUFFY",
+                                "|7|Chào bạn tôi sẽ đưa bạn đến map sự kiện,\n Nơi đây chiếm giữ Mảnh Vỏ sò sự kiện\n Hãy Thu Thập Và Đến Đây Đổi  ?", "Map SK", "SHOPLUFFY","SHOPHAOQUANG",
                                 "Từ chối");
                     }
                     if (this.mapId == 174) {
@@ -4610,6 +4610,9 @@ public class NpcFactory {
                                 case 1: //shop
                                     ShopServiceNew.gI().opendShop(player, "SHOPLUFFY", false);
                                     break;
+                                case 2: //shop
+                                    ShopServiceNew.gI().opendShop(player, "SHOPHAOQUANG", false);
+                                    break;     
                             }
                         }
                     } else if (this.mapId == 174) {

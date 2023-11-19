@@ -523,10 +523,10 @@ public class Mob {
 //                Service.gI().sendThongBao(player, "Bạn vừa nhận được " + random + " hồng ngọc");
 //            }
             
-            if (player.isWearGod() && MapService.gI().isMapCold(player.zone.map.mapId)) {
-                if (Util.isTrue(30, 100)) {           
-                    ArrietyDrop.DropItemReWard(player, ArrietyDrop.list_thuc_an[Util.nextInt(0, (ArrietyDrop.list_thuc_an.length - 1))], 1, this.location.x, this.location.y);
-                }
+//            if (player.isWearGod() && MapService.gI().isMapCold(player.zone.map.mapId)) {
+//                if (Util.isTrue(30, 100)) {           
+//                    ArrietyDrop.DropItemReWard(player, ArrietyDrop.list_thuc_an[Util.nextInt(0, (ArrietyDrop.list_thuc_an.length - 1))], 1, this.location.x, this.location.y);
+//                }
                 
 //            } else {
 //                Service.getInstance().sendThongBao(player, "Con quái này không có rồi!");
@@ -534,20 +534,24 @@ public class Mob {
                 //                if (player.setClothes.thienSuClothes && MapService.gI().isMapCold(player.zone.map)) {
                 //                    ArrietyDrop.DropItemReWardDoHuyDietKichHoat(player, 1, this.location.x, this.location.y);
                 //                }
-            }
+ //           }
             
 //            if(this.zone.map.mapId == 155 && player.isWearHD()){
 //                if (Util.isTrue(10, 100) ) {
 //                    list.add(new ItemMap(zone, Util.nextInt(1066, 1070) ,1,x,player.location.y,player.id));
 //                }          
 //            }
-
-            if(this.zone.map.mapId == 155 && player.isWearHD()){
-                if (Util.isTrue(30, 100) ) {
-                    ArrietyDrop.DropItemReWard(player, Util.nextInt(1066, 1070), 1, this.location.x, this.location.y);
-     
-                }          
-            }
+//            if (player.isWearGod() && MapService.gI().isMapCold(player.zone.map.mapId)) {
+//                if (Util.isTrue(30, 100)) {           
+//                    ArrietyDrop.DropItemReWard(player, ArrietyDrop.list_thuc_an[Util.nextInt(0, (ArrietyDrop.list_thuc_an.length - 1))], 1, this.location.x, this.location.y);
+//                }
+//             }
+//            if(this.zone.map.mapId == 155 && player.isWearHD()){
+//                if (Util.isTrue(30, 100) ) {
+//                    ArrietyDrop.DropItemReWard(player, Util.nextInt(1066, 1070), 1, this.location.x, this.location.y);
+//     
+//                }          
+//            }
 
             itemReward = this.getItemMobReward(player, this.location.x + Util.nextInt(-10, 10),
                     this.zone.map.yPhysicInTop(this.location.x, this.location.y));
@@ -611,7 +615,18 @@ public class Mob {
                 }
             }
         }
-        
+        if (player.isWearGod() && MapService.gI().isMapCold(player.zone.map.mapId)) {
+                if (Util.isTrue(30, 100)) {       
+                    list.add(new ItemMap(zone, ArrietyDrop.list_thuc_an[Util.nextInt(0, (ArrietyDrop.list_thuc_an.length - 1))],1,x,player.location.y,player.id));
+
+               }
+         }
+        if(this.zone.map.mapId == 155 && player.isWearHD()){
+                if (Util.isTrue(30, 100) ) {
+                     list.add(new ItemMap(zone, Util.nextInt(1066, 1070),1,x,player.location.y,player.id));
+     
+                }          
+         }
         if(this.zone.map.mapId == 195 || this.zone.map.mapId == 196 || this.zone.map.mapId == 197){
             if (Util.isTrue(5, 100) ) {
                  player.inventory.ruby += 10;
