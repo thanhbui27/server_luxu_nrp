@@ -3765,6 +3765,8 @@ public class CombineServiceNew {
                 return 10f; 
             case 7:
                 return 5f; 
+            case 8:
+                return 1f; 
 
         }
 
