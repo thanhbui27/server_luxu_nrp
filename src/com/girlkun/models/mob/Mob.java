@@ -522,16 +522,31 @@ public class Mob {
 //                InventoryServiceNew.gI().sendItemBags(player);
 //                Service.gI().sendThongBao(player, "Bạn vừa nhận được " + random + " hồng ngọc");
 //            }
-            if (Util.isTrue(20, 100)) {
-                if (player.setClothes.godClothes && MapService.gI().isMapCold(player.zone.map.mapId)) {
+            
+            if (player.isWearGod() && MapService.gI().isMapCold(player.zone.map.mapId)) {
+                if (Util.isTrue(30, 100)) {           
                     ArrietyDrop.DropItemReWard(player, ArrietyDrop.list_thuc_an[Util.nextInt(0, (ArrietyDrop.list_thuc_an.length - 1))], 1, this.location.x, this.location.y);
                 }
+                
 //            } else {
 //                Service.getInstance().sendThongBao(player, "Con quái này không có rồi!");
 //            }            if (Util.isTrue(1.0f, 100)) {
                 //                if (player.setClothes.thienSuClothes && MapService.gI().isMapCold(player.zone.map)) {
                 //                    ArrietyDrop.DropItemReWardDoHuyDietKichHoat(player, 1, this.location.x, this.location.y);
                 //                }
+            }
+            
+//            if(this.zone.map.mapId == 155 && player.isWearHD()){
+//                if (Util.isTrue(10, 100) ) {
+//                    list.add(new ItemMap(zone, Util.nextInt(1066, 1070) ,1,x,player.location.y,player.id));
+//                }          
+//            }
+
+            if(this.zone.map.mapId == 155 && player.isWearHD()){
+                if (Util.isTrue(30, 100) ) {
+                    ArrietyDrop.DropItemReWard(player, Util.nextInt(1066, 1070), 1, this.location.x, this.location.y);
+     
+                }          
             }
 
             itemReward = this.getItemMobReward(player, this.location.x + Util.nextInt(-10, 10),
@@ -605,11 +620,7 @@ public class Mob {
         }
         
         
-        if(this.zone.map.mapId == 155 && player.isWearHD()){
-            if (Util.isTrue(10, 100) ) {
-                list.add(new ItemMap(zone, Util.nextInt(1066, 1070) ,1,x,player.location.y,player.id));
-            }          
-        }
+      
         // roi hoa
         if(Util.isTrue(10,100)){
             list.add(new ItemMap(zone, 589,1,x,player.location.y,player.id));
@@ -650,11 +661,6 @@ public class Mob {
 //                list.add(new ItemMap(zone, 2036, 1, x, player.location.y, player.id));
 //            }
 //        }
-        if (player.setClothes.setGod() && this.zone.map.mapId >= 105 && this.zone.map.mapId <= 111) {
-            if (Util.isTrue(10, 100)) {    //up  thuc an
-                list.add(new ItemMap(zone, Util.nextInt(663, 667), 1, x, player.location.y, player.id));
-            }
-        }
 //        if (player.setClothes.setGod14() && this.zone.map.mapId == 155) {
 //            if (Util.isTrue(5, 100)) {    //up bí kíp
 //                list.add(new ItemMap(zone, Util.nextInt(1066, 1070), 1, x, player.location.y, player.id));

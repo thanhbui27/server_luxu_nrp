@@ -27,12 +27,12 @@ public class Rong1Sao extends Boss {
                 this.chat("Xí hụt");
                 return 0;
             }
-            damage = (int) this.nPoint.subDameInjureWithDeff(damage/1);
+            damage = (int) this.nPoint.subDameInjureWithDeff(damage/2);
             if (!piercing && effectSkill.isShielding) {
                 if (damage > nPoint.hpMax) {
                     EffectSkillService.gI().breakShield(this);
                 }
-                  damage = damage/4;
+                  damage = damage/2;
             }
         if (!piercing && effectSkill.useTroi) {
             EffectSkillService.gI().removeUseTroi(this);
@@ -46,7 +46,7 @@ public class Rong1Sao extends Boss {
         if (!piercing && effectSkill.isBlindDCTT) {
             EffectSkillService.gI().removeBlindDCTT(this);
         }
-            this.nPoint.subHP(damage);
+        this.nPoint.subHP(damage);
             if (isDie()) {
                 this.setDie(plAtt);
                 die(plAtt);

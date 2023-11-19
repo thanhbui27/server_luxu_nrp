@@ -691,16 +691,11 @@ public class Player {
     }
     public boolean isWearGod() {
         int cTlXD = 0;
-        List<Integer> doThanXd = Arrays.asList(559, 560, 561, 566, 567);
-        List<Integer> doThanTd = Arrays.asList(555, 556, 562, 563, 561);
-        List<Integer> doThanNm = Arrays.asList(557, 558, 564, 565, 561);
         for (int i = 0; i < 5; i++) {
             if (this.inventory.itemsBody.get(i).template == null) {
                 return false;
             }
-            if (doThanXd.contains((int) this.inventory.itemsBody.get(i).template.id)
-                    || doThanTd.contains((int) this.inventory.itemsBody.get(i).template.id)
-                    || doThanNm.contains((int) this.inventory.itemsBody.get(i).template.id)) {
+            if (this.inventory.itemsBody.get(i).template.id >= 555 && this.inventory.itemsBody.get(i).template.id <= 567) {
                 cTlXD++;
             }
         }
@@ -718,9 +713,7 @@ public class Player {
             if (this.inventory.itemsBody.get(i).template == null) {
                 return false;
             }
-            if (doThanXd.contains((int) this.inventory.itemsBody.get(i).template.id)
-                    || doThanTd.contains((int) this.inventory.itemsBody.get(i).template.id)
-                    || doThanNm.contains((int) this.inventory.itemsBody.get(i).template.id)) {
+           if (this.inventory.itemsBody.get(i).template.id >= 650 && this.inventory.itemsBody.get(i).template.id <= 662) {
                 cTlXD++;
             }
         }

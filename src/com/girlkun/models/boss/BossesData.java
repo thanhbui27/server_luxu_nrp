@@ -1425,6 +1425,7 @@ public static final BossData BROLY_1 = new BossData(
             new int[]{85}, //map join
             new int[][]{
                 {Skill.LIEN_HOAN, 7, 10000},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.KAMEJOKO, 5, 10000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1447,6 +1448,7 @@ public static final BossData BROLY_1 = new BossData(
             new int[]{86}, //map join
             new int[][]{
                 {Skill.LIEN_HOAN, 7, 1000},
+                 {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.KAMEJOKO, 5, 1000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1471,6 +1473,7 @@ public static final BossData BROLY_1 = new BossData(
             new int[][]{
                 {Skill.THOI_MIEN, 4, 125000},
                 {Skill.THAI_DUONG_HA_SAN, 3, 50000},
+                 {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 10000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1495,6 +1498,7 @@ public static final BossData BROLY_1 = new BossData(
             new int[][]{
                 {Skill.LIEN_HOAN, 7, 10000},
                 {Skill.TROI, 7, 100000},
+                 {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.KAMEJOKO, 5, 10000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1516,7 +1520,8 @@ public static final BossData BROLY_1 = new BossData(
             new int[]{10000000}, //hp
             new int[]{89}, //map join
             new int[][]{
-                {Skill.KAMEJOKO, 5, 10000}}, //skill
+                {Skill.KAMEJOKO, 5, 10000}, {Skill.KHIEN_NANG_LUONG, 7, 50000}}, //skill
+            
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
                 "|-1|Sức mạnh tà ác !"
@@ -1538,7 +1543,7 @@ public static final BossData BROLY_1 = new BossData(
             new int[]{90}, //map join
             new int[][]{
                 {Skill.LIEN_HOAN, 7, 4000},
-                {Skill.KAMEJOKO, 5, 10000}}, //skill
+                {Skill.KAMEJOKO, 5, 10000}, {Skill.KHIEN_NANG_LUONG, 7, 50000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
                 "|-1|Sức mạnh tà ác !"
@@ -1559,7 +1564,7 @@ public static final BossData BROLY_1 = new BossData(
             new int[]{10000000}, //hp
             new int[]{91}, //map join
             new int[][]{
-                {Skill.KAMEJOKO, 5, 1000}}, //skill
+                {Skill.KAMEJOKO, 5, 1000}, {Skill.KHIEN_NANG_LUONG, 7, 50000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
                 "|-1|Sức mạnh tà ác !"
