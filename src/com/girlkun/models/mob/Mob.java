@@ -618,8 +618,7 @@ public class Mob {
             }   
            
         }
-        
-        
+              
       
         // roi hoa
         if(Util.isTrue(10,100)){

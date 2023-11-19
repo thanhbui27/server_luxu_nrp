@@ -5163,7 +5163,6 @@ public class NpcFactory {
         Npc npc = new Npc(-1, -1, -1, -1, ConstNpc.CON_MEO, 351) {
             @Override
             public void confirmMenu(Player player, int select) {
-                System.out.println("su dung item : " + player.iDMark.getIndexMenu());
                 switch (player.iDMark.getIndexMenu()) {
                     case ConstNpc.IGNORE_MENU:
 
