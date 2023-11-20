@@ -51,9 +51,9 @@ public class XenBoHung extends Boss {
     }
    
     private void hapThu() {
-    //    if (!Util.canDoWithTime(this.lastTimeHapThu, this.timeHapThu) || !Util.isTrue(1, 100)) {
-     //       return;
-     //   }
+        if (!Util.canDoWithTime(this.lastTimeHapThu, this.timeHapThu) || !Util.isTrue(1, 100)) {
+            return;
+       }
     
         Player pl = this.zone.getRandomPlayerInMap();
         if (pl == null || pl.isDie()) {

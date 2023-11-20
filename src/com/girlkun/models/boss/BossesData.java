@@ -508,9 +508,7 @@ public class BossesData {
             new int[]{100},
             new int[][]{
                 {Skill.KAMEJOKO, 7, 1000},
-                {Skill.KAMEJOKO, 7, 1000},
-                {Skill.LIEN_HOAN, 7, 10000},
-                {Skill.DICH_CHUYEN_TUC_THOI, 7, 1000}},//skill
+                {Skill.LIEN_HOAN, 7, 10000}},//skill
             new String[]{"|-2|Cái gì kia vậy!? Đó là loài gì thế!!?",
                 "|-1|Hôm nay sẽ là ngày đáng nhớ đây!",
                 "|-1|Ta sẽ hấp thụ số 17 và 18 để đạt được dạng hoàn hảo!",
@@ -547,7 +545,6 @@ public class BossesData {
             new int[]{100},
             new int[][]{
                 {Skill.KAMEJOKO, 7, 1000},
-                {Skill.KAMEJOKO, 7, 1000},
                 {Skill.LIEN_HOAN, 7, 10000}}, //skill
               new String[]{"|-2|Cuối cùng hắn cũng đã biến đổi",
                 "|-2|Khốn kiếp! Phải kết liễu hắn ngay lúc này!"
@@ -576,8 +573,6 @@ public class BossesData {
             new int[]{100},
             new int[][]{
                 {Skill.KAMEJOKO, 7, 1000},
-                {Skill.KAMEJOKO, 7, 1000},
-                {Skill.DICH_CHUYEN_TUC_THOI, 7, 10000},
                 {Skill.KHIEN_NANG_LUONG, 7, 100000},
                 {Skill.LIEN_HOAN, 7, 10000},
                 {Skill.THOI_MIEN, 7, 100000}},
