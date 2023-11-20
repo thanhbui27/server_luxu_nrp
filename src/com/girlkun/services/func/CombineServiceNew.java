@@ -1685,7 +1685,6 @@ public class CombineServiceNew {
             }
             if (Util.isTrue(tile, 100)) {
                 sendEffectSuccessCombine(player);
-                System.out.println("gender : " + Dts.template.gender + " - type : " + Dts.template.type);
                 Item dSKH = ItemService.gI().ratiSKH(Dts.template.gender, Dts.template.type, player);
                 InventoryServiceNew.gI().addItemBag(player, dSKH);
                 InventoryServiceNew.gI().subQuantityItemsBag(player, Dts, 1);                
@@ -2238,14 +2237,15 @@ public class CombineServiceNew {
                 }
                 player.inventory.gold -= gold;
                 player.inventory.ruby -= ruby;
-                InventoryServiceNew.gI().subQuantityItemsBag(player, manhvobt, 999);
+                
                 if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, manhvobt, 999);
                     bongtai.template = ItemService.gI().getTemplate(getidbtsaukhilencap(lvbt));
                     bongtai.itemOptions.clear();
                     bongtai.itemOptions.add(new Item.ItemOption(72, lvbt + 1));
                     sendEffectSuccessCombine(player);
                 } else {
-                     InventoryServiceNew.gI().subQuantityItemsBag(player, manhvobt, 99);
+                    InventoryServiceNew.gI().subQuantityItemsBag(player, manhvobt, 99);
                     sendEffectFailCombine(player);
                 }
                 InventoryServiceNew.gI().sendItemBags(player);

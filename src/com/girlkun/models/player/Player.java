@@ -706,9 +706,6 @@ public class Player {
     }
     public boolean isWearHD() {
         int cTlXD = 0;
-        List<Integer> doThanXd = Arrays.asList(654, 655, 661, 656, 662);
-        List<Integer> doThanTd = Arrays.asList(650, 651, 657, 656, 658);
-        List<Integer> doThanNm = Arrays.asList(652, 653, 659, 656, 660);
         for (int i = 0; i < 5; i++) {
             if (this.inventory.itemsBody.get(i).template == null) {
                 return false;

@@ -370,7 +370,7 @@ public class MapService {
     }
 
     public boolean isMapCold(int mapId) {
-        return mapId >= 105 && mapId <= 110;
+        return mapId >= 105 && mapId <= 110 || mapId >= 156 && mapId <= 159;
     }
 
     public boolean isMapNha(int mapId) {

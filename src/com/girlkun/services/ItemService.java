@@ -1405,9 +1405,9 @@ public class ItemService {
         int maxRandomValue;
         switch (randomcs) {
             case 0:
-                optionValues = Arrays.asList(5, 18, 14, 17, 50, 47, 108);
+                optionValues = Arrays.asList(5, 18, 215, 17, 50, 47, 108);
                 if(Util.isTrue(10, 100)){                 
-                    maxRandomValue = 10;
+                    maxRandomValue = 15;
                 }else{
                     maxRandomValue = 5;
                 }
@@ -1417,7 +1417,7 @@ public class ItemService {
             case 1:
                 optionValues = Arrays.asList(77, 103, 114);
                  if(Util.isTrue(10, 100)){                 
-                    maxRandomValue = 20;
+                    maxRandomValue = 15;
                 }else{
                     maxRandomValue = 5;
                 }

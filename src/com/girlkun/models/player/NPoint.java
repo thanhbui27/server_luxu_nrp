@@ -202,6 +202,7 @@ public class NPoint {
                             case 94: //Giáp #%
                                 this.tlDef.add(io.param);
                                 break;
+                            case 215:
                             case 14: //Chi mang
                                 this.critAdd += io.param;
                                 break;
@@ -240,6 +241,7 @@ public class NPoint {
                             case 94: //Giáp #%
                                 this.tlDef.add(io.param);
                                 break;
+                            case 215:
                             case 14: //Chi mang
                                 this.critAdd += io.param;
                                 break;
@@ -275,6 +277,7 @@ public class NPoint {
                             case 94: //Giáp #%
                                 this.tlDef.add(io.param);
                                 break;
+                            case 215:
                             case 14: //chi mang
                                 this.critAdd += io.param;
                                 break;
@@ -346,6 +349,7 @@ public class NPoint {
                         case 8: //Hút #% HP, KI xung quanh mỗi 5 giây
                             this.tlHutHpMpXQ += io.param;
                             break;
+                        case 215:
                         case 14: //Chí mạng+#%
                             this.critAdd += io.param;
                             break;
@@ -488,7 +492,8 @@ public class NPoint {
                             break;
                         case 8: //Hút #% HP, KI xung quanh mỗi 5 giây
                             this.tlHutHpMpXQ += io.param;
-                            break;
+                            break;                    
+                        case 215:
                         case 14: //Chí mạng+#%
                             this.critAdd += io.param;
                             break;
