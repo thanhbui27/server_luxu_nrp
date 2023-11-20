@@ -22,7 +22,9 @@ public class CombineServiceNew {
 
     private static final int COST_DOI_VE_DOI_DO_HUY_DIET = 500000000;
     private static final int COST_DAP_DO_KICH_HOAT = 500000000;
-    private static final int COST_DOI_MANH_KICH_HOAT = 500000000;
+    private static final int COST_DOI_MANH_KICH_HOAT = 500000000;    
+    private static final int COST_DOI_THANG_TINH_THACH = 100000000;
+
 
     private static final int COST = 500000000;
     private static final int RUBY = 20000;
@@ -56,7 +58,10 @@ public class CombineServiceNew {
     public static final int NANG_CAP_BONG_TAI_CAP3 = 524;
     public static final int MO_CHI_SO_BONG_TAI_CAP3 = 525;
     public static final int NHAP_NGOC_RONG = 513;
-    public static final int PHAN_RA_DO_THAN_LINH = 514;
+    public static final int PHAN_RA_DO_THAN_LINH = 514; 
+    
+    public static final int DOI_THANG_TINH_THACH = 526;
+
     public static final int NANG_CAP_DO_TS = 515;
     public static final int NANG_CAP_SKH_VIP = 516;
     public static final int NANG_CAP_SKH_VIPhd = 555;
@@ -1548,7 +1553,7 @@ public class CombineServiceNew {
             case EP_SAO_CAI_TRANG:
                 epSaoCaiTrang(player);
                 break;
-             case NANG_CAP_MAT_THAN:
+            case NANG_CAP_MAT_THAN:
                 moChiSomatThan(player);
                 break;   
             case PHA_LE_HOA_TRANG_BI:
@@ -2202,7 +2207,7 @@ public class CombineServiceNew {
             }
         }
     }
-
+    
     private void nangCapBongTai(Player player) {
         if (player.combineNew.itemsCombine.size() == 2) {
             int gold = player.combineNew.goldCombine;
@@ -4628,6 +4633,9 @@ public class CombineServiceNew {
             case EP_SAO_TRANG_BI:
                 return "Chọn trang bị\n(Áo, quần, găng, giày hoặc rađa) có ô đặt sao pha lê\nChọn loại sao pha lê\n"
                         + "Sau đó chọn 'Nâng cấp'";
+             case DOI_THANG_TINH_THACH:
+                return "Chọn x10 đá ma thuật\n"
+                        + "Sau đó chọn 'Nâng cấp' để đổi lấy thăng tinh thạch";
             case EP_SAO_CAI_TRANG:
                 return "Chọn trang bị\n(Cải trang) có ô đặt sao pha lê\nChọn loại sao pha lê\n"
                         + "Sau đó chọn 'Nâng cấp'";

@@ -3975,7 +3975,7 @@ public class NpcFactory {
             public void openBaseMenu(Player player) {
                 if (this.mapId == 154) {
                     this.createOtherMenu(player, ConstNpc.BASE_MENU, "Thử đánh với ta xem nào.\nNgươi còn 1 lượt cơ mà.",
-                            "Nói chuyện", "Học tuyệt kỹ", "Phân rã đồ thần linh", "Từ chối");
+                            "Nói chuyện", "Học tuyệt kỹ", "Phân rã đồ thần linh","Đổi thăng tinh thạch", "Từ chối");
 
                 }
             }
@@ -4011,6 +4011,10 @@ public class NpcFactory {
                             case 2:
                                  CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.PHAN_RA_DO_THAN_LINH);
                                 break;
+                            case 3:
+                                this.createOtherMenu(player, 551, "Ta sẽ đổi đá ma thuật giúp ngươi", "đổi x1","đổi x10", "Từ chối");
+                              
+                                break;
                         }
                     } 
                     else if (player.iDMark.getIndexMenu() == 5) {
@@ -4030,22 +4034,76 @@ public class NpcFactory {
                             switch (player.combineNew.typeCombine) {
                                 case CombineServiceNew.PHAN_RA_DO_THAN_LINH:
                                 case CombineServiceNew.NANG_CAP_DO_TS:
+                                
                                     if (select == 0) {
                                         CombineServiceNew.gI().startCombine(player);
                                     }
                                     break;
                             }
                         } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_PHAN_RA_DO_THAN_LINH) {
-                             System.out.println("phan ra ");
-                            if (select == 0) {
-                               
+                            if (select == 0) {                              
                                 CombineServiceNew.gI().startCombine(player);
                             }
                         } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_NANG_CAP_DO_TS) {
                             if (select == 0) {
                                 CombineServiceNew.gI().startCombine(player);
+                         }
+
+                        }
+                        else if(player.iDMark.getIndexMenu() == 551){
+                            if (select == 0) {       
+                               int COST_DOI_THANG_TINH_THACH = 100000000;
+                               if(player.inventory.gold < COST_DOI_THANG_TINH_THACH){
+                                        Service.gI().sendThongBao(player, "không đủ vàng thức hiện");
+                                        return;
+                                    }
+                                    Item ttt = InventoryServiceNew.gI().findItemBag(player, 2030);                                 
+                                    if(ttt == null){
+                                        Service.gI().sendThongBao(player,"Không  có đá ma thuật");
+                                        return;
+                                    }
+                                    
+                                    if(ttt.quantity < 10){
+                                        Service.gI().sendThongBao(player,"Không đủ số lượng đá ma thuật");
+                                        return;
+                                    }
+                                    
+
+                                    player.inventory.gold -= COST_DOI_THANG_TINH_THACH;
+                                    InventoryServiceNew.gI().subQuantityItemsBag(player, ttt, 10);
+                                    Item itemDMT = ItemService.gI().createNewItem((short) 2031);
+                                    InventoryServiceNew.gI().addItemBag(player, itemDMT);
+                                    InventoryServiceNew.gI().sendItemBags(player);
+                                    Service.gI().sendMoney(player);
+                                    Service.gI().sendThongBao(player, "Bạn nhận đc thăng tinh thạch");
+                                    return;
+                            } else if (select == 1){
+                               int COST_DOI_THANG_TINH_THACH = 1000000000;
+                               if(player.inventory.gold < COST_DOI_THANG_TINH_THACH){
+                                        Service.gI().sendThongBao(player, "không đủ vàng thức hiện");
+                                        return;
+                                    }
+                                    Item ttt = InventoryServiceNew.gI().findItemBag(player, 2030);                                 
+                                     if(ttt == null){
+                                        Service.gI().sendThongBao(player,"Không  có đá ma thuật");
+                                        return;
+                                    }
+                                    
+                                    if(ttt.quantity < 100){
+                                        Service.gI().sendThongBao(player,"Không đủ số lượng đá ma thuật");
+                                        return;
+                                    }
+
+                                    player.inventory.gold -= COST_DOI_THANG_TINH_THACH;
+                                    InventoryServiceNew.gI().subQuantityItemsBag(player, ttt, 100);
+                                    Item itemDMT = ItemService.gI().createNewItem((short) 2031,10);
+                                    InventoryServiceNew.gI().addItemBag(player, itemDMT);
+                                    InventoryServiceNew.gI().sendItemBags(player);
+                                    Service.gI().sendMoney(player);
+                                    Service.gI().sendThongBao(player, "Bạn nhận đc thăng tinh thạch");
+                                    return;
                             }
-                        }else if (player.iDMark.getIndexMenu() == 6) {
+                       }else if (player.iDMark.getIndexMenu() == 6) {
                         switch (select) {
                             case 0:
                                 Item sach = InventoryServiceNew.gI().findItemBag(player, 1320);

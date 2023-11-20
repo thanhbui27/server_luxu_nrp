@@ -327,5 +327,6 @@ public class ConstNpc {
     public static final int RUONG_GO = 512;
 
     public static final int MENU_DAP_DO_KICH_HOAT = 550;
+    public static final int MENU_DOI_THANG_TINH_THACH = 551;
     public static int MENU_DHVT = 560;
 }
