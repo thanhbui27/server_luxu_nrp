@@ -39,7 +39,7 @@ public class ItemService {
         Item item = new Item();
         return item;
     }
-    public Item ratiSKH(int gender, int type,Player player) {
+    public Item ratiSKH(int gender, int type, Player player) {
         int[][] items = { { 0, 6, 21, 27, 12 }, { 1, 7, 22, 28, 12 }, { 2, 8, 23, 29, 12 } };
         int[][] options = { { 128, 129, 127 }, { 130, 131, 132 }, { 133, 135, 134 } };
 
@@ -47,7 +47,7 @@ public class ItemService {
         switch (gender) {
             case 0:
                 if(Util.isTrue(20, 100)){
-                     item = itemSKH(items[0][type], 129);
+                     item = itemSKH(items[0][type], Util.nextInt(127,129));
                      break;
                 }else {
                      item = itemSKH(items[0][type],Util.nextInt(127,128));
@@ -55,18 +55,18 @@ public class ItemService {
                 }
             
             case 1:
-                item = itemSKH(items[0][type],Util.nextInt(130,132));
+                item = itemSKH(items[1][type],Util.nextInt(130,132));
                 break;             
             case 2:
                  if(Util.isTrue(20, 100)){
-                     item = itemSKH(items[0][type], 135);
+                     item = itemSKH(items[2][type], Util.nextInt(133,135));
                      break;
                 }else {
-                     item = itemSKH(items[0][type],Util.nextInt(133,134));
+                     item = itemSKH(items[2][type],Util.nextInt(133,134));
                      break;
                 }
             case 3:
-                item = itemSKH(items[0][type], options[player.gender][Util.nextInt(3)]);
+                item = itemSKH(items[3][type], options[player.gender][Util.nextInt(3)]);
                 break;
         }
         return item;

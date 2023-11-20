@@ -1685,6 +1685,7 @@ public class CombineServiceNew {
             }
             if (Util.isTrue(tile, 100)) {
                 sendEffectSuccessCombine(player);
+                System.out.println("gender : " + Dts.template.gender + " - type : " + Dts.template.type);
                 Item dSKH = ItemService.gI().ratiSKH(Dts.template.gender, Dts.template.type, player);
                 InventoryServiceNew.gI().addItemBag(player, dSKH);
                 InventoryServiceNew.gI().subQuantityItemsBag(player, Dts, 1);                
@@ -4688,7 +4689,8 @@ public class CombineServiceNew {
                         + "Sau đó chọn 'Nâng cấp'";
 
             case NANG_CAP_SKH_VIPhd:
-                return "vào hành trang\nChọn 1 trang bị Thien Su bất kì va 2 da ma thua\n "
+                return "vào hành trang\nChọn 1 trang bị Thien Su bất kì va 2 da ma thuật\n "
+                        +"Thêm 1 món thần linh sẽ tăng tỷ lệ thành công là 100%"
                         + " đồ SKH sẽ cùng loại \n với đồ Thien Su!"
                         + "Chỉ cần chọn 'Nâng Cấp'";
             case PS_HOA_TRANG_BI:
