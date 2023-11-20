@@ -55,8 +55,18 @@ public class ItemService {
                 }
             
             case 1:
-                item = itemSKH(items[1][type],Util.nextInt(130,132));
-                break;             
+                 if(Util.isTrue(20, 100)){
+                    item = itemSKH(items[1][type],Util.nextInt(130,132));
+                     break;
+                }else {
+                     if(Util.isTrue(60, 100)){
+                          item = itemSKH(items[1][type],130);
+                     }else{
+                          item = itemSKH(items[1][type],132);
+                     }                 
+                     break;
+                }
+                        
             case 2:
                  if(Util.isTrue(20, 100)){
                      item = itemSKH(items[2][type], Util.nextInt(133,135));

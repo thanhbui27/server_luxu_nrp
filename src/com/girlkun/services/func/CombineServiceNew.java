@@ -1937,9 +1937,8 @@ public class CombineServiceNew {
                 Item item = player.combineNew.itemsCombine.get(0);
                 int couponAdd = itemdov2.stream().anyMatch(t -> t == item.template.id) ? 2 : item.template.id == 561 ? 3 : 1;
                 sendEffectSuccessCombine(player);
-                player.inventory.coupon += couponAdd;
                 this.whis.npcChat(player, "Con đã nhận được " + couponAdd + " đá ma thuật");
-                InventoryServiceNew.gI().subQuantityItemsBag(player, item, 1);               
+                InventoryServiceNew.gI().subQuantityItemsBag(player, item, couponAdd);               
                 Item itemDMT = ItemService.gI().createNewItem((short) 2030);
                 InventoryServiceNew.gI().addItemBag(player, itemDMT);
                 InventoryServiceNew.gI().sendItemBags(player);
