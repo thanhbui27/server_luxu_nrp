@@ -1933,12 +1933,12 @@ public class CombineServiceNew {
             if (player.combineNew.itemsCombine.size() == 1) {
                 player.inventory.gold -= 500000000;
                 List<Integer> itemdov2 = new ArrayList<>(Arrays.asList(562, 564, 566));
-                Item item = player.combineNew.itemsCombine.get(0);
+                Item item = player.combineNew.itemsCombine.get(0);            
                 int couponAdd = itemdov2.stream().anyMatch(t -> t == item.template.id) ? 2 : item.template.id == 561 ? 3 : 1;
                 sendEffectSuccessCombine(player);
                 this.whis.npcChat(player, "Con đã nhận được " + couponAdd + " đá ma thuật");
-                InventoryServiceNew.gI().subQuantityItemsBag(player, item, couponAdd);               
-                Item itemDMT = ItemService.gI().createNewItem((short) 2030);
+                InventoryServiceNew.gI().subQuantityItemsBag(player, item, 1);               
+                Item itemDMT = ItemService.gI().createNewItem((short) 2030,couponAdd);
                 InventoryServiceNew.gI().addItemBag(player, itemDMT);
                 InventoryServiceNew.gI().sendItemBags(player);
                 Service.gI().sendMoney(player);
