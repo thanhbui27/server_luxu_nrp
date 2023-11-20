@@ -17,6 +17,9 @@ import com.girlkun.models.boss.list_boss.Ginyu.TDST;
 import com.girlkun.models.boss.list_boss.Android.*;
 import com.girlkun.models.boss.list_boss.BossEvent.Caulifla;
 import com.girlkun.models.boss.list_boss.BossEvent.GoKuTaAc;
+import com.girlkun.models.boss.list_boss.BossEvent.Rong3SaoTD;
+import com.girlkun.models.boss.list_boss.BossEvent.Rong6SaoNM;
+import com.girlkun.models.boss.list_boss.BossEvent.Rong7SaoXD;
 import com.girlkun.models.boss.list_boss.BossEvent.VuaVegeta;
 import com.girlkun.models.boss.list_boss.Cell.SieuBoHung;
 import com.girlkun.models.boss.list_boss.Cell.XenBoHung;
@@ -131,6 +134,20 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.DR_KORE);
 
             this.createBoss(BossID.ANDROID_14);
+            
+            
+            this.createBoss(BossID.Rong_3Sao_TD);            
+            this.createBoss(BossID.Rong_3Sao_TD);
+
+
+            this.createBoss(BossID.Rong_7Sao_XD);            
+            this.createBoss(BossID.Rong_7Sao_XD);
+
+
+            this.createBoss(BossID.Rong_6Sao_NM);            
+            this.createBoss(BossID.Rong_6Sao_NM);
+
+            
 //            this.createBoss(BossID.SUPER_ANDROID_17); 
 
             this.createBoss(BossID.COOLER);
@@ -308,6 +325,12 @@ public class BossManager implements Runnable {
                     return new VuaVegeta();
                  case BossID.GOKUTAAC:
                     return new GoKuTaAc();
+                case BossID.Rong_3Sao_TD:
+                    return new Rong3SaoTD();            
+                case BossID.Rong_6Sao_NM:
+                    return new Rong6SaoNM();
+                case BossID.Rong_7Sao_XD:
+                    return new Rong7SaoXD();
                 default:
                     return null;
             }

@@ -2084,7 +2084,7 @@ public class NpcFactory {
                             if (this.mapId == 0 || this.mapId == 7 || this.mapId == 14) {
 
                                 if (player.session.actived) {
-                                    ChangeMapService.gI().changeMapBySpaceShip(player, 250, -1, 295);
+                                    ChangeMapService.gI().changeMapBySpaceShip(player, 204, -1, 295);
                                     break;
                                 } else {
                                     Service.getInstance().sendThongBao(player, "Hãy mở thành viên Để sử dụng");

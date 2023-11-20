@@ -482,7 +482,7 @@ public class Util {
         item.options.add(new Item.ItemOption(147, 45));//sd 26%
         item.options.add(new Item.ItemOption(117, 45));//Đẹp + 18% sd
         item.options.add(new Item.ItemOption(76, 1));//VIP
-        if (Util.isTrue(955, 1000)&& rating ) {// tỉ lệ ra hsd
+        if (Util.isTrue(995, 1000)&& rating ) {// tỉ lệ ra hsd
             item.options.add(new Item.ItemOption(93, new Random().nextInt(3) + 1));//hsd
         }
         return item;

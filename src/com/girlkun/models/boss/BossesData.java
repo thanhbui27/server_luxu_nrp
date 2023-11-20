@@ -1117,13 +1117,12 @@ public class BossesData {
             ConstPlayer.TRAI_DAT,
             new short[]{690, 691, 692, -1, -1, -1},
             500000,
-            new int[]{2000000000},
+            new int[]{1000000000},
             new int[]{3,4,5,6,10,11,12,13,17,18,19,20},
             new int[][]{
                 {Skill.KAMEJOKO, 7, 5000},
                 {Skill.THAI_DUONG_HA_SAN, 7, 30000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 10000},
-                //{Skill.TAI_TAO_NANG_LUONG, 7, 3000},
                 {Skill.LIEN_HOAN, 7, 100},
                 {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.SOCOLA, 7, 1000}},
@@ -1131,7 +1130,86 @@ public class BossesData {
             new String[]{"|-1|Thấy ảo chưa nè! Ta là người xinh nhất"}, //text chat 2
             new String[]{"|-1|Nhớ mặt tao đấy",
                 "|-1|Tobe continue.."}, //text chat 3
-            REST_1_M
+            REST_30_M
+    );
+    
+     public static final BossData Rong_6Sao_Namec = new BossData(
+            "Rồng 6 Sao Namec", //name
+            ConstPlayer.NAMEC, //gender
+            new short[]{222, 223, 224, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            3000000, //dame
+           new int[]{1000000000}, //hp
+            new int[]{10,11,12,13}, //map join
+            new int[][]{
+                {Skill.DEMON, 7, 4000},  
+                {Skill.LIEN_HOAN, 7, 4000},                
+                {Skill.DE_TRUNG, 7, 4000},
+                {Skill.SOCOLA, 7, 1000},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000}}, //skill
+            new String[]{"|-1|Gaaaaaa !!!!!!!!",
+                "|-2|Tên kia là ai vậy",
+                "|-1|Sức mạnh tà ác !"
+            }, //text chat 1
+            new String[]{"|-1|Ta muốn tìm một đối thủ xứng tầm",
+                "|-1|Đi chết đi!",
+                "|-1|Các ngươi không phải đối thủ của ta đâu",
+                "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
+            }, //text chat 2
+            new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
+            REST_30_M //second rest
+    );
+    public static final BossData Rong_7Sao_Xayda = new BossData(
+            "Rồng 7 Sao XayDa", //name
+            ConstPlayer.XAYDA, //gender
+            new short[]{216, 217, 218, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            1000000, //dame
+           new int[]{1000000000}, //hp
+            new int[]{17,18,19,20}, //map join
+            new int[][]{
+                {Skill.ANTOMIC, 7, 5000},         
+                {Skill.TAI_TAO_NANG_LUONG, 7, 3000},
+                {Skill.GALICK, 7, 100},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000},
+                {Skill.BIEN_KHI, 7, 600000}}, //skill
+            new String[]{"|-1|Gaaaaaa !!!!!!!!",
+                "|-2|Tên kia là ai vậy",
+                "|-1|Sức mạnh tà ác !"
+            }, //text chat 1
+            new String[]{"|-1|Ta muốn tìm một đối thủ xứng tầm",
+                "|-1|Đi chết đi!",
+                "|-1|Các ngươi không phải đối thủ của ta đâu",
+                "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
+            }, //text chat 2
+            new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
+            REST_30_M //second rest
+    );
+    
+     public static final BossData Rong_3Sao_TD = new BossData(
+            "Rồng 3 Sao TraiDat", //name
+            ConstPlayer.TRAI_DAT, //gender
+            new short[]{207, 208, 209, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            1200000, //dame
+            new int[]{1000000000}, //hp
+            new int[]{3,4,5,6}, //map join
+            new int[][]{
+                {Skill.KAMEJOKO, 7, 5000},         
+                {Skill.THAI_DUONG_HA_SAN, 7, 3000},
+                {Skill.DRAGON, 7, 100},
+                {Skill.THOI_MIEN, 7, 50000},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000},
+                {Skill.DICH_CHUYEN_TUC_THOI, 7, 600000}},
+            new String[]{"|-1|Gaaaaaa !!!!!!!!",
+                "|-2|Tên kia là ai vậy",
+                "|-1|Sức mạnh tà ác !"
+            }, //text chat 1
+            new String[]{"|-1|Ta muốn tìm một đối thủ xứng tầm",
+                "|-1|Đi chết đi!",
+                "|-1|Các ngươi không phải đối thủ của ta đâu",
+                "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
+            }, //text chat 2
+            new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
+            REST_30_M //second rest
+
     );
     
     public static final BossData VUAVEGETA = new BossData(

@@ -160,7 +160,10 @@ public class BossID {
     public static final int CAULIFLA = -680;     
     public static final int VUAVEGETA = -681;
     public static final int GOKUTAAC = -682;
-
+    
+    public static final int Rong_3Sao_TD = -683;
+    public static final int Rong_6Sao_NM = -684;
+    public static final int Rong_7Sao_XD = -685;
     
 
 }
