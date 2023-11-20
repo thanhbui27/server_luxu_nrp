@@ -533,7 +533,7 @@ public class BossesData {
                 "|-1|Lại thêm một tên ngốc nữa chán sống!"
             }, //text chat 2
             new String[]{"|-2|Khốn kiếp, Pic.. hắn bị Cell hấp thu rồi!!"}, //text chat 3
-            REST_1_M
+            REST_30_M
     );
 
     public static final BossData XEN_BO_HUNG_2 = new BossData(
