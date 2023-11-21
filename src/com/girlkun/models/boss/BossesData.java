@@ -1130,7 +1130,7 @@ public class BossesData {
             new String[]{"|-1|Thấy ảo chưa nè! Ta là người xinh nhất"}, //text chat 2
             new String[]{"|-1|Nhớ mặt tao đấy",
                 "|-1|Tobe continue.."}, //text chat 3
-            REST_30_M
+            REST_1_M
     );
     
      public static final BossData Rong_6Sao_Namec = new BossData(
@@ -1156,7 +1156,7 @@ public class BossesData {
                 "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
             }, //text chat 2
             new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
-            REST_30_M //second rest
+            REST_1_M //second rest
     );
     public static final BossData Rong_7Sao_Xayda = new BossData(
             "Rồng 7 Sao XayDa", //name
@@ -1181,7 +1181,7 @@ public class BossesData {
                 "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
             }, //text chat 2
             new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
-            REST_30_M //second rest
+            REST_1_M //second rest
     );
     
      public static final BossData Rong_3Sao_TD = new BossData(
@@ -1208,7 +1208,7 @@ public class BossesData {
                 "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
             }, //text chat 2
             new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
-            REST_30_M //second rest
+            REST_1_M //second rest
 
     );
     
