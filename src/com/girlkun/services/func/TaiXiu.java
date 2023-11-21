@@ -69,7 +69,7 @@ public class TaiXiu  implements Runnable{
     public void run() {
         while (true) {
             try{
-                System.out.println("is time end :" + (((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis())/1000) <= 0));
+                //System.out.println("is time end :" + (((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis())/1000) <= 0));
                 if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis())/1000) <= 0){
                     int x,y,z;
                     // Thực hiện các hành động sau khi chờ 10 giây
