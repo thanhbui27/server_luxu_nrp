@@ -298,59 +298,7 @@ public class CombineServiceNew {
                             "Cần 1 Linh Thú và x10 Thăng tinh thạch", "Đóng");
                 }
                 break;
-            case NANG_CAP_KHI:
-                if (player.combineNew.itemsCombine.size() == 2) {
-                    Item ctkhi = null;
-                    Item dns = null;
-                    for (Item item : player.combineNew.itemsCombine) {
-                        if (checkctkhi(item)) {
-                            ctkhi = item;
-                        } else if (item.template.id == 674) {
-                            dns = item;
-                        }
-                    }
-
-                    if (ctkhi != null && dns != null) {
-                        int lvkhi = lvkhi(ctkhi);
-                        int countdns = getcountdnsnangkhi(lvkhi);
-                        player.combineNew.goldCombine = getGoldnangkhi(lvkhi);
-                        player.combineNew.rubyCombine = getRubydnangkhi(lvkhi);
-                        player.combineNew.ratioCombine = getRatioNangkhi(lvkhi);
-
-                        String npcSay = "Cải trang khỉ Cấp: " + lvkhi + " \n|2|";
-                        for (Item.ItemOption io : ctkhi.itemOptions) {
-                            npcSay += io.getOptionString() + "\n";
-                        }
-                        npcSay += "|7|Tỉ lệ thành công: " + player.combineNew.ratioCombine + "%" + "\n";
-                        if (dns.quantity >= countdns) {
-                            if (player.combineNew.goldCombine <= player.inventory.gold) {
-                                if (player.combineNew.rubyCombine <= player.inventory.ruby) {
-                                    npcSay += "|1|Cần " + Util.numberToMoney(player.combineNew.goldCombine) + " vàng";
-                                    khidaumoi.createOtherMenu(player, ConstNpc.MENU_NANG_KHI, npcSay,
-                                            "Nâng cấp\ncần " + player.combineNew.rubyCombine + " hồng ngọc");
-                                } else {
-                                    npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.rubyCombine - player.inventory.ruby) + " hồng ngọc";
-                                    khidaumoi.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                                }
-                            } else {
-                                npcSay += "Còn thiếu " + Util.numberToMoney(player.combineNew.goldCombine - player.inventory.gold) + " vàng";
-                                khidaumoi.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                            }
-                        } else {
-                            npcSay += "Còn thiếu " + Util.numberToMoney(countdns - dns.quantity) + " Đá Ngũ Sắc";
-                            khidaumoi.createOtherMenu(player, ConstNpc.IGNORE_MENU, npcSay, "Đóng");
-                        }
-
-                    } else {
-                        this.khidaumoi.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                "Cần 1 Cải trang khỉ Cấp 1-7 và 10 + 10*lvkhi Đá Ngũ Sắc", "Đóng");
-                    }
-                } else {
-                    this.khidaumoi.createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                            "Cần 1 Cải trang khỉ Cấp 1-7 và 10 + 10*lvkhi Đá Ngũ Sắc", "Đóng");
-                }
-                break;
-
+           
             case NANG_CAP_BONG_TAI:
                 if (player.combineNew.itemsCombine.size() == 2) {
                     Item bongtai = null;
@@ -1595,9 +1543,8 @@ public class CombineServiceNew {
             case MO_CHI_SO_BONG_TAI_CAP3:
                 moChiSoBongTaiBa(player);
                 break;
-            case NANG_CAP_KHI:
-                nangCapKhi(player);
-                break;
+           
+              
             case NANG_CAP_SKH_VIPhd:
                 openSKHVIPhd(player);
                 break;
@@ -1810,6 +1757,58 @@ public class CombineServiceNew {
         ctkhi.itemOptions.add(new ItemOption(103, Util.nextInt(7, 15)));//ki        
         ctkhi.itemOptions.add(new ItemOption(72, 2));
         ctkhi.itemOptions.add(new ItemOption(30, 0));
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
+    
+     public void khilv2(Player player, int id) {
+        Item item = ItemService.gI().createNewItem((short) id);
+        item.itemOptions.add(new ItemOption(50, 25));//sd
+        item.itemOptions.add(new ItemOption(77, 25));//hp
+        item.itemOptions.add(new ItemOption(103, 25));//ki
+     //   item.itemOptions.add(new ItemOption(14, 20));//cm
+        item.itemOptions.add(new ItemOption(5, 10));//sd cm
+     //  item.itemOptions.add(new ItemOption(106, 0));
+        item.itemOptions.add(new ItemOption(30, 1));
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
+
+    public void khilv3(Player player, int id) {
+        Item item = ItemService.gI().createNewItem((short) id);
+        item.itemOptions.add(new ItemOption(50, 30));//sd
+        item.itemOptions.add(new ItemOption(77, 30));//hp
+        item.itemOptions.add(new ItemOption(103, 30));//ki
+     //   item.itemOptions.add(new ItemOption(14, 40));//cm
+        item.itemOptions.add(new ItemOption(5, 15));//sd cm
+      //  item.itemOptions.add(new ItemOption(106, 0));
+        item.itemOptions.add(new ItemOption(30, 1));
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
+
+    public void khilv4(Player player, int id) {
+        Item item = ItemService.gI().createNewItem((short) id);
+        item.itemOptions.add(new ItemOption(50, 35));//sd
+        item.itemOptions.add(new ItemOption(77, 35));//hp
+        item.itemOptions.add(new ItemOption(103, 35));//ki
+     //   item.itemOptions.add(new ItemOption(14, 60));//cm
+        item.itemOptions.add(new ItemOption(5, 20));//sd cm
+     //   item.itemOptions.add(new ItemOption(106, 0));
+        item.itemOptions.add(new ItemOption(30, 1));
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
+
+    public void khilv5(Player player, int id) {
+        Item item = ItemService.gI().createNewItem((short) id);
+        item.itemOptions.add(new ItemOption(50, 40));//sd
+        item.itemOptions.add(new ItemOption(77, 40));//hp
+        item.itemOptions.add(new ItemOption(103, 40));//ki
+     //   item.itemOptions.add(new ItemOption(14, 80));//cm
+        item.itemOptions.add(new ItemOption(5, 25));//sd cm
+     //   item.itemOptions.add(new ItemOption(106, 0));
+        item.itemOptions.add(new ItemOption(30, 1));
+        InventoryServiceNew.gI().addItemBag(player, item);
         InventoryServiceNew.gI().sendItemBags(player);
     }
       
@@ -2158,54 +2157,6 @@ public class CombineServiceNew {
         }
     }
 
-    private void nangCapKhi(Player player) {
-        if (player.combineNew.itemsCombine.size() == 2) {
-            int gold = player.combineNew.goldCombine;
-            if (player.inventory.gold < gold) {
-                Service.gI().sendThongBao(player, "Không đủ vàng để thực hiện");
-                return;
-            }
-            int ruby = player.combineNew.rubyCombine;
-            if (player.inventory.ruby < ruby) {
-                Service.gI().sendThongBao(player, "Không đủ hồng ngọc để thực hiện");
-                return;
-            }
-
-            Item ctkhi = null;
-            Item dns = null;
-            for (Item item : player.combineNew.itemsCombine) {
-                if (checkctkhi(item)) {
-                    ctkhi = item;
-                } else if (item.template.id == 674) {
-                    dns = item;
-                }
-            }
-            if (ctkhi != null && dns != null) {
-                int lvkhi = lvkhi(ctkhi);
-                int countdns = getcountdnsnangkhi(lvkhi);
-                if (countdns > dns.quantity) {
-                    Service.gI().sendThongBao(player, "Không đủ đá ngũ sắc");
-                    return;
-                }
-                player.inventory.gold -= gold;
-                player.inventory.ruby -= ruby;
-                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, countdns);
-                if (Util.isTrue(player.combineNew.ratioCombine, 100)) {
-                    short idctkhisaunc = getidctkhisaukhilencap(lvkhi);
-                    ctkhi.template = ItemService.gI().getTemplate(idctkhisaunc);
-                    ctkhi.itemOptions.clear();
-                    ctkhi.itemOptions.add(new Item.ItemOption(72, lvkhi + 1));
-                    laychisoctkhi(player, ctkhi, lvkhi);
-                    sendEffectSuccessCombine(player);
-                } else {
-                    sendEffectFailCombine(player);
-                }
-                InventoryServiceNew.gI().sendItemBags(player);
-                Service.gI().sendMoney(player);
-                reOpenItemCombine(player);
-            }
-        }
-    }
     
     private void nangCapBongTai(Player player) {
         if (player.combineNew.itemsCombine.size() == 2) {

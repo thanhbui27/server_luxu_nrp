@@ -1377,7 +1377,7 @@ public class NpcFactory {
                             switch (select) {
                                 case 0:
                                     int coin = 10000;
-                                    int capsual = 30;
+                                    int capsual = 10;
                                     int tv = 30;
                                     int dans = 3;
                                     if (player.getSession().coinBar >= coin) {
@@ -1401,7 +1401,7 @@ public class NpcFactory {
                                 case 1:
                                     coin = 20000;
                                     tv = 60;
-                                    capsual = 60;
+                                    capsual = 20;
                                     dans = 6;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1423,7 +1423,7 @@ public class NpcFactory {
                                 case 2:
                                     coin = 30000;
                                     tv = 90;
-                                    capsual = 90;
+                                    capsual = 30;
                                     dans = 9;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1445,7 +1445,7 @@ public class NpcFactory {
                                 case 3:
                                     coin = 50000;
                                     tv = 160;
-                                    capsual = 160;
+                                    capsual = 50;
                                     dans = 16;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1467,7 +1467,7 @@ public class NpcFactory {
                                 case 4:
                                     coin = 100000;
                                     tv = 330;
-                                    capsual = 330;
+                                    capsual = 100;
                                     dans = 33;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1489,7 +1489,7 @@ public class NpcFactory {
                                 case 5:
                                     coin = 200000;
                                     tv = 670;
-                                    capsual = 670;
+                                    capsual = 200;
                                     dans = 67;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1511,7 +1511,7 @@ public class NpcFactory {
                                 case 6:
                                     coin = 300000;
                                     tv = 1050;
-                                    capsual = 1050;
+                                    capsual = 300;
                                     dans = 105;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1533,7 +1533,7 @@ public class NpcFactory {
                                 case 7:
                                     coin = 500000;
                                     tv = 1800;
-                                    capsual = 1800;
+                                    capsual = 500;
                                     dans = 180;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -1555,7 +1555,7 @@ public class NpcFactory {
                                 case 8:
                                     coin = 1000000;
                                     tv = 3700;
-                                    capsual = 3700;
+                                    capsual = 1000;
                                     dans = 370;
                                     if (player.getSession().coinBar >= coin) {
                                         PlayerDAO.subcoinBar(player, coin);
@@ -2066,7 +2066,7 @@ public class NpcFactory {
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (this.mapId == 0 || this.mapId == 7 || this.mapId == 14) {
-                        this.createOtherMenu(player, 0, "Tiến vào map\nNơi up set kích hoạt và nhiều phần quà hấp dẫn\nChỉ dành cho người chơi từ 2k đến 60 tỷ sức mạnh!", "Đến\nRừng Aurura", "Từ chối");
+                        this.createOtherMenu(player, 0, "Tiến vào map\n", "Đến\nHành Tinh Ma Quái", "Từ chối");
 
                     } else {
                         this.createOtherMenu(player, 0, "Ngươi muốn quay về?", "Quay về", "Từ chối");
@@ -4502,28 +4502,129 @@ public class NpcFactory {
                             switch (select) {
                                 case 0:
                                     this.createOtherMenu(player, 1,
-                                            "|7|Cần Khỉ Lv1,2,3,4,5,6,7 để nâng cấp lên ct khỉ cấp cao hơn\b|2|Mỗi lần nâng cấp tiếp thì mỗi cấp cần thêm 5 đá ngũ sắc",
-                                            "Nâng cấp",
+                                            "|7|Cần Khỉ Lv1 để nâng cấp lên lv\b|2|Mỗi lần nâng cấp tiếp thì mỗi cấp cần thêm 10 đá ngũ sắc",
+                                            "Khỉ\ncấp 2",
+                                            "Khỉ\ncấp 3",
+                                            "Khỉ\ncấp 4",
+                                            "Khỉ\ncấp 5",
                                             "Từ chối");
                                     break;
                                 case 1: //shop
                                     ShopServiceNew.gI().opendShop(player, "KHI", false);
                                     break;
                             }
-                        } else if (player.iDMark.getIndexMenu() == 1) {
+                        } else if (player.iDMark.getIndexMenu() == 1) { // action đổi dồ húy diệt
                             switch (select) {
-                                case 0:
-                                    CombineServiceNew.gI().openTabCombine(player, CombineServiceNew.NANG_CAP_KHI);
-                                    break;
-                                case 1:
-                                    break;
-                            }
-                        } else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_NANG_KHI) {
-                            switch (player.combineNew.typeCombine) {
-                                case CombineServiceNew.NANG_CAP_KHI:
-                                    if (select == 0) {
-                                        CombineServiceNew.gI().startCombine(player);
+                                case 0: // trade
+                                try {
+                                    Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
+                                    Item klv1 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3000);
+                                    int soLuong = 0;
+                                    if (dns != null) {
+                                        soLuong = dns.quantity;
                                     }
+                                    for (int i = 0; i < 12; i++) {
+                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3000 + i);
+
+                                        if (InventoryServiceNew.gI().isExistItemBag(player, 3000 + i) && soLuong >= 20) {
+                                            CombineServiceNew.gI().khilv2(player, 3001 + i);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 20);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            this.npcChat(player, "Upgrede Thành Công!");
+
+                                            break;
+                                        } else {
+                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 1 với 20 đá ngũ sắc");
+                                        }
+
+                                    }
+                                } catch (Exception e) {
+
+                                }
+                                break;
+                                case 1: // trade
+                                try {
+                                    Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
+                                    Item klv2 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3001);
+                                    int soLuong = 0;
+                                    if (dns != null) {
+                                        soLuong = dns.quantity;
+                                    }
+                                    for (int i = 0; i < 12; i++) {
+                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3001 + i);
+
+                                        if (InventoryServiceNew.gI().isExistItemBag(player, 3001 + i) && soLuong >= 30) {
+                                            CombineServiceNew.gI().khilv3(player, 3002 + i);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 30);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            this.npcChat(player, "Upgrede Thành Công!");
+
+                                            break;
+                                        } else {
+                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 2 với 30 đá ngũ sắc");
+                                        }
+
+                                    }
+                                } catch (Exception e) {
+
+                                }
+                                break;
+                                case 2: // trade
+                                try {
+                                    Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
+                                    Item klv2 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3002);
+                                    int soLuong = 0;
+                                    if (dns != null) {
+                                        soLuong = dns.quantity;
+                                    }
+                                    for (int i = 0; i < 12; i++) {
+                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3002 + i);
+
+                                        if (InventoryServiceNew.gI().isExistItemBag(player, 3002 + i) && soLuong >= 40) {
+                                            CombineServiceNew.gI().khilv4(player, 3003 + i);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 40);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            this.npcChat(player, "Upgrede Thành Công!");
+
+                                            break;
+                                        } else {
+                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 3 với 40 đá ngũ sắc");
+                                        }
+
+                                    }
+                                } catch (Exception e) {
+
+                                }
+                                break;
+                                case 3: // trade
+                                try {
+                                    Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
+                                    Item klv2 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3003);
+                                    int soLuong = 0;
+                                    if (dns != null) {
+                                        soLuong = dns.quantity;
+                                    }
+                                    for (int i = 0; i < 12; i++) {
+                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 3003 + i);
+
+                                        if (InventoryServiceNew.gI().isExistItemBag(player, 3003 + i) && soLuong >= 50) {
+                                            CombineServiceNew.gI().khilv5(player, 3004 + i);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 50);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            this.npcChat(player, "Upgrede Thành Công!");
+
+                                            break;
+                                        } else {
+                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 3 với 50 đá ngũ sắc");
+                                        }
+
+                                    }
+                                } catch (Exception e) {
+
+                                }
+                                break;
+
+                                case 5: // canel
                                     break;
                             }
                         }
