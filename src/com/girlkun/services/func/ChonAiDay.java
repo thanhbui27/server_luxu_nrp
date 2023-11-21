@@ -121,11 +121,12 @@ public class ChonAiDay  implements Runnable{
                             pl.goldNormar = 0;
                         }
                     }
+                    System.out.println("chien thang la toi");
                     ChonAiDay.gI().goldNormar = 0;
                     ChonAiDay.gI().goldVip = 0;
                     ChonAiDay.gI().PlayersNormar.clear();
                     ChonAiDay.gI().PlayersVIP.clear();
-                    ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
+                    ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 50000;
                 }
                 Thread.sleep(1000);
             } catch (Exception e) {

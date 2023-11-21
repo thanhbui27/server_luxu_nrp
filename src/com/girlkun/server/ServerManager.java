@@ -31,7 +31,7 @@ import com.girlkun.kygui.ShopKyGuiManager;
 import com.girlkun.models.map.DaiHoiVoThuat.DaiHoiService;
 import com.girlkun.models.map.GiaiSieuHang.SieuHangManager;
 import com.girlkun.result.GirlkunResultSet;
-import com.girlkun.services.func.ChanLe;
+import com.girlkun.services.func.TaiXiu;
 
 import java.util.*;
 import java.util.logging.Level;
@@ -83,16 +83,14 @@ public class ServerManager {
 
         new Thread(DaiHoiVoThuat.gI(), "Thread DHVT").start();
 
-        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
-       
+        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 50000;     
         new Thread(ChonAiDay.gI(), "Thread CAD").start();
 
-        ChanLe.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
-       
-        new Thread(ChanLe.gI(), "Thread CAD").start();
+        TaiXiu.gI().lastTimeEnd = System.currentTimeMillis() + 50000;      
+        new Thread(TaiXiu.gI(), "Thread TAI XIU").start();
+        
         
         NgocRongNamecService.gI().initNgocRongNamec((byte) 0);
-
         new Thread(NgocRongNamecService.gI(), "Thread NRNM").start();
 
         new Thread(TopService.gI(), "Thread TOP").start();

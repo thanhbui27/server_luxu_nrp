@@ -182,11 +182,11 @@ public class Player {
     public List<Card> Cards = new ArrayList<>();
     public short idAura = -1;
     
-    public int Chan;
-    public int Le;
-    public long lastTimeWinChanLe;
-    public boolean isWinChanLe;
-
+    public Taixiu taixiu;
+    
+    public int goldTai;
+    public int goldXiu;
+    
     public byte countKG;
     public boolean firstJoinKG;
     public long lastimeJoinKG;
@@ -223,6 +223,7 @@ public class Player {
         charms = new Charms();
         gift = new Gift(this);
         effectSkin = new EffectSkin(this);
+        taixiu = new Taixiu();
         skillSpecial = new SkillSpecial(this);
         achievement = new Achievement(this);
 //        this.typePk = 5; trạng thái pk toàn server
@@ -266,7 +267,7 @@ public class Player {
                     if (fusion != null) {
                         fusion.update();
                     }
-                    if (effectSkin != null) {
+                    if (effectSkill != null) {
                         effectSkill.update();
                     }
                     if (mobMe != null) {
@@ -277,6 +278,10 @@ public class Player {
                     }
                     if (pet != null) {
                         pet.update();
+                    }
+                    if (taixiu != null) {
+                        taixiu.dispose();
+                        taixiu = null;
                     }
                     if (newpet != null) {
                         newpet.update();

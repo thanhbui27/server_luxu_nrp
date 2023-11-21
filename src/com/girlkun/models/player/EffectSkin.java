@@ -56,7 +56,7 @@ public class EffectSkin {
 
     public void update() {
         updateVoHinh();
-        updateHoaDa();
+        //updateHoaDa();
         if (this.player.zone != null && !MapService.gI().isMapOffline(this.player.zone.map.mapId)) {
             updateOdo();
             updateXenHutXungQuanh();
@@ -81,19 +81,17 @@ public class EffectSkin {
                     List<Player> players = new ArrayList<>();
                     List<Player> playersMap = this.player.zone.getNotBosses();
                     for (Player pl : playersMap) {
-                        if (!this.player.equals(pl) && !pl.isBoss && !pl.isDie()
-                                && Util.getDistance(this.player, pl) <= 200 && !pl.nPoint.IsBiHoaDa) {
+                        if (this.player.id != pl.id && !pl.isPet && !pl.isNewPet && !pl.isBoss && !pl.isDie() && Util.getDistance(this.player, pl) <= 200) {                                                   
                             players.add(pl);
                         }
                     }
-                    for (Player pl : players) {
+                    for (Player pl : players) {                     
                         pl.nPoint.IsBiHoaDa = true;
                         Service.gI().SendMsgUpdateHoaDa(pl, (byte) 1, (byte) 0, (byte) 42);
                         Service.gI().Send_Caitrang(pl);
                         ItemTimeService.gI().sendItemTime(pl, 4392, (int) TIME_HOA_DA / 1000);
                         Service.gI().chat(pl, textHoaDa[Util.nextInt(0, textHoaDa.length - 1)]);
-                        pl.effectSkin.lastTimeBiHoaDa = System.currentTimeMillis();
-//                        System.err.println("HOA DA THANH CONG PLAYER: " + pl.name);
+                        pl.effectSkin.lastTimeBiHoaDa = System.currentTimeMillis();                      
                     }
                     this.lastTimeThucHienHoaDa = System.currentTimeMillis();
                 }

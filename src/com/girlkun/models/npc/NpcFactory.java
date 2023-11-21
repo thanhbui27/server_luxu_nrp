@@ -2750,11 +2750,137 @@ public class NpcFactory {
 //            }
 //        };
 //    }
+
+    
+//    public static Npc meothantai(int mapId, int status, int cx, int cy, int tempId, int avartar) {
+//        return new Npc(mapId, status, cx, cy, tempId, avartar) {
+//            @Override
+//            public void openBaseMenu(Player player) {
+//                createOtherMenu(player, 0, "\b|8|Trò chơi Tài Xỉu đang được diễn ra\n\n|6|Thử vận may của bạn với trò chơi Tài Xỉu! Đặt cược và dự đoán đúng"
+//                        + "\n kết quả, bạn sẽ được nhận thưởng lớn. Hãy tham gia ngay và\n cùng trải nghiệm sự hồi hộp, thú vị trong trò chơi này!"
+//                        + "\n\n|7|(Điều kiện tham gia : Nhiệm vụ 24)\n\n|2|Đặt tối thiểu: 1.000 Hồng ngọc\n Tối đa: 100.000 Hồng ngọc"
+//                        + "\n\n|7| Lưu ý : Thoát game khi chốt Kết quả sẽ MẤT Tiền cược và Tiền thưởng", "Thể lệ", "Tham gia");
+//            }
+//
+//            @Override
+//            public void confirmMenu(Player pl, int select) {
+//                if (canOpenNpc(pl)) {
+//                    String time = ((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) + " giây";
+//                    if (pl.iDMark.getIndexMenu() == 0) {
+//                        if (select == 0) {
+//                            createOtherMenu(pl, ConstNpc.IGNORE_MENU, "|5|Có 2 nhà cái Tài và Xĩu, bạn chỉ được chọn 1 nhà để tham gia"
+//                                    + "\n\n|6|Sau khi kết thúc thời gian đặt cược. Hệ thống sẽ tung xí ngầu để biết kết quả Tài Xỉu"
+//                                    + "\n\nNếu Tổng số 3 con xí ngầu <=10 : XỈU\nNếu Tổng số 3 con xí ngầu >10 : TÀI\nNếu 3 Xí ngầu cùng 1 số : TAM HOA (Nhà cái lụm hết)"
+//                                    + "\n\n|7|Lưu ý: Số Hồng ngọc nhận được sẽ bị nhà cái lụm đi 20%. Trong quá trình diễn ra khi đặt cược nếu thoát game trong lúc phát thưởng phần quà sẽ bị HỦY", "Ok");
+//                        } else if (select == 1) {
+//                            if (TaiXiu.gI().baotri == false){
+//                            if(pl.goldTai==0 && pl.goldXiu==0){
+//                                createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                        "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                        + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time, "Cập nhập", "Theo TÀI", "Theo XỈU", "Đóng");
+//                            } 
+//                            else if(pl.goldTai > 0){
+//                                createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                        "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                        + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time +"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Hồng ngọc", "Cập nhập", "Đóng");
+//                            } 
+//                            else {
+//                                createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                        "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                        + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time +"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Hồng ngọc", "Cập nhập", "Đóng");
+//                                }
+//                            } else {
+//                                if(pl.goldTai==0 && pl.goldXiu==0){
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+//                                } else if(pl.goldTai > 0){
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time +"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Hồng ngọc" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+//                                } else {
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI-XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time +"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Hồng ngọc" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+//                                }
+//                            }
+//                        }
+//                    } else if (pl.iDMark.getIndexMenu() == 1) {
+//                        if (((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldTai==0 && pl.goldXiu==0 && TaiXiu.gI().baotri == false) {
+//                            switch (select) {
+//                                case 0:
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time, "Cập nhập", "Theo TÀI", "Theo XỈU", "Đóng");
+//                                    break;
+//                                case 1:
+//                                    if (TaskService.gI().getIdTask(pl) >= ConstTask.TASK_24_0){
+//                                        Input.gI().TAI_taixiu(pl);
+//                                    } else {
+//                                        Service.getInstance().sendThongBao(pl, "Bạn chưa đủ điều kiện để chơi");
+//                                    }
+//                                    break;
+//                                case 2:
+//                                    if (TaskService.gI().getIdTask(pl) >= ConstTask.TASK_24_0){
+//                                        Input.gI().XIU_taixiu(pl);
+//                                    } else {
+//                                        Service.getInstance().sendThongBao(pl, "Bạn chưa đủ điều kiện để chơi");
+//                                    }
+//                                    break;
+//                            }
+//                        } else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldTai > 0 && TaiXiu.gI().baotri == false){
+//                            switch (select) {
+//                                case 0:
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time+"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Hồng ngọc", "Cập nhập", "Đóng");
+//                                    break;
+//                            }
+//                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldXiu > 0 && TaiXiu.gI().baotri == false){
+//                            switch (select) {
+//                                case 0:
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time+"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Hồng ngọc", "Cập nhập", "Đóng");
+//                                    break;
+//                            }
+//                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldTai > 0 && TaiXiu.gI().baotri == true){
+//                            switch (select) {
+//                                case 0:
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time+"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Hồng ngọc" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+//                                    break;
+//                            }
+//                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldXiu > 0 && TaiXiu.gI().baotri == true){
+//                            switch (select) {
+//                                case 0:
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time+"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Hồng ngọc" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+//                                    break;
+//                            }
+//                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldXiu == 0 && pl.goldTai == 0 && TaiXiu.gI().baotri == true){
+//                            switch (select) {
+//                                case 0:
+//                                    createOtherMenu(pl, 1, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+//                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Hồng ngọc"
+//                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Hồng ngọc\n\n|5|Thời gian còn lại: " + time+ "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+//                                    break;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        };
+//    }
+    
     public static Npc npclytieunuong54(int mapId, int status, int cx, int cy, int tempId, int avartar) {
         return new Npc(mapId, status, cx, cy, tempId, avartar) {
             @Override
             public void openBaseMenu(Player player) {
-                createOtherMenu(player, 0, "Trò chơi Chọn ai đây đang được diễn ra, nếu bạn tin tưởng mình đang tràn đầy may mắn thì có thể tham gia thử", "Thể lệ", "Chọn\nThỏi vàng", "Chẵn Lẽ");
+                createOtherMenu(player, 0, "Trò chơi Chọn ai đây đang được diễn ra, nếu bạn tin tưởng mình đang tràn đầy may mắn thì có thể tham gia thử  \n"
+                        + "Lưu ý : Thoát game khi chốt Kết quả sẽ MẤT Tiền cược và Tiền thưởng\"" , "Thể lệ", "Chọn\nThỏi vàng", "Tài xỉu");
             }
 
             @Override
@@ -2762,19 +2888,52 @@ public class NpcFactory {
                 if (canOpenNpc(pl)) {
                     String time = ((ChonAiDay.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) + " giây";
                     if (((ChonAiDay.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) < 0) {
-                        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
+                        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 50000;
                     }
-                    String timeCL = ((ChanLe.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) + " giây";
-                    if (((ChanLe.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) < 0) {
-                        ChanLe.gI().lastTimeEnd = System.currentTimeMillis() + 300000;
+                 
+                    String timeCL = ((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) + " giây";
+                    if (((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) < 0) {
+                        TaiXiu.gI().lastTimeEnd = System.currentTimeMillis() + 50000;
                     }
+                  
+               
                     if (pl.iDMark.getIndexMenu() == 0) {
                         if (select == 0) {
                             createOtherMenu(pl, ConstNpc.IGNORE_MENU, "Thời gian giữa các giải là 5 phút\nKhi hết giờ, hệ thống sẽ ngẫu nhiên chọn ra 1 người may mắn.\nLưu ý: Số thỏi vàng nhận được sẽ bị nhà cái lụm đi 5%!Trong quá trình diễn ra khi đặt cược nếu thoát game mọi phần đặt đều sẽ bị hủy", "Ok");
                         } else if (select == 1) {
                             createOtherMenu(pl, 1, "Tổng giải thường: " + ChonAiDay.gI().goldNormar + " thỏi vàng, cơ hội trúng của bạn là: " + pl.percentGold(0) + "%\nTổng giải VIP: " + ChonAiDay.gI().goldVip + " thỏi vàng, cơ hội trúng của bạn là: " + pl.percentGold(1) + "%\nSố thỏi vàng đặt thường: " + pl.goldNormar + "\nSố thỏi vàng đặt VIP: " + pl.goldVIP + "\n Thời gian còn lại: " + time, "Cập nhập", "Thường\n20 thỏi\nvàng", "VIP\n200 thỏi\nvàng", "Đóng");
                         }else if (select == 2) {
-                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
+                            if (TaiXiu.gI().baotri == false){
+                                if(pl.goldTai==0 && pl.goldXiu==0){
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL, "Cập nhập", "Theo TÀI", "Theo XỈU", "Đóng");
+                                } 
+                                else if(pl.goldTai > 0){
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL +"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Thỏi vàng", "Cập nhập", "Đóng");
+                                } 
+                                else {
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL +"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Thỏi vàng", "Cập nhập", "Đóng");
+                                    }
+                                } else {
+                                    if(pl.goldTai==0 && pl.goldXiu==0){
+                                        createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                                "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                                + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+                                    } else if(pl.goldTai > 0){
+                                        createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                                "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                                + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL +"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Thỏi vàng" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+                                    } else {
+                                        createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI-XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                                "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                                + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL +"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Thỏi vàng" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+                                    }
+                            }
                         }
                     } else if (pl.iDMark.getIndexMenu() == 1) {
                         if (((ChonAiDay.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0) {
@@ -2823,49 +2982,67 @@ public class NpcFactory {
                             }
                         }
                     }else if (pl.iDMark.getIndexMenu() == 2) {
-                        if (((ChanLe.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0) {
+                       if (((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldTai==0 && pl.goldXiu==0 && TaiXiu.gI().baotri == false) {
                             switch (select) {
                                 case 0:
-                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z +
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL, "Cập nhập", "Theo TÀI", "Theo XỈU", "Đóng");
                                     break;
-                                case 1: {
-                                    try {
-                                        if (InventoryServiceNew.gI().findItemBag(pl, 457).isNotNullItem() && InventoryServiceNew.gI().findItemBag(pl, 457).quantity >= 20) {
-                                            InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, 457), 20);
-                                            InventoryServiceNew.gI().sendItemBags(pl);
-                                            pl.Le += 20;
-                                            ChanLe.gI().Le += 20;
-                                            ChanLe.gI().addPlayerChan(pl);
-                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
-                                        } else {
-                                            Service.gI().sendThongBao(pl, "Bạn không đủ thỏi vàng");
-
-                                        }
-                                    } catch (Exception ex) {
-                                        java.util.logging.Logger.getLogger(NpcFactory.class
-                                                .getName()).log(Level.SEVERE, null, ex);
+                                case 1:
+                                    if (TaskService.gI().getIdTask(pl) >= ConstTask.TASK_0_0){
+                                        Input.gI().TAI_taixiu(pl);
+                                    } else {
+                                        Service.getInstance().sendThongBao(pl, "Bạn chưa đủ điều kiện để chơi");
                                     }
-                                }
-                                break;
-
-                                case 2: {
-                                    try {
-                                        if (InventoryServiceNew.gI().findItemBag(pl, 457).isNotNullItem() && InventoryServiceNew.gI().findItemBag(pl, 457).quantity >= 20) {
-                                            InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, 457), 20);
-                                            InventoryServiceNew.gI().sendItemBags(pl);
-                                            pl.Chan += 20;
-                                            ChanLe.gI().Chan += 20;
-                                            ChanLe.gI().addPlayerLe(pl);
-                                    createOtherMenu(pl, 2, "Tổng giải Chẵn: " + ChanLe.gI().Chan + " thỏi vàng,\nTổng giải Lẽ: " + ChanLe.gI().Le + " thỏi vàng,\nSố thỏi vàng đặt Chẵn: " + pl.Chan + "\nSố thỏi vàng đặt Lẽ: " + pl.Le + "\n Thời gian còn lại: " + timeCL, "Cập nhập", "Đặt cược Lẽ \n20 thỏi\nvàng", "Đặt cược Chẵn \n20 thỏi\nvàng", "Đóng");
-                                        } else {
-                                            Service.gI().sendThongBao(pl, "Bạn không đủ thỏi vàng");
-                                        }
-                                    } catch (Exception ex) {
-//                                            java.util.logging.Logger.getLogger(NpcFactory.class.getName()).log(Level.SEVERE, null, ex);
+                                    break;
+                                case 2:
+                                    if (TaskService.gI().getIdTask(pl) >= ConstTask.TASK_0_0){
+                                        Input.gI().XIU_taixiu(pl);
+                                    } else {
+                                        Service.getInstance().sendThongBao(pl, "Bạn chưa đủ điều kiện để chơi");
                                     }
-                                }
-                                break;
-
+                                    break;
+                            }
+                        } else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldTai > 0 && TaiXiu.gI().baotri == false){
+                            switch (select) {
+                                case 0:
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL+"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Thỏi vàng", "Cập nhập", "Đóng");
+                                    break;
+                            }
+                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldXiu > 0 && TaiXiu.gI().baotri == false){
+                            switch (select) {
+                                case 0:
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL+"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + "Thỏi vàng", "Cập nhập", "Đóng");
+                                    break;
+                            }
+                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldTai > 0 && TaiXiu.gI().baotri == true){
+                            switch (select) {
+                                case 0:
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL+"\n\n|7|Bạn đã cược Tài : " + Util.format(pl.goldTai) + " Thỏi vàng" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+                                    break;
+                            }
+                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldXiu > 0 && TaiXiu.gI().baotri == true){
+                            switch (select) {
+                                case 0:
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " Thỏi vàng\n\n|5|Thời gian còn lại: " + timeCL+"\n\n|7|Bạn đã cược Xỉu : " + Util.format(pl.goldXiu) + " Thỏi vàng" + "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+                                    break;
+                            }
+                        }else if(((TaiXiu.gI().lastTimeEnd - System.currentTimeMillis()) / 1000) > 0 && pl.goldXiu == 0 && pl.goldTai == 0 && TaiXiu.gI().baotri == true){
+                            switch (select) {
+                                case 0:
+                                    createOtherMenu(pl, 2, "\n|7|---NHÀ CÁI TÀI XỈU---\n\n|3|Kết quả kì trước:  " + TaiXiu.gI().x + " : " +  TaiXiu.gI().y + " : " +  TaiXiu.gI().z + 
+                                            "\n\n|6|Tổng nhà TÀI: " + Util.format(TaiXiu.gI().goldTai) + " Thỏi vàng"
+                                            + "\n\nTổng nhà XỈU: " + Util.format(TaiXiu.gI().goldXiu) + " HThỏi vàng\n\n|5|Thời gian còn lại: " + timeCL+ "\n\n|7|Hệ thống sắp bảo trì", "Cập nhập", "Đóng");
+                                    break;
                             }
                         }
                     }

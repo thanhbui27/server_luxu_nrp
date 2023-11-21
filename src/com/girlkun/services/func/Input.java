@@ -54,9 +54,14 @@ public class Input {
 
     public static final int QUY_DOI_COIN = 508;
     public static final int QUY_DOI_HONG_NGOC = 509;
-
+    
+    
     public static final int TAI = 510;
     public static final int XIU = 511;
+    
+    public static final int XIU_taixiu = 517;
+    public static final int TAI_taixiu = 516;
+    
     public static final int SEND_ITEM = 512;
     public static final int SEND_ITEM_OP = 513;
     public static final int SEND_ITEM_SKH = 514;
@@ -162,7 +167,75 @@ public class Input {
                     }
                 }
                 break;
+                case TAI_taixiu:
+                    int sotvxiu1 = Integer.valueOf(text[0]);
+                    try {
+                       if (sotvxiu1 >= 10 && sotvxiu1 <= 1000) {
+                            Item tv1 = null;
+                                for (Item item : player.inventory.itemsBag) {
+                                    if (item.isNotNullItem() && item.template.id == 457) {
+                                        tv1 = item;
+                                        break;
+                                    }
+                                }
+                            if (tv1 != null && tv1.quantity >= sotvxiu1) {
+                                InventoryServiceNew.gI().subQuantityItemsBag(player, tv1, sotvxiu1);
+                                InventoryServiceNew.gI().sendItemBags(player);
+                                player.goldTai += sotvxiu1;
+                                //player.taixiu.toptaixiu += sotvxiu1;
+                                TaiXiu.gI().goldTai += sotvxiu1;
+                                Service.gI().sendThongBao(player, "Bạn đã đặt " + Util.format(sotvxiu1) + " Thỏi vàng vào TÀI");
+                                TaiXiu.gI().addPlayerTai(player);
+                                InventoryServiceNew.gI().sendItemBags(player);
+                                Service.getInstance().sendMoney(player);
+                                PlayerDAO.updatePlayer(player);
+                            } else {
+                                Service.gI().sendThongBao(player, "Bạn không đủ Hồng ngọc để chơi.");
+                            }
+                        } else {
+                            Service.gI().sendThongBao(player, "Cược ít nhất 10.000 Hồng ngọc.");
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Service.gI().sendThongBao(player, "Lỗi.");
+                        System.out.println("nnnnn2  ");
+                    }
+                    break;
 
+                case XIU_taixiu:
+                    int sotvxiu2 = Integer.valueOf(text[0]);
+                    try {
+                        if (sotvxiu2 >= 10 && sotvxiu2 <= 1000) {
+                            Item tv1 = null;
+                                for (Item item : player.inventory.itemsBag) {
+                                    if (item.isNotNullItem() && item.template.id == 457) {
+                                        tv1 = item;
+                                        break;
+                                    }
+                                }
+                                if (tv1 != null && tv1.quantity >= sotvxiu2) {
+                                InventoryServiceNew.gI().subQuantityItemsBag(player, tv1, sotvxiu2);
+                                InventoryServiceNew.gI().sendItemBags(player);
+                                player.goldXiu += sotvxiu2;
+                                //player.taixiu.toptaixiu += sotvxiu2;
+                                TaiXiu.gI().goldXiu += sotvxiu2;
+                                Service.gI().sendThongBao(player, "Bạn đã đặt " + Util.format(sotvxiu2) + "Thỏi vàng vào XỈU");
+                                TaiXiu.gI().addPlayerXiu(player);
+                                InventoryServiceNew.gI().sendItemBags(player);
+                                Service.getInstance().sendMoney(player);
+                                PlayerDAO.updatePlayer(player);
+                            } else {
+                                Service.gI().sendThongBao(player, "Bạn không đủ Thỏi vàng để chơi.");
+                            }
+                        } else {
+                            Service.gI().sendThongBao(player, "Cược ít nhất 10 - 1.000 Thỏi vàng ");
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Service.gI().sendThongBao(player, "Lỗi.");
+                        System.out.println("nnnnn2  ");
+                    }
+                    break;
                 case TAI:
                     if (player != null) {
                         int sotvtai = Integer.valueOf(text[0]);
@@ -579,7 +652,16 @@ public class Input {
     public void XIU(Player pl) {
         createForm(pl, XIU, "Chọn số thỏi vàng đặt tài", new SubInput("Số thỏi vàng", ANY));
     }
+    
+    
+    public void TAI_taixiu(Player pl) {
+        createForm(pl, TAI_taixiu, "Chọn số Thỏi vàng đặt Tài", new SubInput("Số Thỏi vàng cược", ANY));//????
+    }
 
+    public void XIU_taixiu(Player pl) {
+        createForm(pl, XIU_taixiu, "Chọn số Thỏi vàng đặt Xỉu", new SubInput("Số Thỏi vàng cược", ANY));//????
+    }
+    
     public void createFormNapThe(Player pl, String loaiThe, String menhGia) {
         LOAI_THE = loaiThe;
         MENH_GIA = menhGia;
