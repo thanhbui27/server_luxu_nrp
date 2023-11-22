@@ -4503,17 +4503,21 @@ public class NpcFactory {
                                 case 0:
                                     this.createOtherMenu(player, 1,
                                             "|7|Cần Khỉ Lv1 để nâng cấp lên lv\b|2|Mỗi lần nâng cấp tiếp thì mỗi cấp cần thêm 10 đá ngũ sắc",
-                                            "Khỉ\ncấp 2",
-                                            "Khỉ\ncấp 3",
-                                            "Khỉ\ncấp 4",
-                                            "Khỉ\ncấp 5",
+                                            "Khỉ cấp 2 \n tỷ lệ thành công 70%",
+                                            "Khỉ\ncấp 3 \n tỷ lệ thành công 50%",
+                                            "Khỉ\ncấp 4 \n tỷ lệ thành công 30%",
+                                            "Khỉ\ncấp 5 \n tỷ lệ thành công 10%",                                            
+                                            "Khỉ\ncấp 6 \n tỷ lệ thành công 7%",
+                                            "Khỉ\ncấp 7 \n tỷ lệ thành công 3%",
+
+
                                             "Từ chối");
                                     break;
                                 case 1: //shop
                                     ShopServiceNew.gI().opendShop(player, "KHI", false);
                                     break;
                             }
-                        } else if (player.iDMark.getIndexMenu() == 1) { // action đổi dồ húy diệt
+                        } else if (player.iDMark.getIndexMenu() == 1) { 
                             switch (select) {
                                 case 0: // trade
                                 try {
@@ -4523,25 +4527,31 @@ public class NpcFactory {
                                     if (dns != null) {
                                         soLuong = dns.quantity;
                                     }
-                                    for (int i = 0; i < 12; i++) {
-                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2100 + i);
-
-                                        if (InventoryServiceNew.gI().isExistItemBag(player, 2100 + i) && soLuong >= 20) {
-                                            CombineServiceNew.gI().khilv2(player, 2101 + i);
+                                   
+                                    if (klv1 != null && soLuong >= 20) {
+                                          if(Util.isTrue(70, 100)){
+                                            CombineServiceNew.gI().khilv2(player, 2101);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 20);
-                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv1, 1);
+                                            InventoryServiceNew.gI().sendItemBags(player);
                                             this.npcChat(player, "Upgrede Thành Công!");
-
                                             break;
-                                        } else {
-                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 1 với 20 đá ngũ sắc");
-                                        }
-
-                                    }
+                                            }else {
+                                                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 20);
+                                                 InventoryServiceNew.gI().sendItemBags(player);
+                                                this.npcChat(player, "Chúc may mắn lần sau");
+                                             break;
+                                          }
+                                     } else {
+                                        this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 1 với 20 đá ngũ sắc");
+                                        break;
+                                     }
+                                    
+                                  
                                 } catch (Exception e) {
 
                                 }
-                                break;
+                                
                                 case 1: // trade
                                 try {
                                     Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
@@ -4550,21 +4560,24 @@ public class NpcFactory {
                                     if (dns != null) {
                                         soLuong = dns.quantity;
                                     }
-                                    for (int i = 0; i < 12; i++) {
-                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2101 + i);
-
-                                        if (InventoryServiceNew.gI().isExistItemBag(player, 2101 + i) && soLuong >= 30) {
-                                            CombineServiceNew.gI().khilv3(player, 2102 + i);
+                                    if (klv2 != null  && soLuong >= 30) {
+                                          if(Util.isTrue(50, 100)){
+                                            CombineServiceNew.gI().khilv3(player, 2102);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 30);
-                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv2, 1);
+                                             InventoryServiceNew.gI().sendItemBags(player);
                                             this.npcChat(player, "Upgrede Thành Công!");
-
                                             break;
-                                        } else {
-                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 2 với 30 đá ngũ sắc");
-                                        }
-
-                                    }
+                                            }else {
+                                                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 30);
+                                                 InventoryServiceNew.gI().sendItemBags(player);
+                                                this.npcChat(player, "Chúc may mắn lần sau");
+                                             break;
+                                          }
+                                     } else {
+                                        this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 2 với 30 đá ngũ sắc");
+                                        break;
+                                     }
                                 } catch (Exception e) {
 
                                 }
@@ -4577,21 +4590,24 @@ public class NpcFactory {
                                     if (dns != null) {
                                         soLuong = dns.quantity;
                                     }
-                                    for (int i = 0; i < 12; i++) {
-                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2102 + i);
-
-                                        if (InventoryServiceNew.gI().isExistItemBag(player, 2102 + i) && soLuong >= 40) {
-                                            CombineServiceNew.gI().khilv4(player, 2103 + i);
+                                    if (klv3 != null  && soLuong >= 40) {
+                                          if(Util.isTrue(30, 100)){
+                                            CombineServiceNew.gI().khilv4(player, 2103);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 40);
-                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv3, 1);
+                                             InventoryServiceNew.gI().sendItemBags(player);
                                             this.npcChat(player, "Upgrede Thành Công!");
-
                                             break;
-                                        } else {
-                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 3 với 40 đá ngũ sắc");
-                                        }
-
-                                    }
+                                            }else {
+                                                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 40);
+                                                 InventoryServiceNew.gI().sendItemBags(player);
+                                                this.npcChat(player, "Chúc may mắn lần sau");
+                                             break;
+                                          }
+                                     } else {
+                                        this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 3 với 40 đá ngũ sắc");
+                                        break;
+                                     }
                                 } catch (Exception e) {
 
                                 }
@@ -4604,28 +4620,31 @@ public class NpcFactory {
                                     if (dns != null) {
                                         soLuong = dns.quantity;
                                     }
-                                    for (int i = 0; i < 12; i++) {
-                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2103 + i);
-
-                                        if (InventoryServiceNew.gI().isExistItemBag(player, 2103 + i) && soLuong >= 50) {
-                                            CombineServiceNew.gI().khilv5(player, 2104 + i);
+                                    if (klv4 != null  && soLuong >= 50) {
+                                          if(Util.isTrue(10, 100)){
+                                            CombineServiceNew.gI().khilv5(player, 2104);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 50);
-                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv4, 1);
+                                             InventoryServiceNew.gI().sendItemBags(player);
                                             this.npcChat(player, "Upgrede Thành Công!");
-
                                             break;
-                                        } else {
-                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 4 với 50 đá ngũ sắc");
-                                        }
-
-                                    }
+                                            }else {
+                                                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 50);
+                                                 InventoryServiceNew.gI().sendItemBags(player);
+                                                this.npcChat(player, "Chúc may mắn lần sau");
+                                             break;
+                                          }
+                                     } else {
+                                        this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 4 với 50 đá ngũ sắc");
+                                        break;
+                                     }
                                 } catch (Exception e) {
 
                                 }
                                 break;
 
                                
-                                    case 4: // trade
+                                case 4: // trade
                                 try {
                                     Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
                                     Item klv5 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2104);
@@ -4633,21 +4652,24 @@ public class NpcFactory {
                                     if (dns != null) {
                                         soLuong = dns.quantity;
                                     }
-                                    for (int i = 0; i < 12; i++) {
-                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2104 + i);
-
-                                        if (InventoryServiceNew.gI().isExistItemBag(player, 2104 + i) && soLuong >= 60) {
-                                            CombineServiceNew.gI().khilv6(player, 2105 + i);
+                                    if (klv5 != null  && soLuong >= 60) {
+                                          if(Util.isTrue(7, 100)){
+                                            CombineServiceNew.gI().khilv6(player, 2105);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 60);
-                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv5, 1);
+                                             InventoryServiceNew.gI().sendItemBags(player);
                                             this.npcChat(player, "Upgrede Thành Công!");
-
                                             break;
-                                        } else {
-                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 5 với 60 đá ngũ sắc");
-                                        }
-
-                                    }
+                                            }else {
+                                                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 60);
+                                                 InventoryServiceNew.gI().sendItemBags(player);
+                                                this.npcChat(player, "Chúc may mắn lần sau");
+                                             break;
+                                          }
+                                     } else {
+                                        this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 5 với 60 đá ngũ sắc");
+                                        break;
+                                     }
                                 } catch (Exception e) {
 
                                 }
@@ -4655,26 +4677,29 @@ public class NpcFactory {
                                    case 5: // trade
                                 try {
                                     Item dns = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 674);
-                                    Item klv6 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2104);
+                                    Item klv6 = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2105);
                                     int soLuong = 0;
                                     if (dns != null) {
                                         soLuong = dns.quantity;
                                     }
-                                    for (int i = 0; i < 12; i++) {
-                                        Item klv = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 2104 + i);
-
-                                        if (InventoryServiceNew.gI().isExistItemBag(player, 2104 + i) && soLuong >= 70) {
-                                            CombineServiceNew.gI().khilv7(player, 2105 + i);
+                                    if (klv6 != null  && soLuong >= 70) {
+                                          if(Util.isTrue(3, 100)){
+                                            CombineServiceNew.gI().khilv7(player, 2106);
                                             InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 70);
-                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv, 1);
+                                            InventoryServiceNew.gI().subQuantityItemsBag(player, klv6, 1);
+                                             InventoryServiceNew.gI().sendItemBags(player);
                                             this.npcChat(player, "Upgrede Thành Công!");
-
                                             break;
-                                        } else {
-                                            this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 6 với 70 đá ngũ sắc");
-                                        }
-
-                                    }
+                                            }else {
+                                                InventoryServiceNew.gI().subQuantityItemsBag(player, dns, 70);
+                                                 InventoryServiceNew.gI().sendItemBags(player);
+                                                this.npcChat(player, "Chúc may mắn lần sau");
+                                             break;
+                                          }
+                                     } else {
+                                        this.npcChat(player, "Yêu cầu cần cái trang khỉ cấp 6 với 70 đá ngũ sắc");
+                                        break;
+                                     }
                                 } catch (Exception e) {
 
                                 }

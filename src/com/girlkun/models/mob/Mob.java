@@ -185,7 +185,7 @@ public class Mob {
         }
         tiemNang = (int) pl.nPoint.calSucManhTiemNang(tiemNang);
         if (pl.zone.map.mapId == 122 || pl.zone.map.mapId == 123 || pl.zone.map.mapId == 124 || pl.zone.map.mapId == 135 || pl.zone.map.mapId == 136 || pl.zone.map.mapId == 137 || pl.zone.map.mapId == 138) {
-            tiemNang *= 100;
+            tiemNang *= 10;
         }
         return tiemNang;
     }
