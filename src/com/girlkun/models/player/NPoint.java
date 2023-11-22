@@ -1299,9 +1299,10 @@ public class NPoint {
                 }
             }
             if (MapService.gI().isnguhs(this.player.zone.map.mapId)) {
-                tiemNang *= 10;
-         }          if (MapService.gI().isMapBanDoKhoBau(this.player.zone.map.mapId)) {
-               tiemNang *= 20;
+                tiemNang *= 3;
+            }          
+            if (MapService.gI().isMapBanDoKhoBau(this.player.zone.map.mapId)) {
+               tiemNang *= 2;
            }
             tiemNang *= Manager.RATE_EXP_SERVER;
             tiemNang = 10;
@@ -1315,9 +1316,9 @@ public class NPoint {
         } else if (power >= 100000000000L) {
             tiemNang /= 5000;
         } else if (power >= 90000000000L) {
-            tiemNang -= ((long) tiemNang * 75 / 100);
+            tiemNang -= ((long) tiemNang * 95 / 100);
         } else if (power >= 80000000000L) {
-            tiemNang -= ((long) tiemNang * 69 / 100);
+            tiemNang -= ((long) tiemNang * 90 / 100);
         }
         return tiemNang;
     }
