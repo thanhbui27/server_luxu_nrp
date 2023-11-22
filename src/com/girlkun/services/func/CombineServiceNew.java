@@ -1811,9 +1811,32 @@ public class CombineServiceNew {
         InventoryServiceNew.gI().addItemBag(player, item);
         InventoryServiceNew.gI().sendItemBags(player);
     }
-      
-    
-    private void doiKiemThan(Player player) {
+       public void khilv6(Player player, int id) {
+        Item item = ItemService.gI().createNewItem((short) id);
+        item.itemOptions.add(new ItemOption(50, 45));//sd
+        item.itemOptions.add(new ItemOption(77, 45));//hp
+        item.itemOptions.add(new ItemOption(103, 45));//ki
+     //   item.itemOptions.add(new ItemOption(14, 80));//cm
+        item.itemOptions.add(new ItemOption(5, 30));//sd cm
+     //   item.itemOptions.add(new ItemOption(106, 0));
+        item.itemOptions.add(new ItemOption(30, 1));
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
+     public void khilv7(Player player, int id) {
+        Item item = ItemService.gI().createNewItem((short) id);
+        item.itemOptions.add(new ItemOption(50, 50));//sd
+        item.itemOptions.add(new ItemOption(77, 50));//hp
+        item.itemOptions.add(new ItemOption(103, 50));//ki
+     //   item.itemOptions.add(new ItemOption(14, 80));//cm
+        item.itemOptions.add(new ItemOption(5, 35));//sd cm
+     //   item.itemOptions.add(new ItemOption(106, 0));
+        item.itemOptions.add(new ItemOption(30, 1));
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
+   
+     private void doiKiemThan(Player player) {
         if (player.combineNew.itemsCombine.size() == 3) {
             Item keo = null, luoiKiem = null, chuoiKiem = null;
             for (Item it : player.combineNew.itemsCombine) {
