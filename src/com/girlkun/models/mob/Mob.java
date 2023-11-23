@@ -616,13 +616,13 @@ public class Mob {
             }
         }
         if (player.isWearGod() && MapService.gI().isMapCold(player.zone.map.mapId)) {
-                if (Util.isTrue(30, 100)) {       
+                if (Util.isTrue(15, 100)) {       
                     list.add(new ItemMap(zone, ArrietyDrop.list_thuc_an[Util.nextInt(0, (ArrietyDrop.list_thuc_an.length - 1))],1,x,player.location.y,player.id));
 
                }
          }
         if(this.zone.map.mapId == 155 && player.isWearHD()){
-                if (Util.isTrue(30, 100) ) {
+                if (Util.isTrue(15, 100) ) {
                      list.add(new ItemMap(zone, Util.nextInt(1066, 1070),1,x,player.location.y,player.id));
      
                 }          

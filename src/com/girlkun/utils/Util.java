@@ -477,13 +477,20 @@ public class Util {
     
     public static ItemMap caitrang2011(Zone zone, int tempId, int quantity, int x, int y, long playerId, boolean rating) {
         ItemMap item = new ItemMap(zone, tempId, quantity, x, zone.map.yPhysicInTop(x, y - 24), playerId);       
-        item.options.add(new Item.ItemOption(77, 45));//hp 28%
-        item.options.add(new Item.ItemOption(103, 45));//ki 25%
-        item.options.add(new Item.ItemOption(147, 45));//sd 26%
-        item.options.add(new Item.ItemOption(117, 45));//Đẹp + 18% sd
-        item.options.add(new Item.ItemOption(76, 1));//VIP
-        if (Util.isTrue(995, 1000)&& rating ) {// tỉ lệ ra hsd
+       
+        if (Util.isTrue(997, 1000)&& rating ) {// tỉ lệ ra hsd
+            item.options.add(new Item.ItemOption(77, Util.nextInt(25, 35)+ 1 ));//hp 28%
+            item.options.add(new Item.ItemOption(103, Util.nextInt(25, 35) + 1));//ki 25%
+            item.options.add(new Item.ItemOption(147, Util.nextInt(25, 35)+1) );//sd 26%
+            item.options.add(new Item.ItemOption(117, Util.nextInt(25, 35)+1));//Đẹp + 18% sd
+            item.options.add(new Item.ItemOption(76, 1));//VIP
             item.options.add(new Item.ItemOption(93, new Random().nextInt(3) + 1));//hsd
+        }else{
+            item.options.add(new Item.ItemOption(77, 45));//hp 28%
+            item.options.add(new Item.ItemOption(103, 45));//ki 25%
+            item.options.add(new Item.ItemOption(147, 45));//sd 26%
+            item.options.add(new Item.ItemOption(117, 45));//Đẹp + 18% sd
+            item.options.add(new Item.ItemOption(76, 1));//VIP
         }
         return item;
     }

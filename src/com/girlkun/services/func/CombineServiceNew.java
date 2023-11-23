@@ -2072,7 +2072,7 @@ public class CombineServiceNew {
                     }
                 }
             if(itemCMT != null && itemCMT.quantity >= 1){
-                 if(Util.isTrue(20, 100)){
+                 if(Util.isTrue(10, 100)){
                     int skhId = itemSKH.itemOptions.get(1).optionTemplate.id;
                     itemTS.itemOptions.add(new Item.ItemOption(skhId, 1));
                     itemTS.itemOptions.add(new Item.ItemOption(ItemService.gI().optionIdSKH(skhId), 1));
@@ -2084,7 +2084,7 @@ public class CombineServiceNew {
                      sendEffectFailCombine(player);
                  }
             }else{
-                if(Util.isTrue(20, 100)){
+                if(Util.isTrue(10, 100)){
                      int skhId = itemSKH.itemOptions.get(1).optionTemplate.id;
                     itemTS.itemOptions.add(new Item.ItemOption(skhId, 1));
                     itemTS.itemOptions.add(new Item.ItemOption(ItemService.gI().optionIdSKH(skhId), 1));
@@ -3838,15 +3838,15 @@ public class CombineServiceNew {
             case 2:
                 return 60f; 
             case 3:
-                return 50f; 
-            case 4:
                 return 40f; 
+            case 4:
+                return 30f; 
             case 5:
-                return 25f; 
+                return 15f; 
             case 6:
-                return 10f; 
+                return 7f; 
             case 7:
-                return 5f; 
+                return 3f; 
             case 8:
                 return 1f; 
 
