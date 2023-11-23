@@ -408,7 +408,7 @@ public class NpcFactory {
             public void openBaseMenu(Player player) {
                 if (canOpenNpc(player)) {
                     if (!TaskService.gI().checkDoneTaskTalkNpc(player, this)) {
-                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "|1| Sự Kiện Kho Báu Dưới Biển\n Đi Kho Báu Dưới Biển Tỉ Lệ Rơi Vật Phẩm Để Đổi", "Giải tán bang hội","Lãnh địa Bang Hội", "Kho báu dưới biển", "Tang hoa hong");
+                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "|1| Sự Kiện Kho Báu Dưới Biển\n Đi Kho Báu Dưới Biển Tỉ Lệ Rơi Vật Phẩm Để Đổi", "Giải tán bang hội","Lãnh địa Bang Hội", "Kho báu dưới biển");
                     }
                 }
             }
@@ -491,104 +491,9 @@ public class NpcFactory {
                                         break;
                                     }
                                     Input.gI().createFormChooseLevelBDKB(player);
-                                    break;
-                                case 3 : 
-                                      createOtherMenu(player, ConstNpc.TANG_HOA,
-                                                "ồ con muốn tặng hoa cho ta à \n"
-                                               + "Con đang có " + player.pointEvent + " Điểm"
-                                                , "Đổi x99 bông\n lấy bó hoa hồng","Đôi 10 bó hoa đỏ","Đổi x199 bông + 1 bó hoa đỏ \n lấy bó hoa vàng","Đổi 10 bó hoa vàng", "xem top sự kiện", "Hướng dẫn");
-                                        break;
+                                    break;                              
                             }
-                            break;
-                            
-                        case ConstNpc.TANG_HOA : 
-                            if(select == 0){
-                               Item it = InventoryServiceNew.gI().findItemBag(player, 589);
-                               if(it != null){
-                                   if(it.quantity < 99){
-                                        Service.gI().sendThongBao(player, "không đủ x99 bông hoa");
-                                        return;
-                                   }
-                                        Item bohoahong = ItemService.gI().createNewItem((short) 2096);
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, it, 99);
-                                        InventoryServiceNew.gI().addItemBag(player, bohoahong);
-                                        InventoryServiceNew.gI().sendItemBags(player);
-                                        Service.gI().sendThongBao(player, "Bạn nhận được bó hoa đỏ");
-                                   
-                               }else {
-                                    Service.gI().sendThongBao(player, "Con không có bông hoa nào");
-                               }
-                            }
-                            if(select == 1){
-                               Item it = InventoryServiceNew.gI().findItemBag(player, 589);
-                               if(it != null){
-                                   if(it.quantity < 999){
-                                        Service.gI().sendThongBao(player, "không đủ x999 bông hoa");
-                                        return;
-                                   }
-                                        Item bohoahong = ItemService.gI().createNewItem((short) 2096,10);
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, it, 999);
-                                        
-                                       InventoryServiceNew.gI().addItemBag(player, bohoahong);
-                                       InventoryServiceNew.gI().sendItemBags(player);                      
-                   
-                                        Service.gI().sendThongBao(player, "Bạn nhận được bó hoa đỏ");
-                                   
-                               }else {
-                                    Service.gI().sendThongBao(player, "Con không có bông hoa nào");
-                               }
-                            }
-                            if(select == 2){
-                                 Item it1 = InventoryServiceNew.gI().findItemBag(player, 589);                                 
-                                 Item it2 = InventoryServiceNew.gI().findItemBag(player, 2096);
-                               if(it1 != null && it2 != null){
-                                   if(it1.quantity < 199 || it2.quantity < 0){
-                                        Service.gI().sendThongBao(player, "không đủ x199 bông hoa");
-                                        return;
-                                   }
-                                        Item bohoahong = ItemService.gI().createNewItem((short) 2097);                                                                              
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, it1, 199);                                        
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, it2, 1);
-
-                                        InventoryServiceNew.gI().addItemBag(player, bohoahong);
-                                        InventoryServiceNew.gI().sendItemBags(player);
-                                        Service.gI().sendThongBao(player, "Bạn nhận được bó hoa vàng");
-                                   
-                               }else {
-                                    Service.gI().sendThongBao(player, "Con không có bông hoa nào hoặc bó hoa nào");
-                               }
-                            }
-                             if(select == 3){
-                                 Item it1 = InventoryServiceNew.gI().findItemBag(player, 589);                                 
-                                 Item it2 = InventoryServiceNew.gI().findItemBag(player, 2096);
-                               if(it1 != null && it2 != null){
-                                   if(it1.quantity < 1999 || it2.quantity < 10){
-                                        Service.gI().sendThongBao(player, "không đủ x1999 bông hoa hoặc không đủ 10 bông hoa hồng");
-                                        return;
-                                   }
-                                        Item bohoahong = ItemService.gI().createNewItem((short) 2097,10); 
-                                        
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, it1, 1999);                                        
-                                        InventoryServiceNew.gI().subQuantityItemsBag(player, it2, 10);
-                                       
-                                        InventoryServiceNew.gI().addItemBag(player, bohoahong);
-                                        InventoryServiceNew.gI().sendItemBags(player);
-
-                                                                           
-                                       
-                                        Service.gI().sendThongBao(player, "Bạn nhận được bó hoa vàng");
-                                   
-                               }else {
-                                    Service.gI().sendThongBao(player, "Con không có bông hoa nào hoặc bó hoa nào");
-                               }
-                            }
-                            if(select == 4){
-                                   Service.gI().showListTop(player, Manager.tangHoa);
-                            }
-                             if(select == 5){
-                                
-                            }
-                            break;
+                            break;                                               
                             
                         case ConstNpc.MENU_OPENED_DBKB:
                             if (select == 0) {

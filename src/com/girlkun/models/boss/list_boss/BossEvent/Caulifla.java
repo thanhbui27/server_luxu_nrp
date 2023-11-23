@@ -26,15 +26,13 @@ public class Caulifla extends Boss {
      @Override
     public void reward(Player plKill) {
         if (Util.isTrue(30, 100)) {
-            Service.gI().dropItemMap(this.zone, Util.caitrang2011(zone, 680, 1, this.location.x, this.location.y, plKill.id, true));        
+            Service.gI().dropItemMap(this.zone, Util.caitrang2011(zone, 680, 1, this.location.x, this.location.y, plKill.id, true,plKill.isAdmin()));        
         } 
          if (Util.isTrue(30, 100)) {
             ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
-        }
-          plKill.pointEvent +=10;
-          Service.gI().sendThongBao(plKill, " Bạn nhận được 10 điểm");
+        }         
     }
     @Override
     public void active() {

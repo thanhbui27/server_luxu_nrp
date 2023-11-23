@@ -634,12 +634,7 @@ public class Mob {
            
         }
               
-      
-        // roi hoa
-        if(Util.isTrue(10,100)){
-            list.add(new ItemMap(zone, 589,1,x,player.location.y,player.id));
-        }
-        
+
         int[] listnro = {18,19,20};
         if(this.tempId > 0 && Util.isTrue(20,100)){
             list.add(new ItemMap(zone, listnro[Util.nextInt(0, listnro.length - 1)],1,x,player.location.y,player.id));
