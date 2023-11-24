@@ -1293,36 +1293,54 @@ public class NPoint {
                 tiemNang = 1;
             }
         } else {
-            if (this.player.isPet) {
-                if (this.player.isPet && ((Pet) this.player).itemTime.isUseItemDeTu) {
-                    tiemNang *= 2;
-                }
-            }
-            if (MapService.gI().isnguhs(this.player.zone.map.mapId)) {
-                tiemNang *= 3;
-            }          
-            if (MapService.gI().isMapBanDoKhoBau(this.player.zone.map.mapId)) {
-               tiemNang *= 2;
-           }
-            tiemNang *= Manager.RATE_EXP_SERVER;
+//            if (this.player.isPet) {
+//                if (this.player.isPet && ((Pet) this.player).itemTime.isUseItemDeTu) {
+//                    tiemNang *= 2;
+//                }
+//            }
+//            if (MapService.gI().isnguhs(this.player.zone.map.mapId)) {
+//                tiemNang *= 2;
+//            }          
+//            if (MapService.gI().isMapBanDoKhoBau(this.player.zone.map.mapId)) {
+//               tiemNang *= 2;
+//           }
+//            tiemNang *= Manager.RATE_EXP_SERVER;
             tiemNang = 10;
         }
         return tiemNang;
     }
 
-    public long calSubTNSM(long tiemNang) {
-        if (power >= 110000000000L) {
-            tiemNang /= 10000;
-        } else if (power >= 100000000000L) {
-            tiemNang /= 5000;
-        } else if (power >= 90000000000L) {
-            tiemNang -= ((long) tiemNang * 95 / 100);
-        } else if (power >= 80000000000L) {
+//    public long calSubTNSM(long tiemNang) {
+//        if (power >= 110000000000L) {
+//            tiemNang /= 7000;
+//        } else if (power >= 100000000000L) {
+//            tiemNang /= 3000;
+//        } else if (power >= 90000000000L) {
+//            tiemNang -= ((long) tiemNang * 95 / 100);
+//        } else if (power >= 80000000000L) {
+//            tiemNang -= ((long) tiemNang * 90 / 100);
+//        }
+//        return tiemNang;
+//    }
+    
+     public long calSubTNSM(long tiemNang) {
+
+        if (tiemNang >= 2_000_000_000L) {
+            tiemNang = 2_000_000_000L;
+        }
+        if (power >= 80_000_000_000L && power < 120_000_000_000L) {
+            tiemNang -= ((long) tiemNang * 20 / 100);
+        }
+        if (power >= 120_000_000_000L && power < 200_000_000_000L) {
+            tiemNang -= ((long) tiemNang * 40 / 100);
+        }
+        if (power >= 200_000_000_000L) {
             tiemNang -= ((long) tiemNang * 90 / 100);
         }
+
         return tiemNang;
     }
-
+     
     public void subHP2(double sub) {
         this.hp -= sub;
 //        System.out.println("Hp đã trừ " + sub);

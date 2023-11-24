@@ -149,8 +149,13 @@ public class Mob {
             } else {
                 this.sendMobStillAliveAffterAttacked(damage, plAtt != null ? plAtt.nPoint.isCrit : false);
             }
-            if (plAtt != null) {
+//            if (plAtt != null) {
+//                Service.gI().addSMTN(plAtt, (byte) 2, getTiemNangForPlayer(plAtt, damage), true);
+//            }
+            if (plAtt != null && plAtt.nPoint.power < 210999999999L) {
                 Service.gI().addSMTN(plAtt, (byte) 2, getTiemNangForPlayer(plAtt, damage), true);
+            }else {
+                Service.gI().addSMTN(plAtt, (byte) 2, 0, true);
             }
         }
     }
@@ -158,7 +163,7 @@ public class Mob {
     public long getTiemNangForPlayer(Player pl, long dame) {
         int levelPlayer = Service.gI().getCurrLevel(pl);
         int n = levelPlayer - this.level;
-        long pDameHit = dame * 100 / point.getHpFull();
+        long pDameHit = dame * 5 / point.getHpFull();
         long tiemNang = pDameHit * maxTiemNang / 100;
         if (tiemNang <= 0) {
             tiemNang = 1;
@@ -184,9 +189,18 @@ public class Mob {
             tiemNang = 1;
         }
         tiemNang = (int) pl.nPoint.calSucManhTiemNang(tiemNang);
-        if (pl.zone.map.mapId == 122 || pl.zone.map.mapId == 123 || pl.zone.map.mapId == 124 || pl.zone.map.mapId == 135 || pl.zone.map.mapId == 136 || pl.zone.map.mapId == 137 || pl.zone.map.mapId == 138) {
-            tiemNang *= 3;
+//        if (pl.zone.map.mapId == 122 || pl.zone.map.mapId == 123 || pl.zone.map.mapId == 124 || pl.zone.map.mapId == 135 || pl.zone.map.mapId == 136 || pl.zone.map.mapId == 137 || pl.zone.map.mapId == 138) {
+//            tiemNang *= 2;
+//        }
+        if (pl.nPoint.power >= 210999999999L) {
+            tiemNang = 0;
         }
+        if (pl.zone.map.mapId == 122 || pl.zone.map.mapId == 123 || pl.zone.map.mapId == 124 || pl.zone.map.mapId == 135 || pl.zone.map.mapId == 136 || pl.zone.map.mapId == 137 || pl.zone.map.mapId == 138) {
+            tiemNang *= 5;
+        }
+//        if (pl.zone.map.mapId == 189 || pl.zone.map.mapId == 190 || pl.zone.map.mapId == 191) {
+//            tiemNang = 0;
+//        }
         return tiemNang;
     }
 
