@@ -1332,10 +1332,10 @@ public class NPoint {
             tiemNang -= ((long) tiemNang * 20 / 100);
         }
         if (power >= 120_000_000_000L && power < 200_000_000_000L) {
-            tiemNang -= ((long) tiemNang * 40 / 100);
+            tiemNang -= ((long) tiemNang * 80 / 100);
         }
         if (power >= 200_000_000_000L) {
-            tiemNang -= ((long) tiemNang * 90 / 100);
+            tiemNang -= ((long) tiemNang * 98 / 100);
         }
 
         return tiemNang;

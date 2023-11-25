@@ -163,7 +163,13 @@ public class Mob {
     public long getTiemNangForPlayer(Player pl, long dame) {
         int levelPlayer = Service.gI().getCurrLevel(pl);
         int n = levelPlayer - this.level;
-        long pDameHit = dame * 5 / point.getHpFull();
+        long pDameHit;
+        if(pl.isPet){
+            pDameHit  = dame * 70 / point.getHpFull();
+        }else{
+            pDameHit = dame * 5 / point.getHpFull();
+        }
+       
         long tiemNang = pDameHit * maxTiemNang / 100;
         if (tiemNang <= 0) {
             tiemNang = 1;
