@@ -165,7 +165,7 @@ public class Mob {
         int n = levelPlayer - this.level;
         long pDameHit;
         if(pl.isPet){
-            pDameHit  = dame * 70 / point.getHpFull();
+            pDameHit  = dame * 30 / point.getHpFull();
         }else{
             pDameHit = dame * 5 / point.getHpFull();
         }
