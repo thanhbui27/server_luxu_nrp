@@ -438,12 +438,12 @@ public class GodGK {
                             int timeAnDanh = Integer.parseInt(String.valueOf(dataArray.get(4)));
                             int timeOpenPower = Integer.parseInt(String.valueOf(dataArray.get(5)));
                             int timeMayDo = Integer.parseInt(String.valueOf(dataArray.get(6)));
-                            int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(7)));
-                            int timeMeal = Integer.parseInt(String.valueOf(dataArray.get(8)));
-                            int iconMeal = Integer.parseInt(String.valueOf(dataArray.get(9)));
+                            //int timeMayDo2 = Integer.parseInt(String.valueOf(dataArray.get(7)));
+                            int timeMeal = Integer.parseInt(String.valueOf(dataArray.get(7)));
+                            int iconMeal = Integer.parseInt(String.valueOf(dataArray.get(8)));
                             int timeUseTDLT = 0;
-                            if (dataArray.size() == 11) {
-                                timeUseTDLT = Integer.parseInt(String.valueOf(dataArray.get(10)));
+                            if (dataArray.size() == 10) {
+                                timeUseTDLT = Integer.parseInt(String.valueOf(dataArray.get(9)));
                             }
 
                             player.itemTime.lastTimeBoHuyet = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeBoHuyet);
@@ -453,7 +453,7 @@ public class GodGK {
                             player.itemTime.lastTimeAnDanh = System.currentTimeMillis() - (ItemTime.TIME_ITEM - timeAnDanh);
                             player.itemTime.lastTimeOpenPower = System.currentTimeMillis() - (ItemTime.TIME_OPEN_POWER - timeOpenPower);
                             player.itemTime.lastTimeUseMayDo = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO - timeMayDo);
-                            player.itemTime.lastTimeUseMayDo2 = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO2 - timeMayDo2);
+                           // player.itemTime.lastTimeUseMayDo2 = System.currentTimeMillis() - (ItemTime.TIME_MAY_DO2 - timeMayDo2);
                             player.itemTime.lastTimeEatMeal = System.currentTimeMillis() - (ItemTime.TIME_EAT_MEAL - timeMeal);
                             player.itemTime.timeTDLT = timeUseTDLT * 60 * 1000;
                             player.itemTime.lastTimeUseTDLT = System.currentTimeMillis();
@@ -466,7 +466,7 @@ public class GodGK {
                             player.itemTime.isUseAnDanh = timeAnDanh != 0;
                             player.itemTime.isOpenPower = timeOpenPower != 0;
                             player.itemTime.isUseMayDo = timeMayDo != 0;
-                            player.itemTime.isUseMayDo2 = timeMayDo2 != 0;
+                          //  player.itemTime.isUseMayDo2 = timeMayDo2 != 0;
                             player.itemTime.isEatMeal = timeMeal != 0;
                             player.itemTime.isUseTDLT = timeUseTDLT != 0;
                             dataArray.clear();
