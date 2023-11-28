@@ -727,7 +727,12 @@ public class Util {
         int hour = currentTime.getHour();
         return (hour == Mob.TIME_START_HIRU);
     }
-
+     public static String gformatNumber(int number) {
+        NumberFormat nf = NumberFormat.getInstance();
+        return nf.format(number);
+    }
+    
+    
     public static int nextIntDhvt(int from, int to) {
         return from + rand.nextInt(to - from);
     }

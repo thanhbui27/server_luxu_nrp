@@ -54,7 +54,7 @@ public class Input {
 
     public static final int QUY_DOI_COIN = 508;
     public static final int QUY_DOI_HONG_NGOC = 509;
-    
+          public static final int QUY_DOI_KHAN_QUANG = 555;
     
     public static final int TAI = 510;
     public static final int XIU = 511;
@@ -649,6 +649,16 @@ public class Input {
         createForm(pl, TAI, "Chọn số thỏi vàng đặt tài", new SubInput("Số thỏi vàng", ANY));
     }
 
+     public void createFormQDKQ(Player pl) {
+        try {
+            createForm(pl, QUY_DOI_KHAN_QUANG,
+                     "\nNhập số Khăn quàng muốn đổi (30 Khăn đỏ = 1 Khăn quàng):",
+                    new SubInput("Số Khăn quàng muốn đổi", NUMERIC));
+
+        } catch (Exception e) {
+        }
+    }
+    
     public void XIU(Player pl) {
         createForm(pl, XIU, "Chọn số thỏi vàng đặt tài", new SubInput("Số thỏi vàng", ANY));
     }

@@ -30,11 +30,9 @@ public class TrunksXeno extends Boss {
              Service.gI().dropItemMap(this.zone, it);
             return;
         }
-       if (Util.isTrue(40, 100) || plKill.isAdmin()) {
-            ItemMap it =  new ItemMap(this.zone, 2114, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+        ItemMap itLH =  new ItemMap(this.zone, 2114, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
-            Service.gI().dropItemMap(this.zone, it);        
-        } 
+         Service.gI().dropItemMap(this.zone, itLH);  
          if (Util.isTrue(30, 100)) {
             ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);

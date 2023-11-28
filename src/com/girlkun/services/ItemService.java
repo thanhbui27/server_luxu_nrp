@@ -46,7 +46,7 @@ public class ItemService {
         Item item = null;
         switch (gender) {
             case 0:
-                if(Util.isTrue(40, 100)){
+                if(Util.isTrue(50, 100)){
                      item = itemSKH(items[0][type], Util.nextInt(127,129));
                      break;
                 }else {
@@ -55,7 +55,7 @@ public class ItemService {
                 }
             
             case 1:
-                 if(Util.isTrue(40, 100)){
+                 if(Util.isTrue(50, 100)){
                     item = itemSKH(items[1][type],Util.nextInt(130,132));
                      break;
                 }else {
@@ -68,7 +68,7 @@ public class ItemService {
                 }
                         
             case 2:
-                 if(Util.isTrue(40, 100)){
+                 if(Util.isTrue(50, 100)){
                      item = itemSKH(items[2][type], Util.nextInt(133,135));
                      break;
                 }else {

@@ -149,6 +149,9 @@ public class ConstNpc {
     public static final int NAU_BANH_CHUNG = 6263;
     public static final int NAU_BANH_TET = 6264;
     public static final int BANH_CHIN = 6265;
+    public static final byte ONG_GIA_NOEL = 104;
+    
+    public static final int MENU_NHAP_HOC = 555;
     
 
     //----------------------index menu------------------------------------------
