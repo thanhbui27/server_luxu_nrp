@@ -53,6 +53,9 @@ import com.girlkun.services.MapService;
 import com.girlkun.models.item.Item;
 import com.girlkun.models.boss.list_boss.Broly.Broly;
 import com.girlkun.models.boss.list_boss.Cooler.Cooler;
+import com.girlkun.models.list_boss.Dia_Nguc.SuperCumber;
+import com.girlkun.models.list_boss.Dia_Nguc.Toppo;
+import com.girlkun.models.list_boss.Dia_Nguc.TrunksXeno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,9 +136,8 @@ public class BossManager implements Runnable {
 
             this.createBoss(BossID.DR_KORE);
 
-            this.createBoss(BossID.ANDROID_14);
-            
-            
+            this.createBoss(BossID.ANDROID_14);            
+                  
             this.createBoss(BossID.Rong_3Sao_TD);            
             this.createBoss(BossID.Rong_3Sao_TD);
 
@@ -149,6 +151,12 @@ public class BossManager implements Runnable {
 
             
 //            this.createBoss(BossID.SUPER_ANDROID_17); 
+
+            
+            this.createBoss(BossID.TRUNKSXENO);
+            this.createBoss(BossID.TOPPO);            
+            this.createBoss(BossID.SUPERCUMBER);            
+           
 
             this.createBoss(BossID.COOLER);
 
@@ -330,7 +338,13 @@ public class BossManager implements Runnable {
                 case BossID.Rong_6Sao_NM:
                     return new Rong6SaoNM();
                 case BossID.Rong_7Sao_XD:
-                    return new Rong7SaoXD();
+                    return new Rong7SaoXD();                 
+                case BossID.TRUNKSXENO:
+                    return new TrunksXeno();                
+                case BossID.SUPERCUMBER:
+                    return new SuperCumber();
+                case BossID.TOPPO:
+                    return new Toppo();
                 default:
                     return null;
             }

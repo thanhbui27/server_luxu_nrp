@@ -1082,6 +1082,14 @@ public class NPoint {
                 if (this.player.setClothes.songoku == 5) {
                     percentXDame = 100;
                 }
+                if (player.isPl()) {
+                    if (player.inventory.haveOption(player.inventory.itemsBody, 5, 217) && this.player.setClothes.songoku == 5) {
+                        percentXDame = (byte) 150;
+                    }else if(player.inventory.haveOption(player.inventory.itemsBody, 5, 217)){
+                        percentXDame = 50;
+                    }  
+                }
+                
                 break;
             case Skill.GALICK:
                 if (intrinsic.id == 16) {
@@ -1089,7 +1097,7 @@ public class NPoint {
                 }
                 percentDameSkill = skillSelect.damage;
                 if (this.player.setClothes.kakarot == 5) {
-                    percentXDame = 70;
+                    percentXDame = 100;
                 }
                 break;
             case Skill.ANTOMIC:
@@ -1126,8 +1134,16 @@ public class NPoint {
                 }
                 percentDameSkill = skillSelect.damage;
                 if (this.player.setClothes.ocTieu == 5) {
-                    percentXDame = 60;
+                    percentXDame = 100;
                 }
+                 if (player.isPl()) {
+                    if (player.inventory.haveOption(player.inventory.itemsBody, 5, 216) && this.player.setClothes.ocTieu == 5) {
+                        percentXDame = (byte) 150;
+                    }else if(player.inventory.haveOption(player.inventory.itemsBody, 5, 216)){
+                        percentXDame = 50;
+                    }
+                 }
+               
                 break;
             case Skill.DICH_CHUYEN_TUC_THOI:
                 dameAttack *= 1;

@@ -309,7 +309,8 @@ public class InventoryServiceNew {
     }
 
   private Item putItemBody(Player player, Item item) {
-        Item sItem = item;
+      try {
+           Item sItem = item;
         if (!item.isNotNullItem()) {
             return sItem;
         }
@@ -414,6 +415,10 @@ public class InventoryServiceNew {
         sItem = player.inventory.itemsBody.get(index);
         player.inventory.itemsBody.set(index, item);
         return sItem;
+      }catch(Exception e){
+          System.out.println("loi mac do : " + e.getMessage());
+      }
+       return null;
     }
 
 

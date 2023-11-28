@@ -12,6 +12,7 @@ import com.girlkun.models.map.Zone;
 import com.girlkun.models.player.Inventory;
 import com.girlkun.services.*;
 import com.girlkun.models.boss.BossManager;
+import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.network.io.Message;
@@ -329,6 +330,15 @@ public class UseItem {
                         case 2078: //đổi đệ tử
                             changePetQuy(pl, item);
                             break;
+                        case 2111: //mo ctrang trunk xeno
+                            caitrangTrunksXeno(pl, true);
+                            break;
+                        case 2112: //mo ctrang super cum
+                            caitrangSuperCumber(pl, true);
+                            break;
+                        case 2113: //mo ctrang toppo
+                            caitrangToppo(pl, true);
+                            break;
                         case 402: //sách nâng chiêu 1 đệ tử
                         case 403: //sách nâng chiêu 2 đệ tử
                         case 404: //sách nâng chiêu 3 đệ tử
@@ -381,6 +391,11 @@ public class UseItem {
                             break;
                         case 1276:
                             BossManager.gI().showListBoss(pl);
+                            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                            InventoryServiceNew.gI().sendItemBags(pl);
+                            break;
+                        case 2115: //phieu be ngoan
+                            ChangeMapService.gI().changeMapBySpaceShip(pl, 198, -1, 300);
                             InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
                             InventoryServiceNew.gI().sendItemBags(pl);
                             break;
@@ -780,6 +795,100 @@ public class UseItem {
         }
     }
 
+    
+     public static void caitrangTrunksXeno(Player player , boolean rating) {
+       Item item = ItemService.gI().createNewItem((short) 2110);        
+        if(!player.isAdmin()){
+         if (Util.isTrue(997, 1000)&& rating ) {
+            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(25, 35)+ 1 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, Util.nextInt(25, 35) + 1));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, Util.nextInt(25, 35)+1) );//sd 
+            item.itemOptions.add(new Item.ItemOption(217, Util.nextInt(25, 35)+1));//st kame
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 25)+1));//st cm
+            item.itemOptions.add(new Item.ItemOption(93, new Random().nextInt(3) + 1));//hsd
+        }else{
+            item.itemOptions.add(new Item.ItemOption(77, 40 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, 40));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, 50));//sd 
+            item.itemOptions.add(new Item.ItemOption(217, 50));//st kame
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)+1));
+          
+        }
+       }else{
+            item.itemOptions.add(new Item.ItemOption(77, 40 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, 40));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, 50));//sd 
+            item.itemOptions.add(new Item.ItemOption(217, 50));//st kame
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)+1));
+       }
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().subQuantityItemsBag(player, InventoryServiceNew.gI().findItemBag(player, 2111), 1);
+        InventoryServiceNew.gI().sendItemBags(player);
+
+    }
+    
+    public static void caitrangToppo(Player player , boolean rating) {
+       Item item = ItemService.gI().createNewItem((short) 2108);     
+       if(!player.isAdmin()){
+         
+         if (Util.isTrue(997, 1000)&& rating ) {
+            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(25, 35)+ 1 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, Util.nextInt(25, 35) + 1));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, Util.nextInt(25, 35)+1) );//sd 
+            item.itemOptions.add(new Item.ItemOption(216, Util.nextInt(25, 35)+1));//st lien hoan
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)+1));//st cm            
+            item.itemOptions.add(new Item.ItemOption(215, Util.nextInt(5, 15)+1));// cm
+            item.itemOptions.add(new Item.ItemOption(93, new Random().nextInt(3) + 1));//hsd
+        }else{
+            item.itemOptions.add(new Item.ItemOption(77, 40 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, 40));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, 50));//sd 
+            item.itemOptions.add(new Item.ItemOption(216, 50));//st lien hoan
+            item.itemOptions.add(new Item.ItemOption(215, Util.nextInt(5, 15)+1));// cm
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)+1));
+          
+        }
+       }else{
+            item.itemOptions.add(new Item.ItemOption(77, 40 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, 40));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, 50));//sd 
+            item.itemOptions.add(new Item.ItemOption(216, 50));//st lien hoan
+            item.itemOptions.add(new Item.ItemOption(215, Util.nextInt(5, 15)+1));// cm
+            item.itemOptions.add(new Item.ItemOption(5, Util.nextInt(10, 30)+1));
+       }
+       
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().subQuantityItemsBag(player, InventoryServiceNew.gI().findItemBag(player, 2113), 1);
+        InventoryServiceNew.gI().sendItemBags(player);
+       
+    }
+    
+     public static void caitrangSuperCumber(Player player , boolean rating) {
+      Item item = ItemService.gI().createNewItem((short) 2109);          
+       if(!player.isAdmin()){
+         if (Util.isTrue(997, 1000)&& rating ) {
+            item.itemOptions.add(new Item.ItemOption(77, Util.nextInt(25, 50)+ 1 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, Util.nextInt(25, 35) + 1));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, Util.nextInt(25, 35)+1) );//sd           
+            item.itemOptions.add(new Item.ItemOption(214, Util.nextInt(5, 40)+1));// tu sat
+            item.itemOptions.add(new Item.ItemOption(93, new Random().nextInt(3) + 1));//hsd
+        }else{
+            item.itemOptions.add(new Item.ItemOption(77, 50 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, 40));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, 40));//sd 
+            item.itemOptions.add(new Item.ItemOption(214, 50));//st  tu sat
+          
+        }
+       }else{
+            item.itemOptions.add(new Item.ItemOption(77, 50 ));//hp 
+            item.itemOptions.add(new Item.ItemOption(103, 40));//ki 
+            item.itemOptions.add(new Item.ItemOption(147, 40));//sd 
+            item.itemOptions.add(new Item.ItemOption(214, 50));//st  tu sat
+       }
+        InventoryServiceNew.gI().addItemBag(player, item);
+        InventoryServiceNew.gI().subQuantityItemsBag(player, InventoryServiceNew.gI().findItemBag(player, 2112), 1);
+        InventoryServiceNew.gI().sendItemBags(player);
+    }
     private void openPhieuCaiTrangHaiTac(Player pl, Item item) {
         if (InventoryServiceNew.gI().getCountEmptyBag(pl) > 0) {
             Item ct = ItemService.gI().createNewItem((short) Util.nextInt(618, 626));

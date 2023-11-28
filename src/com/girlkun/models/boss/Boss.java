@@ -16,6 +16,7 @@ import com.girlkun.services.Service;
 import com.girlkun.services.SkillService;
 import com.girlkun.services.TaskService;
 import com.girlkun.services.func.ChangeMapService;
+import com.girlkun.utils.Logger;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
 
@@ -425,7 +426,8 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
                     }
                 }
             } catch (Exception ex) {
-//                Logger.logException(Boss.class, ex);
+                Logger.logException(Boss.class, ex);
+                System.out.println("loi o boss "+this.name+ " co id là : "+this.id+" : " + ex.getMessage());
             }
         }
     }
@@ -508,27 +510,34 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     @Override
     public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
-        if (!this.isDie()) {
-            if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 1000)) {
-                this.chat("Xí hụt");
+        try {
+            if (!this.isDie()) {
+                if (!piercing && Util.isTrue(this.nPoint.tlNeDon, 1000)) {
+                    this.chat("Xí hụt");
+                    return 0;
+                }
+                damage = (int) this.nPoint.subDameInjureWithDeff(damage);
+                if (!piercing && effectSkill.isShielding) {
+                    if (damage > nPoint.hpMax) {
+                        EffectSkillService.gI().breakShield(this);
+                    }
+                    damage = 1;
+                }
+                this.nPoint.subHP(damage);
+                if (isDie()) {
+                    this.setDie(plAtt);
+                    die(plAtt);
+                }
+                return damage;
+            } else {
                 return 0;
             }
-            damage = (int) this.nPoint.subDameInjureWithDeff(damage);
-            if (!piercing && effectSkill.isShielding) {
-                if (damage > nPoint.hpMax) {
-                    EffectSkillService.gI().breakShield(this);
-                }
-                damage = 1;
-            }
-            this.nPoint.subHP(damage);
-            if (isDie()) {
-                this.setDie(plAtt);
-                die(plAtt);
-            }
-            return damage;
-        } else {
-            return 0;
-        }
+        } catch (Exception ex) {
+                Logger.logException(Boss.class, ex);
+                System.out.println("loi o boss "+this.name+ " co id là : "+this.id+" : " + ex.getMessage());
+         }
+        return 0;
+       
     }
 
     @Override

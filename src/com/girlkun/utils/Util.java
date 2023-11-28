@@ -503,6 +503,8 @@ public class Util {
         return item;
     }
     
+   
+    
     public static ItemMap caitrangVuaVegeta(Zone zone, int tempId, int quantity, int x, int y, long playerId, boolean rating) {
         ItemMap item = new ItemMap(zone, tempId, quantity, x, zone.map.yPhysicInTop(x, y - 24), playerId);       
         item.options.add(new Item.ItemOption(77, 50));//hp 28%

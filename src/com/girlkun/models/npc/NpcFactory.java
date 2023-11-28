@@ -135,6 +135,10 @@ public class NpcFactory {
                         this.createOtherMenu(player, ConstNpc.BASE_MENU, "Người muốn trở về?",
                                 "Quay về", "Từ chối");
                     }
+                     else if (this.mapId == 198) {
+                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "Người muốn trở về?",
+                                "Quay về","Của hàng", "Từ chối");
+                    }
                 }
             }
 
@@ -155,6 +159,20 @@ public class NpcFactory {
                                 case 0:
                                     ChangeMapService.gI().changeMapBySpaceShip(player, 202, -1,
                                             432);
+                                    break;
+                                
+                            }
+                        }
+                    } else if (this.mapId == 198) {
+                        if (player.iDMark.isBaseMenu()) {
+                            switch (select) {
+                                // về lanh dia bang hoi
+                                case 0:
+                                    ChangeMapService.gI().changeMapBySpaceShip(player, 5, -1,
+                                            432);
+                                    break;
+                                case 1: 
+                                     ShopServiceNew.gI().opendShop(player, "SHOP_DIA_NGUC", false);
                                     break;
                             }
                         }

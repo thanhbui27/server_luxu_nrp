@@ -1133,6 +1133,92 @@ public class BossesData {
             REST_1_M
     );
     
+    
+    
+    public static final BossData SUPERCUMBER = new BossData(
+            "Super Cumber", //name
+            ConstPlayer.XAYDA, //gender
+            new short[]{2053, 2054, 2055, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            500000, //dame
+            new int[]{2000000000}, //hp
+            new int[]{198,199,200}, //map join
+             new int[][]{
+                {Skill.ANTOMIC, 7, 5000},         
+                {Skill.TAI_TAO_NANG_LUONG, 7, 3000},
+                {Skill.GALICK, 7, 100},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000}}, //skill
+             new String[]{"|-1|Gaaaaaa !!!!!!!!",
+                "|-2|Tên kia là ai vậy",
+                "|-1|Sức mạnh tà ác !"
+            }, //text chat 1
+            new String[]{"|-1|Oải rồi hả?", "|-1|Ê cố lên nhóc",
+                "|-1|Chán", "|-1|Đại ca có nhầm không nhỉ",
+                "|-1|Một mình tao chấp hết tụi bây",
+                "|-1|HAHAHAHA", "|-1|Chỉ là bọn con nít"
+            }, //text chat 2
+            new String[]{"|-1|Nhớ mặt tao đấy",
+                "|-1|Tobe continue.."}, //text chat 3
+            TypeAppear.APPEAR_WITH_ANOTHER //type appear
+    );
+
+    public static final BossData TOPPO = new BossData(
+            "TOPPO", //name
+            ConstPlayer.NAMEC, //gender
+            new short[]{2050, 2051, 2052, -1, -1, -1}, //outfit {head, body, leg, bag, aura, eff}
+            500000, //dame
+            new int[]{2000000000}, //hp
+            new int[]{198,199,200}, //map join
+            new int[][]{
+                {Skill.DEMON, 7, 4000},  
+                {Skill.LIEN_HOAN, 7, 4000},                
+                {Skill.DE_TRUNG, 7, 4000},
+                {Skill.SOCOLA, 7, 1000},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000}}, //skill
+            new String[]{"|-1|Gaaaaaa !!!!!!!!",
+                "|-2|Tên kia là ai vậy",
+                "|-1|Sức mạnh tà ác !"
+            }, //text chat 1//text chat 1
+            new String[]{"|-1|Oải rồi hả?", "|-1|Ê cố lên nhóc",
+                "|-1|Chán", "|-1|Đại ca Xeno có nhầm không nhỉ",
+                "|-1|Một mình tao chấp hết tụi bây",
+                "|-1|HAHAHAHA", "|-1|Chỉ là bọn con nít"
+            }, //text chat 2
+            new String[]{"|-1|Nhớ mặt tao đấy",
+                "|-1|Tobe continue.."}, //text chat 3
+            TypeAppear.APPEAR_WITH_ANOTHER //type appear
+    );
+
+    public static final BossData TRUNKSXENO = new BossData(
+            "Trunks Xeno",
+            ConstPlayer.TRAI_DAT,
+            new short[]{2056, 2057, 2058, -1, -1, -1},
+            500000,
+            new int[]{2000000000},
+            new int[]{198,199,200}, //map join      
+            //            new int[]{14},
+            new int[][]{
+               {Skill.KAMEJOKO, 7, 5000},         
+                {Skill.THAI_DUONG_HA_SAN, 7, 3000},
+                {Skill.DRAGON, 7, 100},
+                {Skill.THOI_MIEN, 7, 50000},
+                {Skill.KHIEN_NANG_LUONG, 7, 50000},
+                {Skill.DICH_CHUYEN_TUC_THOI, 7, 600000}},
+            new String[]{"|-1|Gaaaaaa !!!!!!!!",
+                "|-2|Tên kia là ai vậy",
+                "|-1|Sức mạnh tà ác !"
+            }, //text chat 1
+            new String[]{"|-1|Ta muốn tìm một đối thủ xứng tầm",
+                "|-1|Đi chết đi!",
+                "|-1|Các ngươi không phải đối thủ của ta đâu",
+                "|-1|trạng thái Tà Ác sẽ thiêu rụi mày"
+            }, //text chat 2
+            new String[]{"|-2|Tên đó mạnh thật!"}, //text chat 3
+            REST_30_M, //second rest
+            new int[]{BossID.SUPERCUMBER, BossID.TOPPO} //boss join map together
+    );
+    
+    
+    
      public static final BossData Rong_6Sao_Namec = new BossData(
             "Rồng 6 Sao Namec", //name
             ConstPlayer.NAMEC, //gender

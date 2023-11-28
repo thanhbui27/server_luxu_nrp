@@ -161,6 +161,10 @@ public class BossID {
     public static final int VUAVEGETA = -681;
     public static final int GOKUTAAC = -682;
     
+    public static final int SUPERCUMBER = -686;     
+    public static final int TOPPO = -687;
+    public static final int TRUNKSXENO = -688;
+    
     public static final int Rong_3Sao_TD = -683;
     public static final int Rong_6Sao_NM = -684;
     public static final int Rong_7Sao_XD = -685;

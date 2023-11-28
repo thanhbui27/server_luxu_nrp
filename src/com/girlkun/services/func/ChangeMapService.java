@@ -874,7 +874,11 @@ public class ChangeMapService {
                 case 107: //núi tuyết	
                 case 108: //dòng sông băng	
                 case 109: //rừng băng	
-                case 110: //hang băng	
+                case 110: //hang băng
+                case 198:
+                case 199:
+                case 200:
+                case 155:
                     if (TaskService.gI().getIdTask(player) < ConstTask.TASK_21_4) {
                         return null;
                     }
@@ -887,7 +891,7 @@ public class ChangeMapService {
                 case 97: //thành phố phía bắc	
                 case 98: //ngọn núi phía bắc	
                 case 99: //thung lũng phía bắc	
-                case 100: //thị trấn ginder	
+                case 100: //thị trấn ginder
                     if (TaskService.gI().getIdTask(player) < ConstTask.TASK_20_0) {
                         return null;
                     }
