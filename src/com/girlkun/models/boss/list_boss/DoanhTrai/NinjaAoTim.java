@@ -99,13 +99,13 @@ public class NinjaAoTim extends TrungUyTrang {
             this.lastTimeTargetPlayer = System.currentTimeMillis();
             this.timeTargetPlayer = Util.nextInt(1000, 2000);
         }
-        if (this.playerTarger != null) {
-            if (this.playerTarger.location.x < 300 || this.playerTarger.location.x > 1405) {
-                this.playerTarger = null;
-                this.lastTimeTargetPlayer = System.currentTimeMillis();
-                this.timeTargetPlayer = Util.nextInt(1000, 2000);
-            }
-        }
+//        if (this.playerTarger != null) {
+//            if (this.playerTarger.location.x < 300 || this.playerTarger.location.x > 1405) {
+//                this.playerTarger = null;
+//                this.lastTimeTargetPlayer = System.currentTimeMillis();
+//                this.timeTargetPlayer = Util.nextInt(1000, 2000);
+//            }
+//        }
         return this.playerTarger;
     }
 
