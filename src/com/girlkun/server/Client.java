@@ -157,10 +157,15 @@ public class Client implements Runnable {
 //            Logger.error("LEFT PLAYER: " + this.players.size() + ".........................\n");
 //            this.kickSession((MySession) GirlkunSessionManager.gI().getSessions().remove(0));
 //        }
-        while (!players.isEmpty()) {
+        try{
+            while (!players.isEmpty()) {
             this.kickSession((MySession) players.remove(0).getSession());
+            }
+            Logger.error("...........................................SUCCESSFUL\n");
+        }catch(Exception e){
+             Logger.error("loi xay ra tai client" + e.getMessage() + "\n");
         }
-        Logger.error("...........................................SUCCESSFUL\n");
+       
     }
 
     public void cloneMySessionNotConnect() {

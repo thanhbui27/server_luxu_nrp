@@ -1468,7 +1468,7 @@ public class BossesData {
                 "|-2|Phải cố hết sức thôi"
             }, //text chat 2
             new String[]{"|-2|Mau nghỉ ngơi nào chú Goku"}, //text chat 3
-            REST_1_M //second rest
+            REST_15_M //second rest
     );
 public static final BossData BROLY_1 = new BossData(
                         "Broly Base", // name

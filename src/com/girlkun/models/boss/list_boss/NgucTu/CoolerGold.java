@@ -32,11 +32,11 @@ public class CoolerGold extends Boss {
     public void reward(Player plKill) {
         int[] NRs = new int[]{17,16};
         int randomNR = new Random().nextInt(NRs.length);
-        if (Util.isTrue(15, 100)) {
-            if (Util.isTrue(1, 100)) {
+        if (Util.isTrue(10, 100)) {
                  Service.gI().dropItemMap(this.zone, new ItemMap(zone, 2107, 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
-                 return;
-            }
+                return;
+        }
+        if (Util.isTrue(15, 100)) {        
             Service.gI().dropItemMap(this.zone, Util.ratiItem(zone, 561, 1, this.location.x, this.location.y, plKill.id));
         } else if (Util.isTrue(50, 100)) {
             Service.gI().dropItemMap(this.zone, new ItemMap(zone, NRs[randomNR], 1, this.location.x, zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id));
