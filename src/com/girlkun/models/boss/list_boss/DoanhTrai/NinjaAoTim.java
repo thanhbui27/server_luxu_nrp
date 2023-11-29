@@ -147,7 +147,7 @@ public class NinjaAoTim extends TrungUyTrang {
                 if (System.currentTimeMillis() - lastTimePhanThan > 45000) {
                     if (this.numPhanThan <= 0 && this.nPoint.hp < this.nPoint.hpMax / 2) {
                         this.chat("Phân thân chi thuật bùm bùm bùm");
-                        this.PhanThanChiThuat();
+                        //this.PhanThanChiThuat();
                         lastTimePhanThan = System.currentTimeMillis();
                     }
                 }
