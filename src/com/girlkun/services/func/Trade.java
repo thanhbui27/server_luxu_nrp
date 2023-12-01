@@ -83,6 +83,12 @@ public class Trade {
         if (pl.getSession().actived) {
             if (true) {
                 if (index == -1) {
+                    if(quantity < 0 ){
+                        Service.getInstance().sendThongBaoFromAdmin(pl,
+                                "Giao dịch thất bại");
+                        removeItemTrade(pl, index);
+                        return;
+                    }
                     if (pl.equals(this.player1)) {
                         goldTrade1 = quantity;
                     } else {

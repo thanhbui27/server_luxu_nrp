@@ -134,7 +134,7 @@ public class NpcFactory {
                     }
                      if (this.mapId == 0) {
                     this.createOtherMenu(player, 13, "Chào con, ta rất vui khi gặp con\n Con muốn làm gì nào ?",
-                                    "Nói chuyện","Đổi quà\nsự kiện", "Đổi\nKhăn quàng");
+                                    "Nói chuyện","Đổi quà\nsự kiện", "Đổi\nCá Bạc");
                 }
                 }
             }
@@ -161,9 +161,9 @@ public class NpcFactory {
                             break;
                         case 1 :
                             this.createOtherMenu(player, ConstNpc.MENU_NHAP_HOC,
-                                            "Mừng khai giảng năm học mới, ta có một số phần quà dành cho con!",
-                                            "Quà cấp tiểu học",
-                                            "Quà cấp đại học" );
+                                            "Mừng khai Noel, ta có một số phần quà dành cho con!",
+                                            "Quà Cải trang",
+                                            "Quà Pet" );
                                     break;
                         case 2:
                              Input.gI().createFormQDKQ(player);                               
@@ -191,20 +191,20 @@ public class NpcFactory {
 
                                         Item caitrang = ItemService.gI().createNewItem((short) Util.nextInt(1311,1313));
                                         caitrang.itemOptions.clear();
-                                        caitrang.itemOptions.add(new Item.ItemOption(50, Util.nextInt(60,65)));
-                                        caitrang.itemOptions.add(new Item.ItemOption(103, Util.nextInt(55,60)));
-                                        caitrang.itemOptions.add(new Item.ItemOption(77, Util.nextInt(55,60)));
+                                        caitrang.itemOptions.add(new Item.ItemOption(50, Util.nextInt(25,40)));
+                                        caitrang.itemOptions.add(new Item.ItemOption(103, Util.nextInt(25,40)));
+                                        caitrang.itemOptions.add(new Item.ItemOption(77, Util.nextInt(25,40)));
                                          if(Util.isTrue(30,100)){
-                                            caitrang.itemOptions.add(new Item.ItemOption(5, Util.nextInt(1,15)));
+                                            caitrang.itemOptions.add(new Item.ItemOption(5, Util.nextInt(1,10)));
                                         }else if(Util.isTrue(30,100)){
-                                            caitrang.itemOptions.add(new Item.ItemOption(94, Util.nextInt(1,15)));
+                                            caitrang.itemOptions.add(new Item.ItemOption(94, Util.nextInt(1,10)));
                                         }else if(Util.isTrue(30,100)){
-                                            caitrang.itemOptions.add(new Item.ItemOption(108, Util.nextInt(1,15)));
+                                            caitrang.itemOptions.add(new Item.ItemOption(108, Util.nextInt(1,10)));
                                         }  
                                          else if(Util.isTrue(30,100)){
-                                            caitrang.itemOptions.add(new Item.ItemOption(14, Util.nextInt(1,15)));
+                                            caitrang.itemOptions.add(new Item.ItemOption(14, Util.nextInt(1,10)));
                                         } else {
-                                             caitrang.itemOptions.add(new Item.ItemOption(97, Util.nextInt(1,15)));
+                                             caitrang.itemOptions.add(new Item.ItemOption(97, Util.nextInt(1,10)));
                                         }
                                         caitrang.itemOptions.add(new Item.ItemOption(73, 1));
                                         caitrang.itemOptions.add(new Item.ItemOption(30, 0));
@@ -218,7 +218,7 @@ public class NpcFactory {
                                        
                                     } else {
                                         createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                                "|1| Đổi cải trang Genshin impact\n|2| Khăn đỏ " + quantity1 + "/30\nKhăn quàng "
+                                                "|1| Đổi cải trang Genshin impact\n|2| Chuông vàng " + quantity1 + "/30\nCá Bạc "
                                                         + quantity2   + "/30\n Giá vàng: "
                                                         + Util.gformatNumber(giavang),
                                                 "OK\nTa biết rồi");
@@ -232,24 +232,24 @@ public class NpcFactory {
                                             && items[2].quantity >= 50 && items[3].quantity >= 50 && player.inventory.gold >= giavang
                                             && player.inventory.ruby >= giaruby) {
                                         player.inventory.gold -= giavang;
-                                        Item linhthu = ItemService.gI().createNewItem((short) Util.nextInt(1295,1310));
+                                        Item linhthu = ItemService.gI().createNewItem((short) Util.nextInt(1308,1310));
                                         linhthu.itemOptions.clear();
                                         if(Util.isTrue(33,100)){
-                                          linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(40,45)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(35,40)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(35,40)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(0, Util.nextInt(10000,20000)));
+                                          linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(7,15)));
+                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5,10)));
+                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5,10)));
+                                        //linhthu.itemOptions.add(new Item.ItemOption(0, Util.nextInt(10000,20000)));
                                         }
                                         else if(Util.isTrue(33,100)){
-                                             linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(40,45)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(35,40)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(35,40)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(6, Util.nextInt(20000,35000)));
+                                             linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(7,15)));
+                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5,10)));
+                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5,10)));
+                                      //  linhthu.itemOptions.add(new Item.ItemOption(6, Util.nextInt(20000,35000)));
                                         } else {
-                                            linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(40,45)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(35,40)));
-                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(35,40)));
-                                         linhthu.itemOptions.add(new Item.ItemOption(7, Util.nextInt(20000,35000)));
+                                            linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(7,15)));
+                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5,10)));
+                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5,10)));
+                                     //    linhthu.itemOptions.add(new Item.ItemOption(7, Util.nextInt(20000,35000)));
                                         }
                                         linhthu.itemOptions.add(new Item.ItemOption(73, 1));
                                         linhthu.itemOptions.add(new Item.ItemOption(30, 0));
@@ -263,7 +263,7 @@ public class NpcFactory {
                                        
                                     }else {
                                         createOtherMenu(player, ConstNpc.IGNORE_MENU,
-                                                "|1| Đổi Pet monster\n|2| Phiếu bé ngoan " + quantity1 + "/50\nĐiểm 10 "
+                                                "|1| Đổi Pet monster\n|2| Băng " + quantity1 + "/50\nNgười Tuyết "
                                                         + quantity2   + "/50\n150hngoc vag Giá vàng  "
                                                         + Util.gformatNumber(giavang),
                                                 "OK\nTa biết rồi");
