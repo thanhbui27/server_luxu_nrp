@@ -804,7 +804,7 @@ public class Controller implements IMessageHandler {
             new Thread(() -> {
                 try {
                     Thread.sleep(1000);
-                    Service.getInstance().sendPetFollow(player, (short) (player.inventory.itemsBody.get(10).template.iconID + 1));
+                    Service.getInstance().sendPetFollow(player, (short) (player.inventory.itemsBody.get(10).template.iconID - 1));
                 } catch (Exception e) {
                 }
             }).start();

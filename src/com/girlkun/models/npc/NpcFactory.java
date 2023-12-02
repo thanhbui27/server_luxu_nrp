@@ -148,16 +148,13 @@ public class NpcFactory {
                                 
                                     ShopServiceNew.gI().opendShop(player, "CAUCA", true);
                               
-                                break;
-                       
+                               break;                      
                         }
                     }
                      if (player.iDMark.getIndexMenu() == 13) {
                     switch (select) {
                         case 0:
-                            this.createOtherMenu(player, 7,
-                                    "Chào con, ta rất vui khi gặp con\n Con muốn làm gì nào ?",
-                                    "Về khu\nvực bang", "Giải tán\nBang hội", "Kho Báu\ndưới biển");
+                        
                             break;
                         case 1 :
                             this.createOtherMenu(player, ConstNpc.MENU_NHAP_HOC,
@@ -270,7 +267,9 @@ public class NpcFactory {
                                     }
                                     break;
                                
-                            }}
+                            }
+                  
+                    }
                 }
             }
         };
