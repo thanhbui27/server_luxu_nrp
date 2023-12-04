@@ -637,7 +637,7 @@ public class Mob {
                }
          }
         if(this.zone.map.mapId == 155 && player.isWearHD()){
-                if (Util.isTrue(10, 100) ) {
+                if (Util.isTrue(5, 100) ) {
                      list.add(new ItemMap(zone, Util.nextInt(1066, 1070),1,x,player.location.y,player.id));
      
                 }          
