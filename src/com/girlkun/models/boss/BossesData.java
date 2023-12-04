@@ -1124,7 +1124,6 @@ public class BossesData {
                 {Skill.THAI_DUONG_HA_SAN, 7, 30000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 10000},
                 {Skill.LIEN_HOAN, 7, 100},
-                {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.SOCOLA, 7, 1000}},
             new String[]{"|-2|Các ngươi có thấy ta xinh không"}, //text chat 1
             new String[]{"|-1|Thấy ảo chưa nè! Ta là người xinh nhất"}, //text chat 2
@@ -1201,7 +1200,6 @@ public class BossesData {
                 {Skill.THAI_DUONG_HA_SAN, 7, 3000},
                 {Skill.DRAGON, 7, 100},
                 {Skill.THOI_MIEN, 7, 50000},
-                {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 600000}},
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1282,7 +1280,6 @@ public class BossesData {
                 {Skill.THAI_DUONG_HA_SAN, 7, 3000},
                 {Skill.DRAGON, 7, 100},
                 {Skill.THOI_MIEN, 7, 50000},
-                {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 600000}},
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1632,7 +1629,6 @@ public static final BossData BROLY_1 = new BossData(
             new int[][]{
                 {Skill.THOI_MIEN, 4, 125000},
                 {Skill.THAI_DUONG_HA_SAN, 3, 50000},
-                 {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 10000}}, //skill
             new String[]{"|-1|Gaaaaaa !!!!!!!!",
                 "|-2|Tên kia là ai vậy",
@@ -1745,7 +1741,6 @@ public static final BossData BROLY_1 = new BossData(
             new int[]{2000000000},
             new int[]{120},
             new int[][]{
-                {Skill.KHIEN_NANG_LUONG, 7, 50000},
                 {Skill.THAI_DUONG_HA_SAN, 7, 70000},
                 {Skill.DICH_CHUYEN_TUC_THOI, 7, 1000},
                 {Skill.DE_TRUNG, 7, 1000},

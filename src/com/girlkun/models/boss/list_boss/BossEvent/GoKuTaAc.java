@@ -36,11 +36,6 @@ public class GoKuTaAc extends Boss {
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }
-        if(Util.isTrue(50, 1000)){
-            ItemMap it =  new ItemMap(this.zone, Util.nextInt(16, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
-            Service.gI().sendThongBao(plKill, " Bạn nhận được nro " + it.itemTemplate.name);
-            Service.gI().dropItemMap(this.zone, it);
-        }
       
     }
     @Override
