@@ -279,6 +279,8 @@ public class ConstNpc {
     public static final int QUY_DOI = 5088;
     public static final int QUY_DOI_HN = 50887;
     public static final int QUY_DOI_DE_TU = 50888;
+    public static final int QUY_DOI_1s = 50889;
+    public static final int QUY_DOI_3s = 50890;
 
     //index menu quốc vương
     public static final int OPEN_POWER_MYSEFT = 500;

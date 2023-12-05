@@ -25,10 +25,10 @@ public class Caulifla extends Boss {
     }
      @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(30, 100) || plKill.isAdmin()) {
+        if (Util.isTrue(50, 100) || plKill.isAdmin()) {
             Service.gI().dropItemMap(this.zone, Util.caitrang2011(zone, 680, 1, this.location.x, this.location.y, plKill.id, true,plKill.isAdmin()));        
         } 
-         if (Util.isTrue(30, 100)) {
+         if (Util.isTrue(50, 100)) {
             ItemMap it =  new ItemMap(this.zone, Util.nextInt(1066, 1070), Util.nextInt(5, 15), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);

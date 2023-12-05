@@ -24,7 +24,7 @@ public class GoKuTaAc extends Boss {
      @Override
     public void reward(Player plKill) {
         int[] listnro = {16,17,18,19,20};
-        if (Util.isTrue(30, 100)) {
+        if (Util.isTrue(50, 100)) {
             Service.gI().dropItemMap(this.zone, Util.caitrangGokuTaAc(zone, 2069, 1, this.location.x, this.location.y, plKill.id, true));        
         } else {
             ItemMap it = new ItemMap(this.zone, listnro[Util.nextInt(0, listnro.length - 1)], 1, this.location.x, this.location.y, -1);
