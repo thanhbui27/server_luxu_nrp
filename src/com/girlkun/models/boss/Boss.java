@@ -463,12 +463,12 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     @Override
     public void reward(Player plKill) {
-        if(Util.isTrue(70, 100)){
+        if(Util.isTrue(80, 100)){
             ItemMap it =  new ItemMap(this.zone, Util.nextInt(16, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
             Service.gI().sendThongBao(plKill, " Bạn nhận được nro " + it.itemTemplate.name);
             Service.gI().dropItemMap(this.zone, it);
         }else{
-            ItemMap it =  new ItemMap(this.zone, Util.nextInt(14, 16), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(14, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
             Service.gI().sendThongBao(plKill, " Bạn nhận được nro " + it.itemTemplate.name);
             Service.gI().dropItemMap(this.zone, it);
         }
