@@ -4,6 +4,7 @@ import com.girlkun.consts.ConstPlayer;
 import com.girlkun.models.boss.iboss.IBossNew;
 import com.girlkun.models.boss.iboss.IBossOutfit;
 import com.girlkun.models.boss.list_boss.NgocRongSaoDen.*;
+import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.map.Zone;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.skill.PlayerSkill;
@@ -462,6 +463,15 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
 
     @Override
     public void reward(Player plKill) {
+        if(Util.isTrue(80, 100)){
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(16, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+            Service.gI().sendThongBao(plKill, " Bạn nhận được nro " + it.itemTemplate.name);
+            Service.gI().dropItemMap(this.zone, it);
+        }else{
+            ItemMap it =  new ItemMap(this.zone, Util.nextInt(14, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
+            Service.gI().sendThongBao(plKill, " Bạn nhận được nro " + it.itemTemplate.name);
+            Service.gI().dropItemMap(this.zone, it);
+        }
         TaskService.gI().checkDoneTaskKillBoss(plKill, this);
     }
 

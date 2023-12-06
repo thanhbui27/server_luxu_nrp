@@ -158,7 +158,7 @@ public class NpcFactory {
                             break;
                         case 1 :
                             this.createOtherMenu(player, ConstNpc.MENU_NHAP_HOC,
-                                            "Mừng khai Noel, ta có một số phần quà dành cho con!",
+                                            "Mừng Noel, ta có một số phần quà dành cho con!",
                                             "Quà Cải trang",
                                             "Quà Pet" );
                                     break;
@@ -168,6 +168,7 @@ public class NpcFactory {
                            
                     }}
                   else if (player.iDMark.getIndexMenu() == ConstNpc.MENU_NHAP_HOC) {
+<<<<<<< HEAD
                             Item[] items = new Item[4];
                             items[0] = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 1326);
                             items[1] = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 1327);
@@ -270,6 +271,109 @@ public class NpcFactory {
                             }
                   
                     }
+=======
+//                            Item[] items = new Item[4];
+//                            items[0] = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 1326);
+//                            items[1] = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 1327);
+//                            items[2] = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 1341);
+//                            items[3] = InventoryServiceNew.gI().findItem(player.inventory.itemsBag, 1342);
+//                            int quantity1 = (items[0] != null) ? items[0].quantity : 0;
+//                            int quantity2 = (items[1] != null) ? items[1].quantity : 0;
+//                            int quantity3 = (items[2] != null) ? items[2].quantity : 0;
+//                            int quantity4 = (items[3] != null) ? items[3].quantity : 0;
+//                            int giavang;
+//                            int giaruby;
+//                            switch (select) {
+//                                case 0:
+//                                    giavang = 20000000;
+//                                    if (items[0] != null && items[1] != null
+//                                            && items[0].quantity >= 30 && items[1].quantity >= 30  && player.inventory.gold >= giavang) {
+//                                        player.inventory.gold -= giavang;
+//
+//                                        Item caitrang = ItemService.gI().createNewItem((short) Util.nextInt(1311,1313));
+//                                        caitrang.itemOptions.clear();
+//                                        caitrang.itemOptions.add(new Item.ItemOption(50, Util.nextInt(25,40)));
+//                                        caitrang.itemOptions.add(new Item.ItemOption(103, Util.nextInt(25,40)));
+//                                        caitrang.itemOptions.add(new Item.ItemOption(77, Util.nextInt(25,40)));
+//                                         if(Util.isTrue(30,100)){
+//                                            caitrang.itemOptions.add(new Item.ItemOption(5, Util.nextInt(1,10)));
+//                                        }else if(Util.isTrue(30,100)){
+//                                            caitrang.itemOptions.add(new Item.ItemOption(94, Util.nextInt(1,10)));
+//                                        }else if(Util.isTrue(30,100)){
+//                                            caitrang.itemOptions.add(new Item.ItemOption(108, Util.nextInt(1,10)));
+//                                        }  
+//                                         else if(Util.isTrue(30,100)){
+//                                            caitrang.itemOptions.add(new Item.ItemOption(14, Util.nextInt(1,10)));
+//                                        } else {
+//                                             caitrang.itemOptions.add(new Item.ItemOption(97, Util.nextInt(1,10)));
+//                                        }
+//                                        caitrang.itemOptions.add(new Item.ItemOption(73, 1));
+//                                        caitrang.itemOptions.add(new Item.ItemOption(30, 0));
+//                                        InventoryServiceNew.gI().addItemBag(player, caitrang);
+//                                        InventoryServiceNew.gI().subQuantityItemsBag(player, items[1], 30);
+//                                        InventoryServiceNew.gI().subQuantityItemsBag(player, items[0], 30);
+//                                        
+//                                        InventoryServiceNew.gI().sendItemBags(player);
+//                                        Service.getInstance().sendMoney(player);
+//                                        Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + caitrang.template.name);
+//                                       
+//                                    } else {
+//                                        createOtherMenu(player, ConstNpc.IGNORE_MENU,
+//                                                "|1| Đổi cải trang Genshin impact\n|2| Chuông vàng " + quantity1 + "/30\nCá Bạc "
+//                                                        + quantity2   + "/30\n Giá vàng: "
+//                                                        + Util.gformatNumber(giavang),
+//                                                "OK\nTa biết rồi");
+//                                    }
+//                                    break;
+//
+//                                case 1:
+//                                    giavang = 50000000;
+//                                    giaruby = 150;
+//                                    if (items[0] != null && items[1] != null 
+//                                            && items[2].quantity >= 50 && items[3].quantity >= 50 && player.inventory.gold >= giavang
+//                                            && player.inventory.ruby >= giaruby) {
+//                                        player.inventory.gold -= giavang;
+//                                        Item linhthu = ItemService.gI().createNewItem((short) Util.nextInt(1308,1310));
+//                                        linhthu.itemOptions.clear();
+//                                        if(Util.isTrue(33,100)){
+//                                          linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(7,15)));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5,10)));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5,10)));
+//                                        //linhthu.itemOptions.add(new Item.ItemOption(0, Util.nextInt(10000,20000)));
+//                                        }
+//                                        else if(Util.isTrue(33,100)){
+//                                             linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(7,15)));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5,10)));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5,10)));
+//                                      //  linhthu.itemOptions.add(new Item.ItemOption(6, Util.nextInt(20000,35000)));
+//                                        } else {
+//                                            linhthu.itemOptions.add(new Item.ItemOption(50, Util.nextInt(7,15)));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(103, Util.nextInt(5,10)));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(77, Util.nextInt(5,10)));
+//                                     //    linhthu.itemOptions.add(new Item.ItemOption(7, Util.nextInt(20000,35000)));
+//                                        }
+//                                        linhthu.itemOptions.add(new Item.ItemOption(73, 1));
+//                                        linhthu.itemOptions.add(new Item.ItemOption(30, 0));
+//                                        InventoryServiceNew.gI().addItemBag(player, linhthu);
+//                                        InventoryServiceNew.gI().subQuantityItemsBag(player, items[1], 50);
+//                                        InventoryServiceNew.gI().subQuantityItemsBag(player, items[0], 50);
+//                                        
+//                                        InventoryServiceNew.gI().sendItemBags(player);
+//                                        Service.getInstance().sendMoney(player);
+//                                        Service.getInstance().sendThongBao(player, "Bạn vừa nhận được " + linhthu.template.name);
+//                                       
+//                                    }else {
+//                                        createOtherMenu(player, ConstNpc.IGNORE_MENU,
+//                                                "|1| Đổi Pet monster\n|2| Băng " + quantity1 + "/50\nNgười Tuyết "
+//                                                        + quantity2   + "/50\n150hngoc vag Giá vàng  "
+//                                                        + Util.gformatNumber(giavang),
+//                                                "OK\nTa biết rồi");
+//                                    }
+//                                    break;
+//                               
+//                            }
+                  }
+>>>>>>> 411b60a5d5e353db9f79ea1644e245e63d3cc034
                 }
             }
         };
@@ -1368,7 +1472,7 @@ public class NpcFactory {
                                     break;
                                 case 1:
                                     this.createOtherMenu(player, ConstNpc.QUY_DOI, "|7|Shop quy đổi đang được mở. Số tiền của bạn còn : " + player.getSession().coinBar + "\n"
-                                            + "Muốn quy đổi không", "Quy đổi\n Thỏi vàng và capsual","Đổi đệ", "Quy đổi\nHồng ngọc", "không");
+                                            + "Muốn quy đổi không", "Quy đổi\n Thỏi vàng và capsual","Đổi đệ", "Quy đổi\nHồng ngọc","Quy đổi\n nro 1s","Quy đổi\n nro 3s", "không");
                                     break;
 
                             }
@@ -1399,10 +1503,22 @@ public class NpcFactory {
                                         this.createOtherMenu(player, ConstNpc.QUY_DOI_DE_TU, "Chọn đệ tử mà bạn muốn đổi", "99 capsual : De Mabu",
                                             "499 capsual : De Pic", "999 capsual : De Berus",  "Dong");
                                         break;
-                                    }
-                                                                       
-                               
+                                    }                                                                                                   
                                     break;
+                                case 3:                                 
+                                     this.createOtherMenu(player, ConstNpc.QUY_DOI_1s,
+                                            "Chọn các mệnh giá muốn quy đổi hồng ngọc\nTỉ lệ quy đổi là ví dụ: \nnếu hạn chọn mệnh giá là 10k thì sẽ nhận được 1k hồng ngọc",
+                                            "20k/1v", "100k/5v", "200k/11v",
+                                            "500k/30v");
+                                                                                                                             
+                                    break;
+                                 case 4:                                 
+                                     this.createOtherMenu(player, ConstNpc.QUY_DOI_3s,
+                                            "Chọn các mệnh giá muốn quy đổi hồng ngọc\nTỉ lệ quy đổi là ví dụ: \nnếu hạn chọn mệnh giá là 10k thì sẽ nhận được 1k hồng ngọc",
+                                            "10k/1v", "100k/10v");
+                                                                                                                             
+                                    break;
+                                   
                                     
                             }
                         } 
@@ -1651,7 +1767,117 @@ public class NpcFactory {
                                     break;
                                     
                                   }
-                            } else if (player.iDMark.getIndexMenu() == ConstNpc.QUY_DOI_HN) {
+                            } else if (player.iDMark.getIndexMenu() == ConstNpc.QUY_DOI_1s) {
+                                switch (select) {
+                                    case 0:
+                                        int coin = 20000;
+                                        int nro1s = 1;
+                                        if (player.getSession().coinBar >= coin) {
+                                            PlayerDAO.subcoinBar(player, coin);
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
+
+                                            InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "bạn nhận được " + nro1s + " nro 1sao" );
+                                        } else {
+                                            Service.gI().sendThongBao(player,
+                                                    "Số tiền của bạn là " + player.getSession().coinBar
+                                                            + " không đủ để quy " + " đổi ");
+                                        }
+                                        break;
+                                     case 1:
+                                        coin = 100000;
+                                        nro1s = 5;
+                                        if (player.getSession().coinBar >= coin) {
+                                            PlayerDAO.subcoinBar(player, coin);
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
+
+                                            InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "bạn nhận được " + nro1s + " nro 1sao" );
+                                        } else {
+                                            Service.gI().sendThongBao(player,
+                                                    "Số tiền của bạn là " + player.getSession().coinBar
+                                                            + " không đủ để quy " + " đổi ");
+                                        }
+                                        break;
+                                        
+                                       case 2:
+                                        coin = 200000;
+                                        nro1s = 11;
+                                        if (player.getSession().coinBar >= coin) {
+                                            PlayerDAO.subcoinBar(player, coin);
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
+
+                                            InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "bạn nhận được " + nro1s + " nro 1sao" );
+                                        } else {
+                                            Service.gI().sendThongBao(player,
+                                                    "Số tiền của bạn là " + player.getSession().coinBar
+                                                            + " không đủ để quy " + " đổi ");
+                                        }
+                                        break;
+                                     case 3:
+                                        coin = 500000;
+                                        nro1s = 30;
+                                        if (player.getSession().coinBar >= coin) {
+                                            PlayerDAO.subcoinBar(player, coin);
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
+
+                                            InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "bạn nhận được " + nro1s + " nro 1sao" );
+                                        } else {
+                                            Service.gI().sendThongBao(player,
+                                                    "Số tiền của bạn là " + player.getSession().coinBar
+                                                            + " không đủ để quy " + " đổi ");
+                                        }
+                                        break;
+                                 }
+                            }else if (player.iDMark.getIndexMenu() == ConstNpc.QUY_DOI_3s) {
+                                switch (select) {
+                                    case 0:
+                                        int coin = 10000;
+                                        int nro1s = 1;
+                                        if (player.getSession().coinBar >= coin) {
+                                            PlayerDAO.subcoinBar(player, coin);
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 16, nro1s);// x3
+
+                                            InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "bạn nhận được " + nro1s + " nro 3sao" );
+                                        } else {
+                                            Service.gI().sendThongBao(player,
+                                                    "Số tiền của bạn là " + player.getSession().coinBar
+                                                            + " không đủ để quy " + " đổi ");
+                                        }
+                                        break;
+                                     case 1:
+                                        coin = 100000;
+                                        nro1s = 10;
+                                        if (player.getSession().coinBar >= coin) {
+                                            PlayerDAO.subcoinBar(player, coin);
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 16, nro1s);// x3
+
+                                            InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
+                                            InventoryServiceNew.gI().sendItemBags(player);
+                                            Service.gI().sendThongBao(player,
+                                                    "bạn nhận được " + nro1s + " nro 3sao" );
+                                        } else {
+                                            Service.gI().sendThongBao(player,
+                                                    "Số tiền của bạn là " + player.getSession().coinBar
+                                                            + " không đủ để quy " + " đổi ");
+                                        }
+                                        break;                                                                            
+                                 }
+                            }
+                            else if (player.iDMark.getIndexMenu() == ConstNpc.QUY_DOI_HN) {
                               switch (select) {
                                 case 0:
                                     int coin = 10000;

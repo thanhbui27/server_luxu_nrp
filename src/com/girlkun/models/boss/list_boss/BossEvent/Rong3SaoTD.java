@@ -26,7 +26,8 @@ public class Rong3SaoTD extends Boss {
 
     @Override
     public void reward(Player plKill) {
-         if(Util.isTrue(950, 1000)){
+       
+        if(Util.isTrue(800, 1000)){
             ItemMap it =  new ItemMap(this.zone, Util.nextInt(16, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x, this.location.y - 24), plKill.id);
             Service.gI().sendThongBao(plKill, " Bạn nhận được nro " + it.itemTemplate.name);
             Service.gI().dropItemMap(this.zone, it);
