@@ -1672,7 +1672,7 @@ public class NpcFactory {
                                         int nro1s = 1;
                                         if (player.getSession().coinBar >= coin) {
                                             PlayerDAO.subcoinBar(player, coin);
-                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 419, nro1s);// x3
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
 
                                             InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
                                             InventoryServiceNew.gI().sendItemBags(player);
@@ -1689,7 +1689,7 @@ public class NpcFactory {
                                         nro1s = 5;
                                         if (player.getSession().coinBar >= coin) {
                                             PlayerDAO.subcoinBar(player, coin);
-                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 419, nro1s);// x3
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
 
                                             InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
                                             InventoryServiceNew.gI().sendItemBags(player);
@@ -1707,7 +1707,7 @@ public class NpcFactory {
                                         nro1s = 11;
                                         if (player.getSession().coinBar >= coin) {
                                             PlayerDAO.subcoinBar(player, coin);
-                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 419, nro1s);// x3
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
 
                                             InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
                                             InventoryServiceNew.gI().sendItemBags(player);
@@ -1724,7 +1724,7 @@ public class NpcFactory {
                                         nro1s = 30;
                                         if (player.getSession().coinBar >= coin) {
                                             PlayerDAO.subcoinBar(player, coin);
-                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 419, nro1s);// x3
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 14, nro1s);// x3
 
                                             InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
                                             InventoryServiceNew.gI().sendItemBags(player);
@@ -1744,7 +1744,7 @@ public class NpcFactory {
                                         int nro1s = 1;
                                         if (player.getSession().coinBar >= coin) {
                                             PlayerDAO.subcoinBar(player, coin);
-                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 421, nro1s);// x3
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 16, nro1s);// x3
 
                                             InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
                                             InventoryServiceNew.gI().sendItemBags(player);
@@ -1761,7 +1761,7 @@ public class NpcFactory {
                                         nro1s = 10;
                                         if (player.getSession().coinBar >= coin) {
                                             PlayerDAO.subcoinBar(player, coin);
-                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 421, nro1s);// x3
+                                            Item Itemnro1s = ItemService.gI().createNewItem((short) 16, nro1s);// x3
 
                                             InventoryServiceNew.gI().addItemBag(player, Itemnro1s);
                                             InventoryServiceNew.gI().sendItemBags(player);
