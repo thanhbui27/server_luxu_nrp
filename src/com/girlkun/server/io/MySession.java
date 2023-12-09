@@ -197,6 +197,7 @@ public class MySession extends Session {
                 if (player != null) {
                     player.dispose();
                 }
+                System.out.println("loi tai mysession : " + e.getMessage());
             }
         }
     }
