@@ -1,6 +1,6 @@
 package com.girlkun.server;
 
-//import com.girlkun.MaQuaTang.MaQuaTangManager;
+// import com.girlkun.MaQuaTang.MaQuaTangManager;
 import com.girlkun.database.GirlkunDB;
 
 import java.net.ServerSocket;
@@ -79,17 +79,18 @@ public class ServerManager {
         activeCommandLine();
         activeGame();
         activeServerSocket();
-        Logger.log(Logger.PURPLE, "Start server......... Current thread: " + (Thread.activeCount() - threadMap) + " [" + ServerManager.timeStart + "]\n");
+        Logger.log(Logger.PURPLE, "Start server......... Current thread: "
+                + (Thread.activeCount() - threadMap) + " [" + ServerManager.timeStart + "]\n");
 
         new Thread(DaiHoiVoThuat.gI(), "Thread DHVT").start();
 
-        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 50000;     
+        ChonAiDay.gI().lastTimeEnd = System.currentTimeMillis() + 50000;
         new Thread(ChonAiDay.gI(), "Thread CAD").start();
 
-        TaiXiu.gI().lastTimeEnd = System.currentTimeMillis() + 50000;      
+        TaiXiu.gI().lastTimeEnd = System.currentTimeMillis() + 50000;
         new Thread(TaiXiu.gI(), "Thread TAI XIU").start();
-        
-        
+
+
         NgocRongNamecService.gI().initNgocRongNamec((byte) 0);
         new Thread(NgocRongNamecService.gI(), "Thread NRNM").start();
 
@@ -114,10 +115,11 @@ public class ServerManager {
             Thread.sleep(1000);
             BossManager.gI().loadBoss();
             Manager.MAPS.forEach(com.girlkun.models.map.Map::initBoss);
-            
+
             DaiHoiService.gI().initDaiHoiVoThuat();
         } catch (InterruptedException ex) {
-            java.util.logging.Logger.getLogger(BossManager.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BossManager.class.getName()).log(Level.SEVERE, null,
+                    ex);
         }
 
     }
@@ -126,15 +128,14 @@ public class ServerManager {
         GirlkunServer.gI().init().setAcceptHandler(new ISessionAcceptHandler() {
             @Override
             public void sessionInit(ISession is) {
-//                antiddos girlkun
+                // antiddos girlkun
                 if (!canConnectWithIp(is.getIP())) {
                     is.disconnect();
                     return;
                 }
 
                 is = is.setMessageHandler(Controller.getInstance())
-                        .setSendCollect(new MessageSendCollect())
-                        .setKeyHandler(new MyKeyHandler())
+                        .setSendCollect(new MessageSendCollect()).setKeyHandler(new MyKeyHandler())
                         .startCollect();
             }
 
@@ -142,15 +143,13 @@ public class ServerManager {
             public void sessionDisconnect(ISession session) {
                 Client.gI().kickSession((MySession) session);
             }
-        }).setTypeSessioClone(MySession.class)
-                .setDoSomeThingWhenClose(new IServerClose() {
-                    @Override
-                    public void serverClose() {
-                        System.out.println("server close");
-                        System.exit(0);
-                    }
-                })
-                .start(PORT);
+        }).setTypeSessioClone(MySession.class).setDoSomeThingWhenClose(new IServerClose() {
+            @Override
+            public void serverClose() {
+                System.out.println("server close");
+                System.exit(0);
+            }
+        }).start(PORT);
 
     }
 
@@ -162,28 +161,30 @@ public class ServerManager {
             }
             return;
         }
-//        try {
-//            Logger.log(Logger.PURPLE, "Start server......... Current thread: " + Thread.activeCount() + "\n");
-//            listenSocket = new ServerSocket(PORT);
-//            while (isRunning) {
-//                try {
-//                    Socket sc = listenSocket.accept();
-//                    String ip = (((InetSocketAddress) sc.getRemoteSocketAddress()).getAddress()).toString().replace("/", "");
-//                    if (canConnectWithIp(ip)) {
-//                        Session session = new Session(sc, ip);
-//                        session.ipAddress = ip;
-//                    } else {
-//                        sc.close();
-//                    }
-//                } catch (Exception e) {
-////                        Logger.logException(ServerManager.class, e);
-//                }
-//            }
-//            listenSocket.close();
-//        } catch (Exception e) {
-//            Logger.logException(ServerManager.class, e, "Lỗi mở port");
-//            System.exit(0);
-//        }
+        // try {
+        // Logger.log(Logger.PURPLE, "Start server......... Current thread: " + Thread.activeCount()
+        // + "\n");
+        // listenSocket = new ServerSocket(PORT);
+        // while (isRunning) {
+        // try {
+        // Socket sc = listenSocket.accept();
+        // String ip = (((InetSocketAddress)
+        // sc.getRemoteSocketAddress()).getAddress()).toString().replace("/", "");
+        // if (canConnectWithIp(ip)) {
+        // Session session = new Session(sc, ip);
+        // session.ipAddress = ip;
+        // } else {
+        // sc.close();
+        // }
+        // } catch (Exception e) {
+        //// Logger.logException(ServerManager.class, e);
+        // }
+        // }
+        // listenSocket.close();
+        // } catch (Exception e) {
+        // Logger.logException(ServerManager.class, e, "Lỗi mở port");
+        // System.exit(0);
+        // }
     }
 
     private boolean canConnectWithIp(String ipAddress) {
@@ -243,8 +244,8 @@ public class ServerManager {
                     String a = line.replace("a ", "");
                     Service.gI().sendThongBaoAllPlayer(a);
                 } else if (line.startsWith("qua")) {
-//                    =1-1-1-1=1-1-1-1=
-//                     =playerId-quantily-itemId-sql=optioneId-pagram=
+                    // =1-1-1-1=1-1-1-1=
+                    // =playerId-quantily-itemId-sql=optioneId-pagram=
 
                     try {
                         List<Item.ItemOption> ios = new ArrayList<>();
@@ -254,13 +255,16 @@ public class ServerManager {
                             Player p = Client.gI().getPlayer(Integer.parseInt(pagram1[0]));
                             if (p != null) {
                                 for (int i = 0; i < pagram2.length; i += 2) {
-                                    ios.add(new Item.ItemOption(Integer.parseInt(pagram2[i]), Integer.parseInt(pagram2[i + 1])));
+                                    ios.add(new Item.ItemOption(Integer.parseInt(pagram2[i]),
+                                            Integer.parseInt(pagram2[i + 1])));
                                 }
-                                Item i = Util.sendDo(Integer.parseInt(pagram1[2]), Integer.parseInt(pagram1[3]), ios);
+                                Item i = Util.sendDo(Integer.parseInt(pagram1[2]),
+                                        Integer.parseInt(pagram1[3]), ios);
                                 i.quantity = Integer.parseInt(pagram1[1]);
                                 InventoryServiceNew.gI().addItemBag(p, i);
                                 InventoryServiceNew.gI().sendItemBags(p);
-                                Service.gI().sendThongBao(p, "Admin trả đồ. anh em thông cảm nhé...");
+                                Service.gI().sendThongBao(p,
+                                        "Admin trả đồ. anh em thông cảm nhé...");
                             } else {
                                 System.out.println("Người chơi không online");
                             }
@@ -276,8 +280,7 @@ public class ServerManager {
         }, "Active line").start();
     }
 
-    private void activeGame() {
-    }
+    private void activeGame() {}
 
     public void close(long delay) {
         GirlkunServer.gI().stopConnect();
@@ -293,14 +296,14 @@ public class ServerManager {
         Logger.success("SUCCESSFULLY MAINTENANCE!...................................\n");
         System.exit(0);
     }
-    
+
     public long getNumPlayer() {
         long num = 0;
-        try{
+        try {
             GirlkunResultSet rs = GirlkunDB.executeQuery("SELECT COUNT(*) FROM `player`");
             rs.first();
             num = rs.getLong(1);
-        }catch(Exception e){
+        } catch (Exception e) {
         }
         return num;
     }

@@ -197,7 +197,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
     public void changeToTypePK() {
         PlayerService.gI().changeAndSendTypePK(this, ConstPlayer.PK_ALL);
     }
-
+    
     @Override
     public void changeToTypeNonPK() {
         PlayerService.gI().changeAndSendTypePK(this, ConstPlayer.NON_PK);
