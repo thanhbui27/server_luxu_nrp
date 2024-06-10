@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="data_src_another/hentai_src/com.code/girlkun/models/pvp_old"/>
+	<classpathentry excluding="com/girlkun/models/pvp_old/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/com/girlkun/models/pvp_old"/>
+	<classpathentry kind="src" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/javas/GirlkunToolCBRO.jar.src"/>
+	<classpathentry kind="lib" path="lib/apache-commons-lang.jar"/>
+	<classpathentry kind="lib" path="lib/girlkundb-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/GirlkunNetwork.jar"/>
+	<classpathentry kind="lib" path="lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/lombok.jar"/>
+	<classpathentry kind="lib" path="lib/okhttp-3.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/rxjava-3.1.6.jar"/>
+	<classpathentry kind="lib" path="tool ghep jar/AngelChipEmulator.jar"/>
+	<classpathentry kind="lib" path="tool ghep jar/EmbedAdvMenu.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/GirlkunToolCBRO.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/GirlkunToolCBRO-75.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/jd-gui-1.6.6.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/flatlaf-1.6.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/flatlaf-intellij-themes-1.6.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/girlkundb-1.0.0.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/GirlkunNetwork.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/GK-original.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/jpa.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/lombok.jar"/>
+	<classpathentry kind="lib" path="vemap/vemap/GirlkunToolCBRO/GirlkunToolCBRO/lib/TimingFramework-0.55.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

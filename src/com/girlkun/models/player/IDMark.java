@@ -5,6 +5,7 @@ import com.girlkun.models.npc.Npc;
 import com.girlkun.models.shop.Shop;
 import lombok.Data;
 
+
 @Data
 public class IDMark {
 

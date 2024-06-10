@@ -71,8 +71,8 @@ public class Nappa extends Boss {
                 }
             }
             if (isDie()) {
-this.setDie(plAtt);
-die(plAtt);
+            this.setDie(plAtt);
+            die(plAtt);
 }
             return damage;
         } else {
